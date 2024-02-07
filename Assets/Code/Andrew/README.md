@@ -6,3 +6,6 @@ There will be different pizza types for the pizza objects which will involve a d
 I will for sure be developing the pizza request, creation, and pick-up features. 
 I might also make the pizza drop off and calculate points feature depending on if Zoe needs these tasks to complete 
 any code requirements she missed in developing her feature like implementing a pattern. 
+
+Minimum Viable Product Contribution:
+Coming Soon
