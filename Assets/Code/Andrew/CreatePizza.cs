@@ -5,7 +5,7 @@ public class CreatePizza : MonoBehaviour
     public GameObject pizzaPrefab;
     public KeyCode createPizzaKey = KeyCode.Space;
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(createPizzaKey))
         {
