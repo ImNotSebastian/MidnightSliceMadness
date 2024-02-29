@@ -5,8 +5,11 @@ using TMPro;
 
 public class DialogueBox : MonoBehaviour
 {
-	public TextMeshProUGUI chat;
+	public TextMeshProUGUI textComponent;
+	//change to the replies and messages from trees
 	public string[] lines;
+	
+	
 	public float textSpeed;
 	
 	private int index = 0;
@@ -14,7 +17,7 @@ public class DialogueBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        chat.text = string.Empty;
+        textComponent.text = string.Empty;
 		StartDialogue();
 		
     }
@@ -25,14 +28,14 @@ public class DialogueBox : MonoBehaviour
 		//check for mouse click, if click, skip Typeline & instantly print message
         if(Input.GetMouseButtonDown(0))
 		{
-			if(chat.text == lines[index])
+			if(textComponent.text == lines[index])
 			{
 				NextLine();
 			}
 			else
 			{
 				StopAllCoroutines();
-				chat.text = lines[index];
+				textComponent.text = lines[index];
 			}
 		}
     }
@@ -50,7 +53,7 @@ public class DialogueBox : MonoBehaviour
 	{
 		foreach(char c in lines[index].ToCharArray())
 		{
-			chat.text += c;
+			textComponent.text += c;
 			yield return new WaitForSeconds(textSpeed);
 		}
 	}
@@ -60,7 +63,7 @@ public class DialogueBox : MonoBehaviour
 		if(index < lines.Length -1)
 		{
 			index++;
-			chat.text = string.Empty;
+			textComponent.text = string.Empty;
 			StartCoroutine(TypeLine());
 		}
 		else
