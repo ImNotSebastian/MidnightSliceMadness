@@ -1643,7 +1643,6 @@ MonoBehaviour:
   turnFactor: 2.5
   maxSpeed: 3
   reverseSpeed: 0.1
-  rotationAngle: 0
 --- !u!114 &1097915743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1692,7 +1691,7 @@ Transform:
   m_GameObject: {fileID: 1097915741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -3.67, z: -0.1476618}
+  m_LocalPosition: {x: -3.37, y: -3.46, z: -0.1476618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2747,6 +2746,6 @@ SceneRoots:
   - {fileID: 380238392}
   - {fileID: 520465799}
   - {fileID: 950546639}
+  - {fileID: 1097915745}
   - {fileID: 1302445164}
   - {fileID: 97030507}
-  - {fileID: 1097915745}
