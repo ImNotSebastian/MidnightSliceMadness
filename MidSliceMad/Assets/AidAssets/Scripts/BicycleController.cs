@@ -27,18 +27,6 @@ public class BicycleController : MonoBehaviour
         carRigidBody2D = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Frame-rate independent for phsyics calculations.
     void FixedUpdate()
     {
@@ -110,5 +98,15 @@ public class BicycleController : MonoBehaviour
     {
         steeringInput = inputVector.x;
         accelerationInput = inputVector.y;
+    }
+
+    public void SetMaxSpeed(float newSpeed)
+    {
+        maxSpeed = newSpeed;
+    }
+
+    public float GetMaxSpeed()
+    {
+        return maxSpeed;
     }
 }
