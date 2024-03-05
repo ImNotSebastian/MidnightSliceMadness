@@ -1,0 +1,6 @@
+{
+    "name": "DylanPlayMode",
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}
