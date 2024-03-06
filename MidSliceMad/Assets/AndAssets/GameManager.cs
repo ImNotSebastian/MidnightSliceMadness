@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,3 +35,4 @@ public class GameManager : MonoBehaviour
       scoreText.text = "Score: " + score.ToString();
    }
 }
+*/
