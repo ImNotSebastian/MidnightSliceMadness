@@ -1,6 +1,8 @@
-Team Gantt Chart:
+Team Master Gantt Chart:
+https://vandalsuidaho-my.sharepoint.com/:x:/g/personal/plum0598_vandals_uidaho_edu/EW9PJvhB0xpEuSz2tv17TRAB0WsraxFySRoQ5l9nZjZ9pg?e=2sObjr
 
-https://vandalsuidaho-my.sharepoint.com/:x:/g/personal/plum0598_vandals_uidaho_edu/EW9PJvhB0xpEuSz2tv17TRABPJSeNno8TLEVGKCKO6lovA?e=gVN7jU
+Team Hours Explained In More Depth:
+https://vandalsuidaho-my.sharepoint.com/:x:/r/personal/plum0598_vandals_uidaho_edu/Documents/My%20Work/U%20of%20I/Spring%202024/Software%20Engineering/Semester%20Project/Time%20Management/CS_383_Project_Hours.xlsx?d=w2d44e6c6f5d84b44ae120240671aa299&csf=1&web=1&e=C80MGt
 
 TL2 No Audio State Machine Presentation: 
 https://youtu.be/3JMPJd1sEnQ
