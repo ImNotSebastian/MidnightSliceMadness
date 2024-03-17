@@ -5,10 +5,17 @@ using UnityEngine.UI;
 
 public class ChatSys : MonoBehaviour
 {
-   //dialogue vars
-	public Text chatText;
+
+    // Define a maximum depth for the dialogue tree to prevent overflow, can be used for tests
+    private int maxDepth = 10; 
+    private int currentDepth = 0;
+
+
+    //dialogue vars
+    public Text chatText;
     public Button[] optionButtons;
 
+    //got rid of graph structure
     private ChatNode currentNode;
 	
 	
@@ -46,6 +53,9 @@ public class ChatSys : MonoBehaviour
 	
 	public void StartDialogue()
     {
+
+        // Reset the current depth when starting a new dialogue
+        currentDepth = 0;
         // Initialize the dialogue by showing the first node
         currentNode = GetInitialNode();
         UpdateUI();
@@ -63,8 +73,6 @@ public class ChatSys : MonoBehaviour
             if (i < currentNode.responses.Count)
             {
                 optionButtons[i].gameObject.SetActive(true);
-                
-                
                 optionButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = currentNode.responses[i].text;
                 
                 // Capture the index in a local variable for use in the button click event
@@ -81,6 +89,19 @@ public class ChatSys : MonoBehaviour
 
     private void ChooseOption(int index)
     {
+
+        // Increment the depth counter upon choosing an option
+        currentDepth++;
+
+        // Check if the depth limit has been reached
+        if (currentDepth >= maxDepth)
+        {
+            // Terminate if depth of graph gets too big
+              Debug.Log("Chat Graph exceeded max size, exiting dialogue"); 
+            ExitDialogue();
+            return;
+        }
+
         if (index < currentNode.responses.Count)
         {
             // Update the current node based on the chosen response
@@ -88,7 +109,7 @@ public class ChatSys : MonoBehaviour
             UpdateUI();
         }
         
-        //exit the system
+        //exit the system, if goodbye node is chosen
         if(currentNode.text == "Goodbye!")
         {
         	ExitDialogue();
@@ -97,13 +118,12 @@ public class ChatSys : MonoBehaviour
 
     private ChatNode GetInitialNode()
     {
-        // Logic to determine the initial node of the dialogue
-        
-        // For simplicity, return a hardcoded initial node, will serialize or setter function
+        // Hard coded introduction node
+        // For simplicity, return a hardcoded node,  will serialize or use setter function
         ChatNode initialNode = new ChatNode();
-        initialNode.text = "Hello there! What would you like to talk about?";
+        initialNode.text = "Do you have my Pizza.";
         initialNode.responses.Add(new Response("Tell me about yourself", GetAboutNode()));
-        initialNode.responses.Add(new Response("What do you have for sale?", GetSaleNode()));
+        initialNode.responses.Add(new Response("Heres your Pizza", GetSaleNode()));
         initialNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
         return initialNode;
     }
@@ -111,11 +131,11 @@ public class ChatSys : MonoBehaviour
 
     private ChatNode GetAboutNode()
     {
-        // Logic to create the node about the NPC
-        // For simplicity, return a hardcoded node,  will serialize or setter function
+        // Hard coded node for about the npc
+        // For simplicity, return a hardcoded node,  will serialize or use setter function
         ChatNode aboutNode = new ChatNode();
-        aboutNode.text = "I'm just a humble merchant traveling these lands.";
-        aboutNode.responses.Add(new Response("Lame...", GetInitialNode()));
+        aboutNode.text = "Nun-ya";
+        aboutNode.responses.Add(new Response("Nice to meet you Nun-ya.", GetInitialNode()));
         aboutNode.responses.Add(new Response("What do you have for sale?", GetSaleNode()));
         aboutNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
         return aboutNode;
@@ -127,10 +147,11 @@ public class ChatSys : MonoBehaviour
 
     private ChatNode GetSaleNode()
     {
-        // Logic to create the node about available items for sale
-        // For simplicity, return a hardcoded node,  will serialize or setter function
+        // Hard coded transaction node
+        // For simplicity, return a hardcoded node,  will serialize or use setter function
         ChatNode saleNode = new ChatNode();
-        saleNode.text = "Take a look at my wares!";
+        saleNode.text = "Did you forget my Diet Dr. Kelp?";
+        //call Andrews completeObjective function
         return saleNode;
     }
 
@@ -138,7 +159,7 @@ public class ChatSys : MonoBehaviour
 	private ChatNode GetExitNode()
 	{
    	 ChatNode exitNode = new ChatNode();
-   	 exitNode.text = "Goodbye!";
+   	 exitNode.text = "Keep the change you filthy animal!";
    	 return exitNode;
 	}
    
