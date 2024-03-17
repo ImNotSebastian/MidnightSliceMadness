@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
+	public ChatSys chatSys;
 	
-	private DialogueBox chatBox;
-	
-	
-	
+	//animation vars
 	public Transform headCheck;
-	
-	
 	private int flipTimer = 0;
+	
+	
 	
 	[SerializeField]
 	private int flipSpeed = 500;
@@ -20,12 +18,12 @@ public class NPC : MonoBehaviour
 	
 	
 	
-	
     // Start is called before the first frame update
     void Start()
     {
-        
+    	chatSys.StartDialogue(); //trying to start dialogue on first frame for testing
     }
+
 
     // Update is called once per frame
     void Update()
@@ -43,11 +41,18 @@ public class NPC : MonoBehaviour
 		}
     }
 	
-	/*
+	
+	
+	
+	
+	/* maybe call start dialogue here
 	private bool isCollidingWithPlayer()
 	{
 		return Physics2D.OverlapCircle(headCheck.position, 0.2f, PlayerBicycle);
 	}
 	*/
+	
+	
+    
 	
 }
