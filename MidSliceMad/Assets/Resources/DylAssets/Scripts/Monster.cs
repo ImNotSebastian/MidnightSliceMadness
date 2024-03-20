@@ -1,0 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public abstract class Monster : MonoBehaviour
+{
+    //[SerializeField] private float health = 100;
+    [SerializeField] private float speed = 4f;
+    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private float detectionRadius = 9f; // Default detection radius
+    [SerializeField] private float bounceForce = 200f;
+
+    protected Transform playerTransform;
+    private Rigidbody2D rb;
+
+    protected virtual void Start()
+    {
+        // Assuming the player has a tag called "Player"
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    protected abstract void Update();
+
+    protected void PursuePlayer()
+    {
+        if (Vector3.Distance(transform.position, playerTransform.position) <= detectionRadius)
+        {
+            Vector3 direction = (playerTransform.position - transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
+        }
+    }
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Deal damage if colliding with the player
+        if (collision.gameObject.tag == "Player")
+        {
+            // Implement damage logic here, possibly interacting with the player's health component
+            Debug.Log($"Dealt {attackDamage} damage to the player!");
+
+            // Calculate bounce direction
+            Vector2 bounceDirection = transform.position - collision.transform.position;
+            bounceDirection.Normalize(); // Ensure the direction vector has a magnitude of 1
+
+            Debug.Log($"Bounce direction-Bounce force: {bounceDirection} - {bounceForce}");
+            // Apply a force to bounce off
+            rb.AddForce(bounceDirection * bounceForce, ForceMode2D.Impulse);
+        }
+    }
+}
