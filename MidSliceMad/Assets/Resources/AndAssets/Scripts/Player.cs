@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
    private GameObject pizzaPrefab;
    private GameObject pizzaObject;
 
-   private void Start()
+   public void Start()
    {
       // Find the Inventory GameObject in the hierarchy by name
       inventory = GameObject.Find("Inventory");
@@ -26,23 +26,22 @@ public class Player : MonoBehaviour
       if (other.gameObject.CompareTag("Pick-Up") && !playerHasPizza)
       {
          GenerateAndPlayerPicksUpPizza();
-         Debug.Log("Pick-Up");
+         //Debug.Log("Pick-Up");
       }
       ///*
       if (other.gameObject.CompareTag("Delivery") && playerHasPizza)
       {
          DeliverPizza();
-         Debug.Log("Delivery");
+         //Debug.Log("Delivery");
       }
       //*/
    }
 
    ///*
-   private void GenerateAndPlayerPicksUpPizza()
-   {
+   public void GenerateAndPlayerPicksUpPizza()
+   { 
       // Get the main camera's transform
       Transform mainCameraTransform = Camera.main.transform;
-
       if (mainCameraTransform != null)
       {
          // Calculate the position relative to the main camera
@@ -54,8 +53,10 @@ public class Player : MonoBehaviour
          // Instantiate the PizzaPrefab at the calculated position
          pizzaPrefab = Resources.Load("AndAssets/Prefabs/PizzaPrefab") as GameObject;
          pizzaObject = Instantiate(pizzaPrefab, spawnPosition, Quaternion.identity);
-         Debug.Log("Pizza Created");
+         //Debug.Log("Pizza Created");
         
+         inventory = GameObject.Find("Inventory");
+
          if (inventory != null)
          {
             pizzaObject.transform.SetParent(inventory.transform, false);
@@ -81,11 +82,31 @@ public class Player : MonoBehaviour
          Destroy(pizzaObject);
          playerHasPizza = false;
          //GameManager.Instance.IncreaseScore();
-         Debug.Log("Pizza Destroyed");
+         //Debug.Log("Pizza Destroyed");
       }
       else
       {
          Debug.LogWarning("PizzaObject is null or has already been destroyed.");
+      }
+   }
+
+   public GameObject GetPizzaObject()
+   {
+      return pizzaObject;
+   }
+
+   public GameObject GetInventory()
+   {
+      inventory = GameObject.Find("Inventory");
+      return inventory;
+   }
+
+   public void SimulateCollisionWithPickUp()
+   {
+      if (!playerHasPizza)
+      {
+         GenerateAndPlayerPicksUpPizza();
+         //Debug.Log("Pick-Up");
       }
    }
    //*/
