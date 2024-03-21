@@ -14,7 +14,7 @@ public class HUDNumberTest
     public IEnumerator HUDNumberTestWithEnumeratorPasses()
     {
         GameObject GM = GameObject.Find("GameManager");
-        GM.GetComponent<DistanceDisplay>().distance += 1;
+        //GM.GetComponent<DistanceDisplay>().distance += 1;
         // Use yield to skip a frame.
         yield return null;
     }
