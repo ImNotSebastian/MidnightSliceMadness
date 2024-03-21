@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class Monster : MonoBehaviour
 {
     //[SerializeField] private float health = 100;
-    [SerializeField] private float speed = 4f;
+    [SerializeField] private float speed = 3f;
     [SerializeField] private float attackDamage = 10f;
-    [SerializeField] private float detectionRadius = 9f; // Default detection radius
+    [SerializeField] public float detectionRadius = 9f; // Default detection radius
     [SerializeField] private float bounceForce = 1f;
     [SerializeField] private float bounceCooldown = 1f; // Time in seconds before pursuing again
 
@@ -17,7 +17,6 @@ public abstract class Monster : MonoBehaviour
 
     protected virtual void Start()
     {
-        // Assuming the player has a tag called "Player"
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -39,7 +38,7 @@ public abstract class Monster : MonoBehaviour
         // Deal damage if colliding with the player
         if (collision.gameObject.tag == "Player")
         {
-            // Implement damage logic here, possibly interacting with the player's health component
+            // Damage logic here
             Debug.Log($"Dealt {attackDamage} damage to the player!");
 
             // Calculate bounce direction
@@ -50,7 +49,7 @@ public abstract class Monster : MonoBehaviour
             isBouncing = true;
             Invoke(nameof(ResetBounceState), bounceCooldown); // Schedule reset of bounce state
 
-            rb.velocity = Vector2.zero; // Resets the velocity
+            rb.velocity = Vector2.zero; // Reset the velocity
 
             // Debug.Log($"Bounce direction-Bounce force: {bounceDirection} - {bounceForce}");
             // Apply a force to bounce off
