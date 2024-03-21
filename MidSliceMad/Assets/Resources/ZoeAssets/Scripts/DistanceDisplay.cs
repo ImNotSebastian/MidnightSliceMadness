@@ -19,10 +19,15 @@ public class DistanceDisplay : MonoBehaviour
     void Update()
     {
         distanceDisplay.text = distance.ToString() + " - Distance to Location";
+        crunkDistance();
     }
 
     void crunkDistance()
     {
-        for (int i = 0; i < limit; i++) { distance += 1; }
+        while (distance <= 999999)
+        {
+            distance += 3333;
+
+        }
     }
 }
