@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
-public class InventoryTests
+public class InventoryTestsPlayModeAnd
 {
    [UnityTest]
    public IEnumerator TestPizzaSpawnPosition()

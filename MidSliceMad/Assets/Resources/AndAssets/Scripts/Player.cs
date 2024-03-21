@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
    //*/
 
    ///*
-   private void DeliverPizza()
+   public void DeliverPizza()
    {
       
       // remove the pizza object from the player and increment the score 
@@ -92,13 +92,25 @@ public class Player : MonoBehaviour
 
    public GameObject GetPizzaObject()
    {
-      return pizzaObject;
+      if (pizzaObject == null)
+      {
+         return pizzaObject;
+      }
+      else
+      {
+         return null;
+      }
    }
 
    public GameObject GetInventory()
    {
       inventory = GameObject.Find("Inventory");
       return inventory;
+   }
+
+   public bool GetPlayerHasPizza()
+   {
+      return playerHasPizza;
    }
 
    public void SimulateCollisionWithPickUp()

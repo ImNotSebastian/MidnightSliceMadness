@@ -5,10 +5,10 @@ using System.Collections;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
-public class PizzaGenerationPlayModeTest
+public class PizzaGenerationPlayModeTestPlayModeAnd
 {
    [UnityTest]
-   public IEnumerator TestPizzaGenerationWithIncreasingSpeed()
+   public IEnumerator PizzaGenerationWithIncreasingSpeedTests()
    {
       // Load the test scene
       yield return EditorSceneManager.LoadSceneAsyncInPlayMode("Assets/Scenes/TutorialLevel.unity", new LoadSceneParameters(LoadSceneMode.Single));
