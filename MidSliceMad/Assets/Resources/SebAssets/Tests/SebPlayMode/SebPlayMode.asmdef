@@ -1,5 +1,5 @@
 {
-    "name": "DylanPlayMode",
+    "name": "SebPlayMode",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",

@@ -12,4 +12,10 @@ public class Response
         this.text = text;
         this.nextNode = nextNode;
     }
+
+    // Method to update the text of the response
+    public void UpdateText(string newText)
+    {
+        text = newText;
+    }
 }

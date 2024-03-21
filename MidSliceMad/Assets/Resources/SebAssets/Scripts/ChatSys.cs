@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Text;
 
 public class ChatSys : MonoBehaviour
 {
@@ -17,6 +19,11 @@ public class ChatSys : MonoBehaviour
     private ChatNode aboutNode;
     private ChatNode saleNode;
     private ChatNode exitNode;
+
+    private ChatNode testNode;
+
+
+    private StringBuilder testString = new StringBuilder("TEST", 10);
 	
 	
 	
@@ -26,7 +33,7 @@ public class ChatSys : MonoBehaviour
     	// Find and assign references to UI elements using GetComponent
     	
         chatText = GameObject.Find("Prompt").GetComponent<Text>(); 
-        optionButtons = new Button[4]; // Assuming you have 4 response option buttons
+        optionButtons = new Button[5]; // Assuming you have 4 response option buttons
 
         for (int j = 1; j < optionButtons.Length; j++)
 		{
@@ -70,7 +77,9 @@ public class ChatSys : MonoBehaviour
             if (i <= currentNode.responses.Count)
             {
                 optionButtons[i].gameObject.SetActive(true);
-optionButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = currentNode.responses[i-1].text;
+                optionButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = currentNode.responses[i-1].text;
+
+
                 
                 // Capture the index in a local variable for use in the button click event
                 int index = i;   
@@ -92,6 +101,12 @@ optionButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = currentN
         {
             // Update the current node based on the chosen response
             currentNode = currentNode.responses[index-1].nextNode;
+
+            testString.Append(new char[] {'A'});
+             Debug.Log("Appending characters to testString: " + testString.ToString());
+            UpdateExistingResponseText(4, testString.ToString());
+            
+
             UpdateUI();
         }
         
@@ -113,6 +128,8 @@ optionButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = currentN
         	initNode.responses.Add(new Response("Tell me about yourself", GetAboutNode()));
         	initNode.responses.Add(new Response("Heres your Pizza", GetSaleNode()));
         	initNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
+            initNode.responses.Add(new Response(testString.ToString(), GetTestNode())); // Add exit option
+
         }
         return initNode;
     }
@@ -129,6 +146,8 @@ optionButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = currentN
         	aboutNode.responses.Add(new Response("Nice to meet you Nun-ya.", GetInitialNode()));
         	aboutNode.responses.Add(new Response("What do you have for sale?", GetSaleNode()));
         	aboutNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
+            aboutNode.responses.Add(new Response(testString.ToString(), GetTestNode())); // Add exit option
+
         }
         return aboutNode;
     }
@@ -144,10 +163,12 @@ optionButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = currentN
         	// Hard coded transaction node
         	// For simplicity, return a hardcoded node,  will serialize or use setter function
         	saleNode = new ChatNode();
-        	saleNode.text = "Did you forget my Diet Dr. Kelp?";
+        	saleNode.text = "Did you forget my drink?";
         	saleNode.responses.Add(new Response("Yes I did, can we start over?", GetInitialNode()));
         	saleNode.responses.Add(new Response("Tell me about yourself", GetAboutNode()));
         	saleNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
+            saleNode.responses.Add(new Response(testString.ToString(), GetTestNode())); // Add exit option
+
         	//call Andrews completeObjective function
         }
         return saleNode;
@@ -165,10 +186,36 @@ optionButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = currentN
    	 	return exitNode;
 	}
    
+   private ChatNode GetTestNode()
+    {
+    	if (testNode == null)
+    	{
+        	// Hard coded introduction node
+        	// For simplicity, return a hardcoded node,  will serialize or use setter function
+        	testNode = new ChatNode();
+        	testNode.text = "Do you have my Pizza.";
+        	testNode.responses.Add(new Response("Tell me about yourself", GetAboutNode()));
+        	testNode.responses.Add(new Response("Heres your Pizza", GetSaleNode()));
+        	testNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
+            testNode.responses.Add(new Response(testString.ToString(), GetTestNode())); // Add exit option
+
+        }
+        return testNode;
+    }
+
    private void ExitDialogue()
    {
     	// Deactivate the dialogue UI GameObject
     //	GameObject.SetActive(false);
    }
+
+
+   private void UpdateExistingResponseText(int responseIndex, string newText)
+{
+    if (responseIndex > 0 && responseIndex <= currentNode.responses.Count)
+    {
+        currentNode.responses[responseIndex - 1].UpdateText(newText);
+    }
+}
    
 }
