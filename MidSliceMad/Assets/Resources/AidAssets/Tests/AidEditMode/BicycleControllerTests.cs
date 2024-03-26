@@ -1,3 +1,11 @@
+/*
+Name: Aiden Shepard
+Role: Team Lead 3 -- QA Manager
+Project: Midnight Slice Madness
+
+This file is composed of the edit mode test for the BicycleController.cs file
+*/
+
 using UnityEngine;
 using UnityEditor;
 using NUnit.Framework;
