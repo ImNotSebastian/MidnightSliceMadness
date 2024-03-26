@@ -15,6 +15,8 @@ using UnityEngine;
 public class BicycleController : MonoBehaviour
 {
     // Private Variables
+    [SerializeField] private ColorChanger colorChanger;
+
     [SerializeField] private float driftFactor;
     [SerializeField] private float accelerationFactor;
     [SerializeField] private float turnFactor;
@@ -33,23 +35,25 @@ public class BicycleController : MonoBehaviour
     private Rigidbody2D carRigidBody2D;
 
     // Awake is called when the script is being loaded
-    void Awake()
+    private void Awake()
     {
         carRigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     // Frame-rate independent for phsyics calculations.
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         ApplyPeddleForce();
 
         RemoveSideVelocity();
 
         ApplySteering();
+
+        SetSpriteOnRotation();
     }
 
     // Calculates and applies the different forces for the bicycle based on the accelerationInput
-    void ApplyPeddleForce()
+    private void ApplyPeddleForce()
     {
         // Calculate forward velocity
         velocityVsUp = Vector2.Dot(transform.up, carRigidBody2D.velocity);
@@ -90,7 +94,7 @@ public class BicycleController : MonoBehaviour
     }
 
     // Rotates the bicycle based upon the steeringInput
-    void ApplySteering()
+    private void ApplySteering()
     {
         // Update the rotation angle based on input
         rotationAngle -= steeringInput * turnFactor;
@@ -100,12 +104,52 @@ public class BicycleController : MonoBehaviour
     }    
 
     // Eliminates side velocity so the bicycle responds more accurately and less like a space ship
-    void RemoveSideVelocity()
+    private void RemoveSideVelocity()
     {
         Vector2 forwardVelocity = transform.up * Vector2.Dot(carRigidBody2D.velocity, transform.up);
         Vector2 rightVelocity = transform.right * Vector2.Dot(carRigidBody2D.velocity, transform.right);
 
         carRigidBody2D.velocity = forwardVelocity + rightVelocity * driftFactor;
+    }
+
+    // Changes the sprite based on it's rotation as a placeholder for future sprite update
+    private void SetSpriteOnRotation()
+    {
+        Vector3 rotation = transform.eulerAngles;
+        float angle = rotation.z % 360;
+
+        if ((angle > 337.5) || (angle < 22.5))          // Up Direction
+        {
+            colorChanger.ChangeColor(Color.red);
+        }
+        else if ((angle > 22.5) && (angle < 67.5))      // Up-Left Direction
+        {
+            colorChanger.ChangeColor(Color.green);
+        }
+        else if ((angle > 67.5) && (angle < 112.5))     // Left Direction
+        {
+            colorChanger.ChangeColor(Color.blue);
+        }
+        else if ((angle > 112.5) && (angle < 157.5))    // Down-Left Direction      
+        {
+            colorChanger.ChangeColor(Color.yellow);
+        }
+        else if ((angle > 157.5) && (angle < 202.5))    // Down Direction
+        {
+            colorChanger.ChangeColor(Color.cyan);
+        }
+        else if ((angle > 202.5) && (angle < 247.5))    // Down-Right Direction
+        {
+            colorChanger.ChangeColor(Color.magenta);
+        }
+        else if ((angle > 247.5) && (angle < 292.5))    // Right Direction
+        {
+            colorChanger.ChangeColor(Color.gray);
+        }
+        else if ((angle > 292.5) && (angle < 337.5))    // Up-Right Direction
+        {
+            colorChanger.ChangeColor(Color.black);
+        }
     }
 
     // Sets steeringInput and accelerationInput based off the input vector values
