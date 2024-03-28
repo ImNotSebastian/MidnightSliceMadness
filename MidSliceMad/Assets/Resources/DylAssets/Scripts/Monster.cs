@@ -4,10 +4,11 @@ using UnityEngine;
 
 public abstract class Monster : MonoBehaviour
 {
+    [SerializeField] public float detectionRadius = 9f; // Default detection radius
+
     //[SerializeField] private float health = 100;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float attackDamage = 10f;
-    [SerializeField] public float detectionRadius = 9f; // Default detection radius
     [SerializeField] private float bounceForce = 1f;
     [SerializeField] private float bounceCooldown = 1f; // Time in seconds before pursuing again
 
