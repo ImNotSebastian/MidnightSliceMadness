@@ -10,6 +10,7 @@ public class GhostStressTests
     private GameObject player;
     private GameObject ghostPrefab;
     private int maxGhostsBeforeFailure = 0; // Track the number of ghosts spawned before failure.
+    private float currentFps = 0;
 
     [SetUp]
     public void SetUp()
@@ -31,23 +32,32 @@ public class GhostStressTests
     }
 
     [UnityTest]
-    public IEnumerator IncrementallySpawnGhostsUntilExceptionOccurs()
+    public IEnumerator SpawnGhostsUntilFailure()
     {
-        int numberOfGhosts = 1;
+        int numberOfGhosts = 1000;
+        int sampleDuration = 1;
         bool spawnNextBatch = true;
 
         while (spawnNextBatch)
         {
             spawnNextBatch = SpawnGhosts(numberOfGhosts);
 
-            // Wait a frame
-            yield return null;
+            // Wait 1 second
+            yield return new WaitForSeconds(sampleDuration);
+            currentFps = Time.frameCount / Time.time;
+            Debug.Log($"FPS: {currentFps}, # of ghosts: {numberOfGhosts}");
+
+            if (currentFps < 60)
+            {
+                Debug.LogError($"Sub 60 fps of {currentFps} occurred at {numberOfGhosts} ghosts");
+                spawnNextBatch = false; // Stop spawning if an exception occurs
+            }
 
             if (spawnNextBatch)
             {
                 // Cleanup before the next iteration
                 CleanupGhosts();
-                numberOfGhosts++;
+                numberOfGhosts += 10;
             }
         }
     }
@@ -59,6 +69,13 @@ public class GhostStressTests
             for (int i = 0; i < numberOfGhosts; i++)
             {
                 GameObject.Instantiate(ghostPrefab, new Vector3(UnityEngine.Random.Range(-10, 10), UnityEngine.Random.Range(-10, 10), 0), Quaternion.identity);
+                
+                /*currentFps = Time.frameCount / Time.time;
+                if (currentFps < 60)
+                {
+                    Debug.LogError($"Sub 60 fps occurred at {numberOfGhosts} ghosts");
+                    return false; // Stop spawning if an exception occurs
+                }*/
             }
             return true;
         }
