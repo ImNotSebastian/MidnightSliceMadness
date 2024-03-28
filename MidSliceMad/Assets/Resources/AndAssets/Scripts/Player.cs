@@ -81,7 +81,8 @@ public class Player : MonoBehaviour
       {
          Destroy(pizzaObject);
          playerHasPizza = false;
-         //GameManager.Instance.IncreaseScore();
+         GameManager.instance.IncreaseScore();
+         GameManager.instance.DisplayScoreText();
          //Debug.Log("Pizza Destroyed");
       }
       else

@@ -1,27 +1,44 @@
-/*
+///*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-   public static GameManager Instance;
-
    private int score = 0;
-   public Text scoreText;
+   public TextMeshProUGUI scoreText;
+   public TextMeshProUGUI timeLeftText;
+   [SerializeField] private float TimeLimit = 60f;
+   private float timeLeft;
+   private bool isGameOver;
+
+   // Begining of singleton pattern
+
+   public static GameManager instance{ get; private set;} // gameManager instance object can be get oublicly but set privately
 
    private void Awake()
    {
-      if (Instance == null)
-         Instance = this;
+      if (instance != null && instance != this)
+         Destroy(this);
       else
-         Destroy(gameObject);
+         instance = this;
    }
+
+   // End of singleton pattern
 
    private void Start()
    {
       UpdateScoreText();
+      DisplayScoreText();
+      timeLeft = TimeLimit;
+      isGameOver = false;
+   }
+
+   private void Update()
+   {
+      CountdownTime();
    }
 
    public void IncreaseScore()
@@ -34,5 +51,27 @@ public class GameManager : MonoBehaviour
    {
       scoreText.text = "Score: " + score.ToString();
    }
+
+   public void DisplayScoreText()
+   {
+      Debug.Log(scoreText.text);
+   }
+
+   private void CountdownTime()
+   {
+      if (timeLeft > 0)
+      {
+         timeLeft -= Time.deltaTime;
+         timeLeftText.text = "Time Left: " + Mathf.Round(timeLeft).ToString();
+      }
+      else
+      {
+         if(isGameOver != true)
+         {
+            Debug.Log("Game Over");
+            isGameOver = true;
+         }
+      }
+   }
 }
-*/
+//*/
