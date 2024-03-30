@@ -14,7 +14,7 @@ using UnityEngine;
 
 public abstract class Monster : MonoBehaviour
 {
-    [SerializeField] public float detectionRadius = 9f; // Default detection radius
+    [SerializeField] public float detectionRadius = 5f; // Default detection radius
 
     protected Transform playerTransform;
     [SerializeField] protected float speed = 3f;
@@ -24,7 +24,11 @@ public abstract class Monster : MonoBehaviour
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private float bounceForce = 1f;
     [SerializeField] private float bounceCooldown = 1f; // Time in seconds before pursuing again
+    [SerializeField] private float wanderRadius = 5f; // Radius within which the monster will wander
+    private Vector3 startPosition;
+    Vector3 wanderDestination;
     private bool isBouncing = false; // Flag to track bouncing state
+    private bool wandering = false;
     private Rigidbody2D rb;
 
     
@@ -32,6 +36,8 @@ public abstract class Monster : MonoBehaviour
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
+
+        startPosition = transform.position; // Save the starting position
     }
 
     // Update is called once per frame
@@ -43,6 +49,10 @@ public abstract class Monster : MonoBehaviour
         {
             Vector3 direction = (playerTransform.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
+        }
+        else if (!isBouncing)
+        {
+            Wander();
         }
     }
 
@@ -74,5 +84,25 @@ public abstract class Monster : MonoBehaviour
     private void ResetBounceState()
     {
         isBouncing = false;
+    }
+
+    private void Wander()
+    {
+        if (!wandering)
+        {
+            wandering = true;
+            // Calculate a random position within the wanderRadius of the startPosition
+            Vector2 randomDirection = Random.insideUnitCircle * wanderRadius;
+            wanderDestination = startPosition + new Vector3(randomDirection.x, randomDirection.y, 0);
+        }
+
+        // Move towards the destination
+        transform.position = Vector3.MoveTowards(transform.position, wanderDestination, speed * Time.deltaTime);
+
+        // Once the destination is reached, allow for a new destination to be set in the next call
+        if (Vector3.Distance(transform.position, wanderDestination) < 0.001f)
+        {
+            wandering = false;
+        }
     }
 }

@@ -3601,6 +3601,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.15159099
       objectReference: {fileID: 0}
+    - target: {fileID: 6519655163545905901, guid: 245c46b53c2e22941b861a6d45015221, type: 3}
+      propertyPath: wanderRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519655163545905901, guid: 245c46b53c2e22941b861a6d45015221, type: 3}
+      propertyPath: detectionRadius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7526015847400026004, guid: 245c46b53c2e22941b861a6d45015221, type: 3}
       propertyPath: m_Sprite
       value: 
