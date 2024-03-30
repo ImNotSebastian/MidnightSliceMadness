@@ -1,3 +1,13 @@
+/*
+Name: Dylan Thompson
+Role: Team Lead 5 -- AI Specialist
+Project: Midnight Slice Madness
+This file contains the definition for the Monster Class
+This is an abstract class that each monster inherits
+It inherits from MonoBehaviour
+This class is part of a Factory pattern
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +16,18 @@ public abstract class Monster : MonoBehaviour
 {
     [SerializeField] public float detectionRadius = 9f; // Default detection radius
 
-    //[SerializeField] private float health = 100;
-    [SerializeField] private float speed = 3f;
+    protected Transform playerTransform;
+    [SerializeField] protected float speed = 3f;
+
+    // The f at the end of the value means float
+    //[SerializeField] private float health = 100f;
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private float bounceForce = 1f;
     [SerializeField] private float bounceCooldown = 1f; // Time in seconds before pursuing again
-
     private bool isBouncing = false; // Flag to track bouncing state
-    protected Transform playerTransform;
     private Rigidbody2D rb;
 
+    
     protected virtual void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;

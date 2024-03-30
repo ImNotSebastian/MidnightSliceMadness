@@ -1,3 +1,11 @@
+/*
+Name: Dylan Thompson
+Role: Team Lead 5 -- AI Specialist
+Project: Midnight Slice Madness
+This file contains the definition for the Ghost Stress Test
+This class contains a test that spawns ghosts until the fps drops to < 60.
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

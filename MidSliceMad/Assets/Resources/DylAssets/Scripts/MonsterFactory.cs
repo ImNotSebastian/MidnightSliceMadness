@@ -1,3 +1,13 @@
+/*
+Name: Dylan Thompson
+Role: Team Lead 5 -- AI Specialist
+Project: Midnight Slice Madness
+This file contains the definition for the Monster Factory
+This class deals with spawining monsters
+It inherits from MonoBehaviour
+This class is part of a Factory pattern
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
