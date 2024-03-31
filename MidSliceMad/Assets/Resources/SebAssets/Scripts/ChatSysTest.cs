@@ -5,9 +5,7 @@ using UnityEngine.UI;
 using System;
 using System.Text;
 
-//have option argument for startdialogue to determine which dialogue 
-
-public class ChatSys : MonoBehaviour
+public class ChatSysTest : MonoBehaviour
 {
 
 
@@ -22,45 +20,49 @@ public class ChatSys : MonoBehaviour
     private ChatNode saleNode;
     private ChatNode exitNode;
 
+    private ChatNode testNode;
 
-    //Need reference to panel & chatUI to activate them
-    private GameObject datChat;
-    
+
+    private StringBuilder testString = new StringBuilder("TEST", 10);
 	
-        public ChatSys(GameObject chatUI) 
-        {
-            this.datChat = chatUI; //call function
-            // Find and assign references to UI elements using GetComponent
+	
+	
+	 // Start is called before the first frame update
+    // class wont stay monobehaviour, need to change this to spawn a prefab, assign references, then activate them in the current scene.
+    void Start()
+    {
+
+      //Need reference to panel & canvas to activate them
+    	// Find and assign references to UI elements using GetComponent
     	
-            chatText = GameObject.Find("Prompt").GetComponent<Text>(); 
-            optionButtons = new Button[5]; // Assuming you have 4 response option buttons
+        chatText = GameObject.Find("Prompt").GetComponent<Text>(); 
+        optionButtons = new Button[5]; // Assuming you have 4 response option buttons
 
-            for (int j = 1; j < optionButtons.Length; j++)
-		    {
-			    //Debug.LogError(j); //if null, log it ws not found
-    		    string buttonName = "Reply (" + j + ")"; //assign button name to string
+        for (int j = 1; j < optionButtons.Length; j++)
+		{
+			//Debug.LogError(j); //if null, log it ws not found
+    		string buttonName = "Reply (" + j + ")"; //assign button name to string
     		 
-   			    GameObject buttonGO = GameObject.Find(buttonName); //call function to find button
+   			GameObject buttonGO = GameObject.Find(buttonName); //call function to find button
    			 
-   			    if (buttonGO != null)
-                {
-       			    optionButtons[j] = buttonGO.GetComponent<Button>(); //assign to list if not null
-    		    }
-    		    else
-   		        {
-        		    Debug.LogError("Button not found: " + buttonName); //if null, log it ws not found
-    		    }
-		    }
-        
-            datChat.SetActive(false);
-        }
+   			if (buttonGO != null)
+   			{
+       			 optionButtons[j] = buttonGO.GetComponent<Button>(); //assign to list if not null
+    		}
+    		else
+   		    {
+        		Debug.LogError("Button not found: " + buttonName); //if null, log it ws not found
+    		}
+		}  
+  		StartDialogue();
+    }
 
+	
 	
 	/*dialogue functions*/
 	
 	public void StartDialogue()
     {
-         datChat.SetActive(true);
         // Initialize the dialogue by showing the first node
         currentNode = GetInitialNode();
         UpdateUI();
@@ -102,6 +104,10 @@ public class ChatSys : MonoBehaviour
         {
             // Update the current node based on the chosen response
             currentNode = currentNode.responses[index-1].nextNode;
+
+            testString.Append(new char[] {'A'});
+             Debug.Log("Appending characters to testString: " + testString.ToString());
+            UpdateExistingResponseText(4, testString.ToString());
             
 
             UpdateUI();
@@ -125,6 +131,8 @@ public class ChatSys : MonoBehaviour
         	initNode.responses.Add(new Response("Tell me about yourself", GetAboutNode()));
         	initNode.responses.Add(new Response("Heres your Pizza", GetSaleNode()));
         	initNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
+            initNode.responses.Add(new Response(testString.ToString(), GetTestNode())); // Add exit option
+
         }
         return initNode;
     }
@@ -141,6 +149,8 @@ public class ChatSys : MonoBehaviour
         	aboutNode.responses.Add(new Response("Nice to meet you Nun-ya.", GetInitialNode()));
         	aboutNode.responses.Add(new Response("What do you have for sale?", GetSaleNode()));
         	aboutNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
+            aboutNode.responses.Add(new Response(testString.ToString(), GetTestNode())); // Add exit option
+
         }
         return aboutNode;
     }
@@ -160,6 +170,7 @@ public class ChatSys : MonoBehaviour
         	saleNode.responses.Add(new Response("Yes I did, can we start over?", GetInitialNode()));
         	saleNode.responses.Add(new Response("Tell me about yourself", GetAboutNode()));
         	saleNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
+            saleNode.responses.Add(new Response(testString.ToString(), GetTestNode())); // Add exit option
 
         	//call Andrews completeObjective function
         }
@@ -178,11 +189,27 @@ public class ChatSys : MonoBehaviour
    	 	return exitNode;
 	}
    
+   private ChatNode GetTestNode()
+    {
+    	if (testNode == null)
+    	{
+        	// Hard coded introduction node
+        	// For simplicity, return a hardcoded node,  will serialize or use setter function
+        	testNode = new ChatNode();
+        	testNode.text = "Do you have my Pizza.";
+        	testNode.responses.Add(new Response("Tell me about yourself", GetAboutNode()));
+        	testNode.responses.Add(new Response("Heres your Pizza", GetSaleNode()));
+        	testNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
+            testNode.responses.Add(new Response(testString.ToString(), GetTestNode())); // Add exit option
+
+        }
+        return testNode;
+    }
 
    private void ExitDialogue()
    {
     	// Deactivate the dialogue UI GameObject
-        //GameObject.SetActive(false);
+    //	GameObject.SetActive(false);
    }
 
 

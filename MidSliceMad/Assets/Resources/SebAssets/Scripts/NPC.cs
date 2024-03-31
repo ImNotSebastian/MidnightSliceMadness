@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
+
+
 	public ChatSys chatSys;
 	
 	//animation vars
 	public Transform headCheck;
 	private int flipTimer = 0;
 	
-	
+
+	 
 	
 	[SerializeField]
 	private int flipSpeed = 500;
 	
 	
-	
+
 	
     // Start is called before the first frame update
     void Start()
     {
-    	chatSys.StartDialogue(); //trying to start dialogue on first frame for testing
+    	GameObject chatUI = GameObject.Find("ChatUI"); //call function to find button
+		chatSys = new ChatSys(chatUI);
+	
     }
 
 
@@ -45,14 +50,16 @@ public class NPC : MonoBehaviour
 	
 	
 	
-	/* maybe call start dialogue here
-	private bool isCollidingWithPlayer()
-	{
-		return Physics2D.OverlapCircle(headCheck.position, 0.2f, PlayerBicycle);
-	}
-	*/
+	//Upon collision with another GameObject, this GameObject will reverse direction
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
+		 Debug.Log($"Collided with NPC.");
+        //start dialogue
+		chatSys.StartDialogue();
+    }
 	
 	
-    
+	
+    //check out building 2d settings
 	
 }
