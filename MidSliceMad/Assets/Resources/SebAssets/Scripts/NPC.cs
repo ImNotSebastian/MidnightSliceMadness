@@ -6,14 +6,15 @@ public class NPC : MonoBehaviour
 {
 
 
-	public ChatSys chatSys;
+	private ChatSys chatSys;
 	
 	//animation vars
 	public Transform headCheck;
 	private int flipTimer = 0;
 	
 
-	 
+	 private GameObject datChat;
+   
 	
 	[SerializeField]
 	private int flipSpeed = 500;
@@ -24,8 +25,10 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    	GameObject chatUI = GameObject.Find("ChatUI"); //call function to find button
-		chatSys = new ChatSys(chatUI);
+		 //Need reference to panel & chatUI to activate them
+        datChat = GameObject.Find("ChatUI");
+    	
+		chatSys = datChat.GetComponent<ChatSys>(); //call function to find ChatSys
 	
     }
 

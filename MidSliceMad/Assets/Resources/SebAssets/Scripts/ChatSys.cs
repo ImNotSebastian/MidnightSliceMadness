@@ -22,10 +22,44 @@ public class ChatSys : MonoBehaviour
     private ChatNode saleNode;
     private ChatNode exitNode;
 
-
-    //Need reference to panel & chatUI to activate them
     private GameObject datChat;
+   
     
+ // Start is called before the first frame update
+    // class wont stay monobehaviour, need to change this to spawn a prefab, assign references, then activate them in the current scene.
+    void Start()
+    {
+
+         //Need reference to panel & chatUI to activate them
+        datChat = GameObject.Find("ChatUI");
+      //Need reference to panel & canvas to activate them
+    	// Find and assign references to UI elements using GetComponent
+    	
+        chatText = GameObject.Find("Prompt").GetComponent<Text>(); 
+        optionButtons = new Button[5]; // Assuming you have 4 response option buttons
+
+        for (int j = 1; j < optionButtons.Length; j++)
+		{
+			//Debug.LogError(j); //if null, log it ws not found
+    		string buttonName = "Reply (" + j + ")"; //assign button name to string
+    		 
+   			GameObject buttonGO = GameObject.Find(buttonName); //call function to find button
+   			 
+   			if (buttonGO != null)
+   			{
+       			 optionButtons[j] = buttonGO.GetComponent<Button>(); //assign to list if not null
+    		}
+    		else
+   		    {
+        		Debug.LogError("Button not found: " + buttonName); //if null, log it ws not found
+    		}
+		}  
+        datChat.SetActive(false);
+        
+  		//StartDialogue();
+    }
+
+
 	
         public ChatSys(GameObject chatUI) 
         {
@@ -108,7 +142,7 @@ public class ChatSys : MonoBehaviour
         }
         
         //exit the system, if goodbye node is chosen DOESNT WORK, CHANGE
-        if(currentNode.text == "Goodbye!")
+        if(currentNode.text == "Keep the change you filthy animal!")
         {
         	ExitDialogue();
         }
@@ -174,6 +208,9 @@ public class ChatSys : MonoBehaviour
 		{
    	 		exitNode = new ChatNode();
    		 	exitNode.text = "Keep the change you filthy animal!";
+            exitNode.responses.Add(new Response("[Leave]", GetExitNode()));
+        	exitNode.responses.Add(new Response("[Leave]", GetExitNode()));
+        	exitNode.responses.Add(new Response("[Leave]", GetExitNode()));
    	 	}
    	 	return exitNode;
 	}
@@ -182,7 +219,7 @@ public class ChatSys : MonoBehaviour
    private void ExitDialogue()
    {
     	// Deactivate the dialogue UI GameObject
-        //GameObject.SetActive(false);
+        datChat.SetActive(false);
    }
 
 

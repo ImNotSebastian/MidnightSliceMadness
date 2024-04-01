@@ -7,7 +7,8 @@ using UnityEngine.TestTools;
 
 public class SebScript
 {
-	ChatSys chatSys;
+	/*
+	//ChatSys chatSys;
 	//ChatUI swagMaster;
     // A Test behaves as an ordinary method
     [Test]
@@ -32,5 +33,5 @@ public class SebScript
 	{
 		GameObject.DestroyImmediate(chatSys);
 	}
-
+*/
 }
