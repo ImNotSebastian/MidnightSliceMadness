@@ -17,7 +17,7 @@ public class MonsterFactory : MonoBehaviour
     [SerializeField] private Transform playerTransform; // Assign this in the Inspector
     [SerializeField] private GameObject ghostPrefab;
     // Additional monster prefabs...
-    private float safeRadius = 10f; // Minimum distance from the player
+    [SerializeField] private float spawnRadius = 10f; // Minimum distance from the player
     private float spawnInterval = 5f; // Time interval between spawns
 
     public enum MonsterType
@@ -58,15 +58,15 @@ public class MonsterFactory : MonoBehaviour
 
         for (int attempts = 0; attempts < 30; attempts++)
         {
-            float x = Random.Range(playerPos.x - cameraWidth / 2 - safeRadius, playerPos.x + cameraWidth / 2 + safeRadius);
-            float y = Random.Range(playerPos.y - cameraHeight / 2 - safeRadius, playerPos.y + cameraHeight / 2 + safeRadius);
+            float x = Random.Range(playerPos.x - cameraWidth / 2 - spawnRadius, playerPos.x + cameraWidth / 2 + spawnRadius);
+            float y = Random.Range(playerPos.y - cameraHeight / 2 - spawnRadius, playerPos.y + cameraHeight / 2 + spawnRadius);
             Vector3 potentialPosition = new Vector3(x, y, 0);
 
             // Check if the position is off-screen
             if (!IsInView(potentialPosition))
             {
                 // Check if the position is outside the safe radius from the player
-                if (Vector3.Distance(playerPos, potentialPosition) >= safeRadius)
+                if (Vector3.Distance(playerPos, potentialPosition) >= spawnRadius)
                 {
                     return potentialPosition;
                 }
