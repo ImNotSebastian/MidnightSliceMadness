@@ -18,7 +18,9 @@ public class MonsterFactory : MonoBehaviour
     [SerializeField] private GameObject ghostPrefab;
     // Additional monster prefabs...
     [SerializeField] private float spawnRadius = 10f; // Minimum distance from the player
+    [SerializeField] private int maxGhosts = 10; // Maximum number of ghosts allowed
     private float spawnInterval = 5f; // Time interval between spawns
+    private int ghostCount= 0; //Current ghost count
 
     public enum MonsterType
     {
@@ -42,9 +44,10 @@ public class MonsterFactory : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInterval);
             Vector3 spawnPosition = GenerateSpawnPosition();
-            if (spawnPosition != Vector3.zero)
+            if (spawnPosition != Vector3.zero && ghostCount <= maxGhosts)
             {
                 SpawnMonsterAtPosition(MonsterType.Ghost, spawnPosition);
+                ghostCount++;
                 //Debug.Log($"Trying to spawn ghost at: {spawnPosition}");
             }
         }

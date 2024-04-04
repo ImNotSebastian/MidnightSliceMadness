@@ -15,9 +15,8 @@ using UnityEngine;
 public abstract class Monster : MonoBehaviour
 {
     [SerializeField] public float detectionRadius = 5f; // Default detection radius
-
-    protected Transform playerTransform;
     [SerializeField] protected float speed = 3f;
+    protected Transform playerTransform;
     protected int attackCount = 0;
 
     // The f at the end of the value means float
@@ -102,7 +101,7 @@ public abstract class Monster : MonoBehaviour
             wandering = true;
             // Calculate a random position within the wanderRadius of the startPosition
             Vector2 randomDirection = Random.insideUnitCircle * wanderRadius;
-            wanderDestination = startPosition + new Vector3(randomDirection.x, randomDirection.y, 0);
+            wanderDestination = startPosition + new Vector3(randomDirection.x, randomDirection.y, -1);
         }
 
         // Move towards the destination
