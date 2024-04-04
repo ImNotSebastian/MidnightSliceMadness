@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb35e9df001ef9b4c939c54e028dc14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chatSys: {fileID: 0}
   headCheck: {fileID: 0}
   flipSpeed: 500
 --- !u!1 &5432415432894196773
@@ -220,7 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb35e9df001ef9b4c939c54e028dc14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chatSys: {fileID: 0}
   headCheck: {fileID: 0}
   flipSpeed: 500
 --- !u!212 &-7533576922753328109
