@@ -18,6 +18,7 @@ public abstract class Monster : MonoBehaviour
 
     protected Transform playerTransform;
     [SerializeField] protected float speed = 3f;
+    protected int attackCount = 0;
 
     // The f at the end of the value means float
     //[SerializeField] private float health = 100f;
@@ -25,6 +26,7 @@ public abstract class Monster : MonoBehaviour
     [SerializeField] private float bounceForce = 1f;
     [SerializeField] private float bounceCooldown = 1f; // Time in seconds before pursuing again
     [SerializeField] private float wanderRadius = 5f; // Radius within which the monster will wander
+    [SerializeField] private int maxAttacks = 3; // Max number of attacks before de-spawning
     private Vector3 startPosition;
     Vector3 wanderDestination;
     private bool isBouncing = false; // Flag to track bouncing state
@@ -63,6 +65,13 @@ public abstract class Monster : MonoBehaviour
         {
             // Damage logic here
             Debug.Log($"Dealt {attackDamage} damage to the player!");
+            attackCount++;
+
+            // Check if the attack count has reached the limit
+            if (attackCount >= maxAttacks)
+            {
+                Despawn();
+            }
 
             // Calculate bounce direction
             Vector2 bounceDirection = transform.position - collision.transform.position;
@@ -104,5 +113,11 @@ public abstract class Monster : MonoBehaviour
         {
             wandering = false;
         }
+    }
+
+    private void Despawn()
+    {
+        Debug.Log("Monster has de-spawned due to reaching attack limit.");
+        Destroy(gameObject);
     }
 }
