@@ -15,7 +15,7 @@ using UnityEngine;
 public class BicycleController : MonoBehaviour
 {
     // Private Variables
-    [SerializeField] private ColorChanger colorChanger;
+    [SerializeField] private BicycleAnimation bicycleAnimation;
 
     [SerializeField] private float driftFactor;
     [SerializeField] private float accelerationFactor;
@@ -120,35 +120,35 @@ public class BicycleController : MonoBehaviour
 
         if ((angle > 337.5) || (angle < 22.5))          // Up Direction
         {
-            colorChanger.ChangeColor(Color.red);
+            bicycleAnimation.ChangeAnimation(0);
         }
         else if ((angle > 22.5) && (angle < 67.5))      // Up-Left Direction
         {
-            colorChanger.ChangeColor(Color.green);
+            bicycleAnimation.ChangeAnimation(1);
         }
         else if ((angle > 67.5) && (angle < 112.5))     // Left Direction
         {
-            colorChanger.ChangeColor(Color.blue);
+            bicycleAnimation.ChangeAnimation(2);
         }
         else if ((angle > 112.5) && (angle < 157.5))    // Down-Left Direction      
         {
-            colorChanger.ChangeColor(Color.yellow);
+            bicycleAnimation.ChangeAnimation(3);
         }
         else if ((angle > 157.5) && (angle < 202.5))    // Down Direction
         {
-            colorChanger.ChangeColor(Color.cyan);
+            bicycleAnimation.ChangeAnimation(4);
         }
         else if ((angle > 202.5) && (angle < 247.5))    // Down-Right Direction
         {
-            colorChanger.ChangeColor(Color.magenta);
+            bicycleAnimation.ChangeAnimation(5);
         }
         else if ((angle > 247.5) && (angle < 292.5))    // Right Direction
         {
-            colorChanger.ChangeColor(Color.gray);
+            bicycleAnimation.ChangeAnimation(6);
         }
         else if ((angle > 292.5) && (angle < 337.5))    // Up-Right Direction
         {
-            colorChanger.ChangeColor(Color.black);
+            bicycleAnimation.ChangeAnimation(7);
         }
     }
 
