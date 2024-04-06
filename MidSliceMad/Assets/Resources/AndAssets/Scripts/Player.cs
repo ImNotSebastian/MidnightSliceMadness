@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
       if (mainCameraTransform != null)
       {
          // Calculate the position relative to the main camera
-         Vector3 offsetFromCamera = new Vector3(7f, -4.25f, 9f); 
+         Vector3 offsetFromCamera = new Vector3(7f, -4.00f, 9f); 
          Vector3 spawnPosition = mainCameraTransform.position + mainCameraTransform.forward * offsetFromCamera.z +
                                  mainCameraTransform.right * offsetFromCamera.x +
                                  mainCameraTransform.up * offsetFromCamera.y;
