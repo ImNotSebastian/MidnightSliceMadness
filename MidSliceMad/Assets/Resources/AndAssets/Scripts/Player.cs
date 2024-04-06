@@ -6,6 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
    private bool playerHasPizza = false; 
+   [SerializeField] private float spawnPizzaCameraOffsetX = 7f;
+   [SerializeField] private float spawnPizzaCameraOffsetY = -4f;
+   [SerializeField] private float spawnPizzaCameraOffsetZ = 9f;
    private GameObject inventory; 
    private GameObject pizzaPrefab;
    private GameObject pizzaObject;
@@ -45,7 +48,7 @@ public class Player : MonoBehaviour
       if (mainCameraTransform != null)
       {
          // Calculate the position relative to the main camera
-         Vector3 offsetFromCamera = new Vector3(7f, -4.00f, 9f); 
+         Vector3 offsetFromCamera = new Vector3(spawnPizzaCameraOffsetX, spawnPizzaCameraOffsetY, spawnPizzaCameraOffsetZ); 
          Vector3 spawnPosition = mainCameraTransform.position + mainCameraTransform.forward * offsetFromCamera.z +
                                  mainCameraTransform.right * offsetFromCamera.x +
                                  mainCameraTransform.up * offsetFromCamera.y;
