@@ -1,6 +1,6 @@
 # Pizza Prefab
 
-The Pizza prefab is a GameObject with a pizza sprite and the `Pizza.cs` script attached. When instantiated, the pizza will be a child of the `Inventory` object and will move with the main camera.
+The Pizza prefab is a GameObject with a 2D pizza sprite and the `Pizza.cs` script attached. When instantiated, the pizza will be a child of the `Inventory` object and will move with the main camera.
 
 ## Description
 
@@ -11,7 +11,7 @@ When the pizza is instantiated, it will be a child of the `Inventory` object, wh
 ## Components
 
 1. **Sprite Renderer**:
-   - Displays the pizza sprite.
+   - Displays the 2D pizza sprite.
    - The sprite can be customized in the Inspector.
 
 2. **Pizza.cs Script**:
@@ -25,7 +25,8 @@ When the pizza is instantiated, it will be a child of the `Inventory` object, wh
 
 1. **Instantiate the Pizza Prefab**:
    - Drag and drop the `Pizza` prefab from the Assets folder into your scene.
-   - The pizza will be a child of the `Inventory` object and will move with the main camera.
+   - Instantiate the pizza prefab by spawning it with a script.
+      - If done this way, the pizza will be a child of the `Inventory` object and will move with the main camera.
 
 2. **Customize the Pizza Spawn Location**:
    - In the `Pizza.cs` script, adjust the `spawnOffsetX`, `spawnOffsetY`, and `spawnOffsetZ` serialized fields to set the desired spawn location of the pizza relative to the main camera.
