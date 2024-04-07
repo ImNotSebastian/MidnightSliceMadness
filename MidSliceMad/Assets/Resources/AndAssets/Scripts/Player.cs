@@ -30,7 +30,8 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pick-Up") && !playerHasPizza)
         {
-            GenerateAndPlayerPicksUpPizza();
+            RequestPizza();
+            //GenerateAndPlayerPicksUpPizza();
             //Debug.Log("Pick-Up");
         }
         ///*
@@ -41,6 +42,24 @@ public class Player : MonoBehaviour
         }
         //*/
     }
+
+    ///*
+    public void RequestPizza()
+    {
+        //FindObjectOfType<RequestPizzaMenu>().gameObject.SetActive(true); // Show the pop-up menu
+        GameObject requestPizzaMenuUI = GameObject.Find("RequestPizzaMenuCanvas").transform.Find("RequestPizzaPanel").gameObject;
+        if (requestPizzaMenuUI != null)
+        {
+            Debug.LogError("RequestPizzaMenuManager GameObject found.");
+            requestPizzaMenuUI.SetActive(true); // Show the pop-up menu
+            Debug.LogError("Entered Request Pizza Menu.");
+        }
+        else
+        {
+            Debug.LogError("RequestPizzaMenuManager GameObject not found in the scene.");
+        }
+    }
+    //*/
 
     ///*
     public void GenerateAndPlayerPicksUpPizza()
