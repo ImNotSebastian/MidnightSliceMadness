@@ -36,7 +36,7 @@ public class InventoryTestsPlayModeAnd
       //Debug.Log("Generate and player picks up pizza");
       // Assert that the calculated spawn position matches the expected vector
 
-      Vector3 pizzaPosition = player.GetPizzaObject().transform.position;
+      Vector3 pizzaPosition = player.GetPizzaGameObject().transform.position;
       Vector3 cameraPosition = Camera.main.transform.position;
       Vector3 playerSystem = GameObject.Find("PlayerSystem").transform.position;
       Vector3 offsetFromCamera = pizzaPosition - cameraPosition - playerSystem; // Calculate the offset vector from the camera to the pizza object

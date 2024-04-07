@@ -1882,6 +1882,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a928898a941de3b4a9acd24b59d60e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPizzaCameraOffsetX: 11
+  spawnPizzaCameraOffsetY: -1
+  spawnPizzaCameraOffsetZ: 9
+  pizzaOrderNumber: 1
 --- !u!114 &587715384
 MonoBehaviour:
   m_ObjectHideFlags: 0
