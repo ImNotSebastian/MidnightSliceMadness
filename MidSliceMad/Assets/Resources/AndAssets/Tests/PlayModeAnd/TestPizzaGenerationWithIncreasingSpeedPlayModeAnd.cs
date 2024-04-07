@@ -46,7 +46,7 @@ public class PizzaGenerationPlayModeTestPlayModeAnd
          player.SimulateCollisionWithPickUp();
 
          // Check if pizza prefab is instantiated
-         Assert.IsNotNull(player.GetPizzaObject(), "Pizza prefab not instantiated at speed: " + playerSpeed);
+         Assert.IsNotNull(player.GetPizzaGameObject(), "Pizza prefab not instantiated at speed: " + playerSpeed);
 
          // Double the player speed for next iteration
          playerSpeed *= 2.0f;

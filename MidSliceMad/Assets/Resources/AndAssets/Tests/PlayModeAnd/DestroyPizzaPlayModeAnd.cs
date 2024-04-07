@@ -37,7 +37,7 @@ public class DestroyPizzaTestsPlayModeAnd
 
       //Debug.Log("GetPizzaBefore" + player.GetPizzaObject());
 
-      Assert.IsNull(player.GetPizzaObject(), "Pizza Prefab should be destroyed");
+      Assert.IsNull(player.GetPizzaGameObject(), "Pizza Prefab should be destroyed");
       
       //Debug.Log("GetPizzaAfter" + player.GetPizzaObject());
 

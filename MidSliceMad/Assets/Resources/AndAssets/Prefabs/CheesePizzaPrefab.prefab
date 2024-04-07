@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2981788642523227434}
   - component: {fileID: 6407540048720095803}
   m_Layer: 0
-  m_Name: PizzaPrefab
+  m_Name: CheesePizzaPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
