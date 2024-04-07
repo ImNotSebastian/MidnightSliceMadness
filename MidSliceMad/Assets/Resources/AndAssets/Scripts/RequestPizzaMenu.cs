@@ -22,21 +22,24 @@ public class RequestPizzaMenu : MonoBehaviour
 
     public void OnCheesePizzaClicked()
     {
-        player.SetPlayerPizzaOrderNumber(cheesePizzaObject.GetPizzaType());
+        //player.SetPlayerPizzaOrderNumber(cheesePizzaObject.GetPizzaType());
+        player.SetPlayerPizzaOrderNumber(1);
         player.GenerateAndPlayerPicksUpPizza();
         requestPizzaMenuUI.SetActive(false); // Hide the pop-up menu
     }
 
     public void OnOnionPizzaClicked()
     {
-        player.SetPlayerPizzaOrderNumber(onionPizzaObject.GetPizzaType());
+        //player.SetPlayerPizzaOrderNumber(onionPizzaObject.GetPizzaType());
+        player.SetPlayerPizzaOrderNumber(2);
         player.GenerateAndPlayerPicksUpPizza();
         requestPizzaMenuUI.SetActive(false); // Hide the pop-up menu
     }
 
     public void OnMushroomPizzaClicked()
     {
-        player.SetPlayerPizzaOrderNumber(mushroomPizzaObject.GetPizzaType());
+        //player.SetPlayerPizzaOrderNumber(mushroomPizzaObject.GetPizzaType());
+        player.SetPlayerPizzaOrderNumber(3);
         player.GenerateAndPlayerPicksUpPizza();
         requestPizzaMenuUI.SetActive(false); // Hide the pop-up menu
     }
