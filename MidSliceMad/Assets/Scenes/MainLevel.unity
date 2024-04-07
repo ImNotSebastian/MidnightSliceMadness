@@ -675,6 +675,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2814009980483075201, guid: 7afb25e9f8acb4ea19d43d1945f7e7d9, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3474815540864528684, guid: 7afb25e9f8acb4ea19d43d1945f7e7d9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -17711,7 +17715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a9bc74d44c3c046a299a3b396be71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 587715382}
   ghostPrefab: {fileID: 3586172014901122088, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
   spawnRadius: 3
   maxGhosts: 10
