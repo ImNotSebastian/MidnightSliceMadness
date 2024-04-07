@@ -138,6 +138,11 @@ public class Player : MonoBehaviour
         return playerHasPizza;
     }
 
+    public void SetPlayerPizzaOrderNumber(int requestPizzaTypeInput)
+    {
+        pizzaOrderNumber = requestPizzaTypeInput;
+    }
+
     public void SimulateCollisionWithPickUp()
     {
         if (!playerHasPizza)
