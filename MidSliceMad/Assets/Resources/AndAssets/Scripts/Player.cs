@@ -32,13 +32,13 @@ public class Player : MonoBehaviour
         {
             RequestPizza();
             //GenerateAndPlayerPicksUpPizza();
-            //Debug.Log("Pick-Up");
+            //Console.WriteLine("Pick-Up");
         }
         ///*
         if (other.gameObject.CompareTag("Delivery") && playerHasPizza)
         {
             DeliverPizza();
-            //Debug.Log("Delivery");
+            //Console.WriteLine("Delivery");
         }
         //*/
     }
@@ -50,9 +50,9 @@ public class Player : MonoBehaviour
         GameObject requestPizzaMenuUI = GameObject.Find("RequestPizzaMenuCanvas").transform.Find("RequestPizzaPanel").gameObject;
         if (requestPizzaMenuUI != null)
         {
-            Debug.LogError("RequestPizzaMenuManager GameObject found.");
+            Console.WriteLine("RequestPizzaMenuManager GameObject found.");
             requestPizzaMenuUI.SetActive(true); // Show the pop-up menu
-            Debug.LogError("Entered Request Pizza Menu.");
+            Console.WriteLine("Entered Request Pizza Menu.");
         }
         else
         {
@@ -96,14 +96,14 @@ public class Player : MonoBehaviour
             }
             pizzaPrefab = Resources.Load(currentPizzaObject.GetPrefabAssetPath()) as GameObject;
             pizzaGameObject = Instantiate(pizzaPrefab, spawnPosition, Quaternion.identity);
-            //Debug.Log("Pizza Created");
+            //Console.WriteLine("Pizza Created");
 
             inventory = GameObject.Find("Inventory");
 
             if (inventory != null)
             {
                 pizzaGameObject.transform.SetParent(inventory.transform, false);
-                //Debug.Log("Set Inventory as parent");
+                //Console.WriteLine("Set Inventory as parent");
             }
 
             // Enable Pizza script if needed
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
             playerHasPizza = false;
             GameManager.instance.IncreaseScore();
             GameManager.instance.DisplayScoreText();
-            //Debug.Log("Pizza Destroyed");
+            //Console.WriteLine("Pizza Destroyed");
         }
         else
         {
@@ -167,7 +167,7 @@ public class Player : MonoBehaviour
         if (!playerHasPizza)
         {
             GenerateAndPlayerPicksUpPizza();
-            //Debug.Log("Pick-Up");
+            //Console.WriteLine("Pick-Up");
         }
     }
     //*/
