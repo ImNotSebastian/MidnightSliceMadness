@@ -14,4 +14,14 @@ public class GameOverMenu : MonoBehaviour
     {
         SceneManager.LoadScene("TutorialLevel");
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quit game request");
+        Application.Quit();
+
+        //#if UNITY_EDITOR
+        //        UnityEditor.EditorApplication.isPlaying = false;
+        //#endif
+    }
 }
