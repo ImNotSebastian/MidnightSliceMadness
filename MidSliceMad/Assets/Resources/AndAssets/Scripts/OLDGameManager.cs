@@ -1,4 +1,11 @@
-///*
+/*
+This is the old version of the game manager where the 
+game timer is counting down from the start of the game until
+it runs out in which case the game is over.
+I am keeping this script in case we ever want to use the old implementation.
+*/
+
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,19 +17,13 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeLeftText;
-    //[SerializeField] private float timeLimit = -1f;
+    [SerializeField] private float TimeLimit = 100f;
     private float timeLeft;
     private bool isGameOver;
-    private Player player;
-
-    public float PizzaDeliveryTimeLeft
-    {
-        get { return timeLeft; }
-    }
 
     // Begining of singleton pattern
 
-    public static GameManager instance { get; private set; } // gameManager instance object can be get publicly but set privately
+    public static GameManager instance { get; private set; } // gameManager instance object can be get oublicly but set privately
 
     private void Awake()
     {
@@ -38,15 +39,13 @@ public class GameManager : MonoBehaviour
     {
         UpdateScoreText();
         DisplayScoreText();
-        timeLeft = 0;
+        timeLeft = TimeLimit;
         isGameOver = false;
-        player = FindObjectOfType<Player>();
     }
 
     private void Update()
     {
-        //CountdownTime();
-        GameManager.instance.UpdatePizzaDeliveryTimer();
+        CountdownTime();
     }
 
     public void IncreaseScore(int plusScore)
@@ -71,7 +70,6 @@ public class GameManager : MonoBehaviour
         Debug.Log(scoreText.text);
     }
 
-    /*
     private void CountdownTime()
     {
         if (timeLeft > 0)
@@ -86,38 +84,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Game Over");
                 isGameOver = true;
             }
-        }
-    }
-    //*/
-
-    public void StartPizzaDeliveryTimer(float pizzaDeliveryTimeLimit)
-    {
-        //timeLeft = timeLimit;
-        timeLeft = pizzaDeliveryTimeLimit;
-        isGameOver = false;
-    }
-
-    public void UpdatePizzaDeliveryTimer()
-    {
-        if (timeLeft > 0)
-        {
-            timeLeft -= Time.deltaTime;
-            timeLeftText.text = "Pizza Delivery Time Left: " + Mathf.Round(timeLeft).ToString();
-        }
-        else
-        {
-            if (isGameOver != true)
-            {
-                //Debug.Log("Pizza Delivery Time Ran Out");
-                //isGameOver = true; // end game if desired
-                player.PizzaDeliveryTimerRanOut();
-            }
-        }
-
-        // Check if the timer is not running and update the text accordingly
-        if (timeLeft <= 0)
-        {
-            timeLeftText.text = "Pizza Delivery Time Left: *";
         }
     }
 }

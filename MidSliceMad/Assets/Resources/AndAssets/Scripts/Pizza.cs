@@ -1,3 +1,11 @@
+/*
+Note: 
+Removing virtual from GetPrefabAssetPath() is set up so that
+it changes something on the screen but GetPizzaType()
+is set up so that it does not change anything visually
+when virtual is removed
+*/
+
 ///*
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +15,7 @@ using UnityEngine;
 
 public class CrudePizza
 {
-    public virtual int GetPizzaType()
+    public virtual int GetPizzaType() 
     {
         return 0; // Default pizza type
     }
@@ -16,6 +24,17 @@ public class CrudePizza
     {
         return "AndAssets/Prefabs/CrudePizzaPrefab";
     }
+
+    public virtual float GetPizzaDeliveryTime()
+    {
+        return 200f;
+    }
+
+    public virtual int GetScoreUponDelivery()
+    {
+        return 10;
+    }
+    
 }
 
 // Pizza Sub Classes
@@ -31,6 +50,16 @@ public class CheesePizza : CrudePizza
     {
         return "AndAssets/Prefabs/CheesePizzaPrefab";
     }
+
+    public virtual float GetPizzaDeliveryTime()
+    {
+        return 60f;
+    }
+
+    public override int GetScoreUponDelivery()
+    {
+        return 10;
+    }
 }
 
 public class OnionPizza : CrudePizza
@@ -44,6 +73,16 @@ public class OnionPizza : CrudePizza
     {
         return "AndAssets/Prefabs/OnionPizzaPrefab";
     }
+
+    public virtual float GetPizzaDeliveryTime()
+    {
+        return 30f;
+    }
+
+    public override int GetScoreUponDelivery()
+    {
+        return 20;
+    }
 }
 
 public class MushroomPizza : CrudePizza
@@ -56,6 +95,16 @@ public class MushroomPizza : CrudePizza
     public override string GetPrefabAssetPath()
     {
         return "AndAssets/Prefabs/MushroomPizzaPrefab";
+    }
+
+    public virtual float GetPizzaDeliveryTime()
+    {
+        return 15f;
+    }
+
+    public override int GetScoreUponDelivery()
+    {
+        return 30;
     }
 }
 //*/
