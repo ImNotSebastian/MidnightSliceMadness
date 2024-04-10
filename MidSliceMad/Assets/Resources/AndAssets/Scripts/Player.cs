@@ -131,6 +131,7 @@ public class Player : MonoBehaviour
             playerHasPizza = false;
             GameManager.instance.IncreaseScore(currentPizzaObject.GetScoreUponDelivery());
             GameManager.instance.DisplayScoreText();
+            GameManager.instance.TurnOffPizzaDeliveryTimer();
             currentPizzaObject = null;
             //Debug.Log("Pizza Destroyed");
         }
@@ -142,8 +143,19 @@ public class Player : MonoBehaviour
 
     public void PizzaDeliveryTimerRanOut()
     {
-        // Implement the logic for when the pizza delivery timer runs out
-        Debug.Log("Pizza Delivery Timer Ran Out");
+        if (pizzaGameObject != null)
+        {
+            Destroy(pizzaGameObject);
+            playerHasPizza = false;
+            GameManager.instance.DecreaseScore(currentPizzaObject.GetScorePenalty());
+            GameManager.instance.DisplayScoreText();
+            currentPizzaObject = null;
+            Debug.Log("Pizza Delivery Timer Ran Out");
+        }
+        else
+        {
+            Debug.LogWarning("pizzaGameObject is null or has already been destroyed.");
+        }
     }
 
 

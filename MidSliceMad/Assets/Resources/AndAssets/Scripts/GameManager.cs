@@ -10,9 +10,10 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeLeftText;
-    //[SerializeField] private float timeLimit = -1f;
+    //[SerializeField] private float timeLimit = 100f;
     private float timeLeft;
     private bool isGameOver;
+    private bool pizzaDeliveryOngoing;
     private Player player;
 
     public float PizzaDeliveryTimeLeft
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         DisplayScoreText();
         timeLeft = 0;
         isGameOver = false;
+        pizzaDeliveryOngoing = false;
         player = FindObjectOfType<Player>();
     }
 
@@ -49,15 +51,15 @@ public class GameManager : MonoBehaviour
         GameManager.instance.UpdatePizzaDeliveryTimer();
     }
 
-    public void IncreaseScore(int plusScore)
+    public void IncreaseScore(int scoreReward)
     {
-        score += plusScore;
+        score += scoreReward;
         UpdateScoreText();
     }
 
-    public void DecreaseScore()
+    public void DecreaseScore(int scorePenalty)
     {
-        score--;
+        score -= scorePenalty;
         UpdateScoreText();
     }
 
@@ -71,30 +73,17 @@ public class GameManager : MonoBehaviour
         Debug.Log(scoreText.text);
     }
 
-    /*
-    private void CountdownTime()
-    {
-        if (timeLeft > 0)
-        {
-            timeLeft -= Time.deltaTime;
-            timeLeftText.text = "Time Left: " + Mathf.Round(timeLeft).ToString();
-        }
-        else
-        {
-            if (isGameOver != true)
-            {
-                Debug.Log("Game Over");
-                isGameOver = true;
-            }
-        }
-    }
-    //*/
-
     public void StartPizzaDeliveryTimer(float pizzaDeliveryTimeLimit)
     {
         //timeLeft = timeLimit;
         timeLeft = pizzaDeliveryTimeLimit;
-        isGameOver = false;
+        pizzaDeliveryOngoing = true;
+    }
+
+    public void TurnOffPizzaDeliveryTimer()
+    {
+        timeLeft = 0;
+        pizzaDeliveryOngoing = false;
     }
 
     public void UpdatePizzaDeliveryTimer()
@@ -106,11 +95,12 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (isGameOver != true)
+            if (pizzaDeliveryOngoing == true)
             {
-                //Debug.Log("Pizza Delivery Time Ran Out");
                 //isGameOver = true; // end game if desired
+                pizzaDeliveryOngoing = false;
                 player.PizzaDeliveryTimerRanOut();
+                //Debug.Log("Pizza Delivery Time Ran Out");
             }
         }
 

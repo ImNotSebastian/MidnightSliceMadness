@@ -27,12 +27,17 @@ public class CrudePizza
 
     public virtual float GetPizzaDeliveryTime()
     {
-        return 200f;
+        return 100f;
     }
 
     public virtual int GetScoreUponDelivery()
     {
         return 10;
+    }
+
+    public virtual int GetScorePenalty()
+    {
+        return 5;
     }
     
 }
@@ -51,7 +56,7 @@ public class CheesePizza : CrudePizza
         return "AndAssets/Prefabs/CheesePizzaPrefab";
     }
 
-    public virtual float GetPizzaDeliveryTime()
+    public override float GetPizzaDeliveryTime()
     {
         return 60f;
     }
@@ -59,6 +64,11 @@ public class CheesePizza : CrudePizza
     public override int GetScoreUponDelivery()
     {
         return 10;
+    }
+
+    public override int GetScorePenalty()
+    {
+        return 5;
     }
 }
 
@@ -74,7 +84,7 @@ public class OnionPizza : CrudePizza
         return "AndAssets/Prefabs/OnionPizzaPrefab";
     }
 
-    public virtual float GetPizzaDeliveryTime()
+    public override float GetPizzaDeliveryTime()
     {
         return 30f;
     }
@@ -82,6 +92,11 @@ public class OnionPizza : CrudePizza
     public override int GetScoreUponDelivery()
     {
         return 20;
+    }
+
+    public override int GetScorePenalty()
+    {
+        return 10;
     }
 }
 
@@ -97,7 +112,7 @@ public class MushroomPizza : CrudePizza
         return "AndAssets/Prefabs/MushroomPizzaPrefab";
     }
 
-    public virtual float GetPizzaDeliveryTime()
+    public override float GetPizzaDeliveryTime()
     {
         return 15f;
     }
@@ -105,6 +120,11 @@ public class MushroomPizza : CrudePizza
     public override int GetScoreUponDelivery()
     {
         return 30;
+    }
+
+    public override int GetScorePenalty()
+    {
+        return 20;
     }
 }
 //*/
