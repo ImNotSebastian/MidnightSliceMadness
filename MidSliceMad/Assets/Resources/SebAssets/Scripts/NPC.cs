@@ -6,16 +6,13 @@ public class NPC : MonoBehaviour
 {
 
 
+	[SerializeField]
+	private AudioClip sfxClip;
 	
-	
-	//animation vars
-	public Transform headCheck;
 	private int flipTimer = 0;
+	 private GameObject datChat;
 	
 
-	 private GameObject datChat;
-   
-	
 	[SerializeField]
 	private int flipSpeed = 500;
 	
@@ -23,17 +20,23 @@ public class NPC : MonoBehaviour
 	private ChatSys chatSys;
 
 	
+
+	
     // Start is called before the first frame update
     void Start()
     {
 		 //Need reference to chatUI & chatSys to activate them
         datChat = GameObject.Find("ChatUI");
+
+
+
     	
 		chatSys = datChat.GetComponent<ChatSys>(); //call function to find ChatSys
 		if(chatSys == null)
 		{
 			 Debug.Log($"NPC failed to find chat System class");
 		}
+		
     }
 
 
@@ -63,6 +66,13 @@ public class NPC : MonoBehaviour
 		 Debug.Log($"Collided with NPC.");
         //start dialogue
 		chatSys.StartDialogue();
+
+		if (sfxClip == null)
+   			{
+       			 Debug.LogError("sfxClip is not assigned in the inspector.");
+    		}
+		//example of sfx call
+		SoundFxManager.instance.playSFX(sfxClip, transform, 1f);
     }
 	
 	

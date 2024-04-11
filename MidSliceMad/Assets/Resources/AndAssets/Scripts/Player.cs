@@ -51,7 +51,9 @@ public class Player : MonoBehaviour
         if (requestPizzaMenuUI != null)
         {
             Debug.LogError("RequestPizzaMenuManager GameObject found.");
+            Time.timeScale = 0f; // Pause background game
             requestPizzaMenuUI.SetActive(true); // Show the pop-up menu
+            //requestPizzaMenuUI.ShowRequestPizzaMenu(); // Fix
             Debug.LogError("Entered Request Pizza Menu.");
         }
         else
@@ -109,6 +111,9 @@ public class Player : MonoBehaviour
             // Enable Pizza script if needed
             //pizzaGameObject.GetComponent<Pizza>().enabled = true;
 
+            // Start the pizza delivery timer
+            GameManager.instance.StartPizzaDeliveryTimer(currentPizzaObject.GetPizzaDeliveryTime());
+
             playerHasPizza = true;
         }
     }
@@ -124,8 +129,10 @@ public class Player : MonoBehaviour
         {
             Destroy(pizzaGameObject);
             playerHasPizza = false;
-            GameManager.instance.IncreaseScore();
+            GameManager.instance.IncreaseScore(currentPizzaObject.GetScoreUponDelivery());
             GameManager.instance.DisplayScoreText();
+            GameManager.instance.TurnOffPizzaDeliveryTimer();
+            currentPizzaObject = null;
             //Debug.Log("Pizza Destroyed");
         }
         else
@@ -133,6 +140,24 @@ public class Player : MonoBehaviour
             Debug.LogWarning("pizzaGameObject is null or has already been destroyed.");
         }
     }
+
+    public void PizzaDeliveryTimerRanOut()
+    {
+        if (pizzaGameObject != null)
+        {
+            Destroy(pizzaGameObject);
+            playerHasPizza = false;
+            GameManager.instance.DecreaseScore(currentPizzaObject.GetScorePenalty());
+            GameManager.instance.DisplayScoreText();
+            currentPizzaObject = null;
+            Debug.Log("Pizza Delivery Timer Ran Out");
+        }
+        else
+        {
+            Debug.LogWarning("pizzaGameObject is null or has already been destroyed.");
+        }
+    }
+
 
     public GameObject GetPizzaGameObject()
     {
