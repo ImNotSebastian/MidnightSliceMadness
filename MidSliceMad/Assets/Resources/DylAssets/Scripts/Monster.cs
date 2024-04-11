@@ -22,7 +22,7 @@ public abstract class Monster : MonoBehaviour
 
     // The f at the end of the value means float
     //[SerializeField] private float health = 100f;
-    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private int attackDamage = 10;
     [SerializeField] private float bounceForce = 1f;
     [SerializeField] private float bounceCooldown = 1f; // Time in seconds before pursuing again
     [SerializeField] private float wanderRadius = 5f; // Radius within which the monster will wander
@@ -65,7 +65,7 @@ public abstract class Monster : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // Damage logic here
-            GameManager.instance.DecreaseScore(10);
+            GameManager.instance.DecreaseScore(attackDamage);
             Debug.Log($"Dealt {attackDamage} damage to the player!");
             attackCount++;
 
