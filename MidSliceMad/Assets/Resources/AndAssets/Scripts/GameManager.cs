@@ -7,21 +7,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private int score = 0;
+    private GameState _gameState;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeLeftText;
-    //[SerializeField] private float timeLimit = 100f;
-    private float timeLeft;
-    private bool isGameOver;
-    private bool pizzaDeliveryOngoing;
-    private Player player;
-
-    public float PizzaDeliveryTimeLeft
-    {
-        get { return timeLeft; }
-    }
-
-    // Begining of singleton pattern
+    private Player _player;
 
     public static GameManager instance { get; private set; } // GameManager instance object can be get publicly but set privately
 
@@ -33,39 +22,34 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
 
-    // End of singleton pattern
-
     private void Start()
     {
+        _gameState = new GameState();
         UpdateScoreText();
         DisplayScoreText();
-        timeLeft = 0;
-        isGameOver = false;
-        pizzaDeliveryOngoing = false;
-        player = FindObjectOfType<Player>();
+        _player = FindObjectOfType<Player>();
     }
 
     private void Update()
     {
-        //CountdownTime();
         GameManager.instance.UpdatePizzaDeliveryTimer();
     }
 
     public void IncreaseScore(int scoreReward)
     {
-        score += scoreReward;
+        _gameState.Score += scoreReward;
         UpdateScoreText();
     }
 
     public void DecreaseScore(int scorePenalty)
     {
-        score -= scorePenalty;
+        _gameState.Score -= scorePenalty;
         UpdateScoreText();
     }
 
     private void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "Score: " + _gameState.Score.ToString();
     }
 
     public void DisplayScoreText()
@@ -75,39 +59,30 @@ public class GameManager : MonoBehaviour
 
     public void StartPizzaDeliveryTimer(float pizzaDeliveryTimeLimit)
     {
-        //timeLeft = timeLimit;
-        timeLeft = pizzaDeliveryTimeLimit;
-        pizzaDeliveryOngoing = true;
+        _gameState.StartPizzaDeliveryTimer(pizzaDeliveryTimeLimit);
     }
 
     public void TurnOffPizzaDeliveryTimer()
     {
-        timeLeft = 0;
-        pizzaDeliveryOngoing = false;
+        _gameState.TurnOffPizzaDeliveryTimer();
     }
 
     public void UpdatePizzaDeliveryTimer()
     {
-        if (timeLeft > 0)
+        _gameState.UpdatePizzaDeliveryTimer(Time.deltaTime);
+
+        if (_gameState.TimeLeft <= 0)
         {
-            timeLeft -= Time.deltaTime;
-            timeLeftText.text = "Pizza Delivery Time Left: " + Mathf.Round(timeLeft).ToString();
+            timeLeftText.text = "Pizza Delivery Time Left: *";
         }
         else
         {
-            if (pizzaDeliveryOngoing == true)
-            {
-                //isGameOver = true; // end game if desired
-                pizzaDeliveryOngoing = false;
-                player.PizzaDeliveryTimerRanOut();
-                //Debug.Log("Pizza Delivery Time Ran Out");
-            }
+            timeLeftText.text = "Pizza Delivery Time Left: " + Mathf.Round(_gameState.TimeLeft).ToString();
         }
 
-        // Check if the timer is not running and update the text accordingly
-        if (timeLeft <= 0)
+        if (_gameState.PizzaDeliveryOngoing == false)
         {
-            timeLeftText.text = "Pizza Delivery Time Left: *";
+            _player.PizzaDeliveryTimerRanOut();
         }
     }
 }
