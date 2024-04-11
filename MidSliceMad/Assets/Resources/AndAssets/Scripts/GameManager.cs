@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     // Begining of singleton pattern
 
-    public static GameManager instance { get; private set; } // gameManager instance object can be get publicly but set privately
+    public static GameManager instance { get; private set; } // GameManager instance object can be get publicly but set privately
 
     private void Awake()
     {
