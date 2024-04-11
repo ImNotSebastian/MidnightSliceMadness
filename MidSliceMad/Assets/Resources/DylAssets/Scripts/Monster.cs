@@ -16,6 +16,7 @@ public abstract class Monster : MonoBehaviour
 {
     [SerializeField] public float detectionRadius = 5f; // Default detection radius
     [SerializeField] protected float speed = 3f;
+    [SerializeField] protected int incapacitateDuration = 3;
     protected Transform playerTransform;
     protected int attackCount = 0;
 
@@ -31,8 +32,9 @@ public abstract class Monster : MonoBehaviour
     private bool isBouncing = false; // Flag to track bouncing state
     private bool wandering = false;
     private Rigidbody2D rb;
+    // private GameManager gameManager;
 
-    
+
     protected virtual void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -63,6 +65,7 @@ public abstract class Monster : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // Damage logic here
+            GameManager.instance.DecreaseScore(attackDamage);
             Debug.Log($"Dealt {attackDamage} damage to the player!");
             attackCount++;
 
@@ -118,5 +121,10 @@ public abstract class Monster : MonoBehaviour
     {
         Debug.Log("Monster has de-spawned due to reaching attack limit.");
         Destroy(gameObject);
+    }
+
+    protected virtual IEnumerable Incapacitate()
+    {
+        yield return new WaitForSeconds(incapacitateDuration);
     }
 }

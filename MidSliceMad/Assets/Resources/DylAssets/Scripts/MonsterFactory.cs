@@ -101,3 +101,10 @@ public class MonsterFactory : MonoBehaviour
         return monsterInstance;
     }
 }
+
+
+/* The factory pattern is great for when you're going to have multiple instances of objects that all inherit from a
+   common superclass because it allows for creation of objects at runtime, allowing for dynamic spawining of ememies
+   during gameplay. */
+
+/* A bad time to use the pattern would be */

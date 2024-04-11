@@ -15,7 +15,6 @@ using UnityEngine;
 
 public class Ghost : Monster
 {
-    [SerializeField] private int incapacitateDuration = 3;
     private bool isIncapacitated = false;
     
     // Update is called once per frame
@@ -24,7 +23,7 @@ public class Ghost : Monster
         PursuePlayer();
     }
 
-    protected IEnumerable Incapacitate()
+    protected override IEnumerable Incapacitate()
     {
         if (!isIncapacitated)
         {
