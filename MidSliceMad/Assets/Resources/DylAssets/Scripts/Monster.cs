@@ -65,7 +65,7 @@ public abstract class Monster : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // Damage logic here
-            GameManager.instance.DecreaseScore(attackDamage);
+            GameManager.instance.DecreaseScore(10);
             Debug.Log($"Dealt {attackDamage} damage to the player!");
             attackCount++;
 
