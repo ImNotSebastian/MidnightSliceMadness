@@ -1,4 +1,10 @@
 /*
+Name: Andrew Plum
+Role: Team Lead 4 -- Project Manager
+Project: Midnight Slice Madness
+This file contains the definition for the Pizza Classes
+These classes are used to represent different pizzas and their attributes
+
 Note: 
 Removing virtual from GetPrefabAssetPath() is set up so that
 it changes something on the screen but GetPizzaType()

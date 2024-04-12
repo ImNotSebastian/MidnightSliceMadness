@@ -1,3 +1,13 @@
+/*
+Name: Andrew Plum
+Role: Team Lead 4 -- Project Manager
+Project: Midnight Slice Madness
+This file contains the definition for the GameManager Class
+This class is used for the Score and Pizza Delivery Timer
+It inherits from MonoBehaviour
+This class is part of a Singleton and Private Class Data pattern
+*/
+
 ///*
 using System.Collections;
 using System.Collections.Generic;

@@ -1,3 +1,14 @@
+/*
+Name: Andrew Plum
+Role: Team Lead 4 -- Project Manager
+Project: Midnight Slice Madness
+This file contains the definition for the Player Class
+This class is used for the Player interactions in the main gameplay loop
+This includes things like requesting, generating, and
+delivering a pizza as well as scoring points
+It inherits from MonoBehaviour
+*/
+
 ///*
 using System.Collections;
 using System.Collections.Generic;

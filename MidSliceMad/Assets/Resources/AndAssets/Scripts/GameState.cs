@@ -1,3 +1,12 @@
+/*
+Name: Andrew Plum
+Role: Team Lead 4 -- Project Manager
+Project: Midnight Slice Madness
+This file contains the definition for the GameState class
+This class contains the Private Class Data used in the GameManager class
+This class is part of a Private Class Data pattern
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

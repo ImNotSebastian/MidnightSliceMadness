@@ -1,8 +1,12 @@
 /*
-This is the old version of the game manager where the 
-game timer is counting down from the start of the game until
-it runs out in which case the game is over.
-I am keeping this script in case we ever want to use the old implementation.
+Name: Andrew Plum
+Role: Team Lead 4 -- Project Manager
+Project: Midnight Slice Madness
+This file contains the definition for the OLD GameManager Class
+This class is used for the first of the old versions of the Score and Pizza Delivery Timer
+It inherits from MonoBehaviour
+This class is part of a Singleton pattern
+The Private Class Data pattern was not yet implemented
 */
 
 /*

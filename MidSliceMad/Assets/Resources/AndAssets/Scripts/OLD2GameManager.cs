@@ -1,6 +1,14 @@
 /*
-This is the old version of the game manager before the
-private class data pattern was implemented.
+Name: Andrew Plum
+Role: Team Lead 4 -- Project Manager
+Project: Midnight Slice Madness
+This file contains the definition for the OLD GameManager Class
+This class is used for the second of the old versions of the Score and Pizza Delivery Timer
+It inherits from MonoBehaviour
+This class is part of a Singleton pattern
+The Private Class Data pattern was not yet implemented
+*/
+
 /*
 using System.Collections;
 using System.Collections.Generic;
