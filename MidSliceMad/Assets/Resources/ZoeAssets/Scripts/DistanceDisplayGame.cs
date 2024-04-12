@@ -1,3 +1,12 @@
+/*
+Name: Zoe Abbott
+Role: Team Lead 2: Software Architect 
+Project: Midnight Slice Madness
+
+This script was created to display the calculated distance
+from the player to the destination that is set by the quest.
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
