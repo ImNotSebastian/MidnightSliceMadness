@@ -11,7 +11,7 @@ public class MainQuest1 : Quest
     private string questName = "FDelivery 1!";
     private int questProgress;
 
-    questMessage.text = "Deliver the pizza to the location.";
+    //questMessage.text = "Deliver the pizza to the location.";
     void notifyObserver()
     {
         //insert observer notification here.
