@@ -17,12 +17,15 @@ using System;
 public class DistanceDisplayGame : MonoBehaviour
 {
     public TMP_Text distanceDisplayGame;
+    public TMP_Text questDisplayGame;
 
     [SerializeField]
     private int distance;
     [SerializeField]
     private int limit;
     private int dist; //distance calculation distance
+    private string questName;
+    private string questProgress;
     private GameObject player;
     private GameObject destination;
 
@@ -52,5 +55,35 @@ public class DistanceDisplayGame : MonoBehaviour
     {
         dist = Convert.ToInt32(Vector2.Distance(a, b));
         return dist;
+    }
+
+    public void HUDRecieve(TMP_Text text, GameObject dest, string qName, int qProgress)
+    {
+        questDisplayGame = text;
+        destination = GameObject.Find(dest.name);
+        questName = qName;
+        questProgress = progressSetter(qProgress);
+
+    }
+
+    private string progressSetter(int prog)
+    {
+        string progressName;
+        switch(prog)
+        {
+            case 0:
+                progressName = "Quest Introduction";
+                return progressName;
+            case 1:
+                progressName = "Quest In Progress";
+                return progressName;
+            case 2:
+                progressName = "Quest Complete!";
+                return progressName;
+            default:
+                progressName = "No Quest Active";
+                return progressName;
+                
+        }
     }
 }
