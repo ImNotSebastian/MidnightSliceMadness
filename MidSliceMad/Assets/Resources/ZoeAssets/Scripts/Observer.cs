@@ -13,12 +13,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Observer 
+public class Observer : MonoBehaviour
 {
     //will get this information from quest and give to HUD elements quest/destination.
 
     //Data section: The information passed through by the quest's notification.
-    private TMP_Text questIntro;
+    private TMP_Text questMessage;
     private GameObject destination;
     private string questName;
     private int questProgress;
@@ -28,15 +28,35 @@ public class Observer
     //mine will notify as if it were two different observers
 
     //Observe HUD functions
-    void NotifyHUD ()
+    public void NotifyHUD (TMP_Text text, GameObject dest, string qName, int qProgress)
     {
 
     }
 
     //Observe quest functions
-    void NotifyQuest()
+    public void NotifyQuest(TMP_Text text, GameObject dest, string qName, int qProgress)
     {
 
+    }
+
+    public void RecieveHUD(TMP_Text text, GameObject dest, string qName, int qProgress)
+    {
+        setVariables(text, dest, qName, qProgress);
+        NotifyQuest(text, dest, qName, qProgress);
+    }
+
+    public void RecieveQuest(TMP_Text text, GameObject dest, string qName, int qProgress)
+    {
+        setVariables(text, dest, qName, qProgress);
+        NotifyHUD(text, dest, qName, qProgress);
+    }
+
+    private void setVariables(TMP_Text text, GameObject dest, string qName, int qProgress)
+    {
+        questMessage = text;
+        destination = dest;
+        questName = qName;
+        questProgress = qProgress;
     }
 
 }
