@@ -17,7 +17,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private GameState _gameState;
+    public GameState _gameState;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeLeftText;
     private Player _player;
