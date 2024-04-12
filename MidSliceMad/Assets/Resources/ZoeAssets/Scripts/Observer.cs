@@ -27,30 +27,31 @@ public class Observer : MonoBehaviour
     //Most observers would notify all subscribed subjects,
     //mine will notify as if it were two different observers
 
-    //Observe HUD functions
+   //Notify HUD 
     public void NotifyHUD (TMP_Text text, GameObject dest, string qName, int qProgress)
     {
-
+        //Access the QuestManager's reciever function
+        GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().HUDRecieve(text, dest, qName, qProgress);
     }
 
-    //Observe quest functions
+    //Notify Observer
     public void NotifyQuest(TMP_Text text, GameObject dest, string qName, int qProgress)
     {
-
+        //GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestRecieve(text,dest, qName, qProgress);
     }
-
+    //Observe HUD
     public void RecieveHUD(TMP_Text text, GameObject dest, string qName, int qProgress)
     {
         setVariables(text, dest, qName, qProgress);
         NotifyQuest(text, dest, qName, qProgress);
     }
-
+    //Observe Quest
     public void RecieveQuest(TMP_Text text, GameObject dest, string qName, int qProgress)
     {
         setVariables(text, dest, qName, qProgress);
         NotifyHUD(text, dest, qName, qProgress);
     }
-
+    //Set variables of observed to be able to retrieve this data if needed.
     private void setVariables(TMP_Text text, GameObject dest, string qName, int qProgress)
     {
         questMessage = text;
