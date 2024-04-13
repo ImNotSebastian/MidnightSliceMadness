@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private GameObject pizzaPrefab;
     private GameObject pizzaGameObject; // This is the object that will be instantiated from the prefab in the scene
     private CrudePizza currentPizzaObject; // This is the respective pizza class object
+    public bool pizzaDeliveryTimerRanOutCalled = false;
 
     public void Start()
     {
@@ -161,6 +162,7 @@ public class Player : MonoBehaviour
             GameManager.instance.DecreaseScore(currentPizzaObject.GetScorePenalty());
             GameManager.instance.DisplayScoreText();
             currentPizzaObject = null;
+            pizzaDeliveryTimerRanOutCalled = true;
             Debug.Log("Pizza Delivery Timer Ran Out");
         }
         else
@@ -206,6 +208,12 @@ public class Player : MonoBehaviour
             //Debug.Log("Pick-Up");
         }
     }
+
+    public bool GetPizzaDeliveryTimerRanOutCalled()
+    {
+        return pizzaDeliveryTimerRanOutCalled;
+    }
+    
     //*/
 }
 //*/

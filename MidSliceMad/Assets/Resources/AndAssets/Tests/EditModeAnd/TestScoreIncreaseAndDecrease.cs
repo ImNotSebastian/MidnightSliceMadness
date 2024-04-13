@@ -10,14 +10,12 @@ public class TestScoreIncreaseAndDecrease
     [Test]
     public void TestScoreIncreaseAndUpdate()
     {
-        // Arrange
         var gameManager = new GameManager();
         gameManager.scoreText = new TextMeshProUGUI();
 
-        // Act
         gameManager.IncreaseScore(10);
 
-        // Assert
+        // Check values
         Assert.AreEqual(10, gameManager._gameState.Score);
         Assert.AreEqual("Score: 10", gameManager.scoreText.text);
     }
