@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
@@ -10,8 +11,16 @@ public class QuestManager : MonoBehaviour
     public Quest MainQuest2;
     public Quest MainQuest3;
     public Quest MainQuest4;
+
+    public Quest currentQuest;
     // Start is called before the first frame update
 
+    public void QuestRecieve(Quest quest)
+    {
+        currentQuest = quest;
+        GameObject.Find("Observer").GetComponent<QuestObserver>().ObserverUpdate(currentQuest);
+
+    }
     void Start()
     {
 
@@ -20,11 +29,17 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentQuest = MainQuest1;
+        currentQuest.SetQuestAttributes();
+        QuestRecieve(currentQuest);
     }
 
     void notifyObserver()
     {
 
     }
+
+
+
 }
+

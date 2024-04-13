@@ -13,26 +13,50 @@ using Codice.CM.Common;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Apple;
 
 public class Quest 
 {
+    public GameObject observer;  
     //questMessage is a TMP_Text which can impact TMP textboxes using .text
-    private TMP_Text questMessage;              
-    
-    private GameObject destination;             //destination will be a GameObject like OutPizza and BlueHouse.
-    private string questName = "QUESTNAME";     //questName can be used to identify the quest the player is currently on.
-    
-    //questProgress will be used to track the quest's progress between 0: Intro, 1: In Progress, 2: Complete
-    private int questProgress;                  
-    void notifyObserver(TMP_Text Text, GameObject Dest, string QName, int QProgress)
+    protected TMP_Text questMessage;              
+    public TMP_Text QuestMessage
     {
+        get { return questMessage;}
+    }   
+    //destination will be a GameObject like OutPizza and BlueHouse.
+    protected GameObject destination;             
+    public GameObject Destination
+    {
+        get {return destination;}
+    }
+    //questName can be used to identify the quest the player is currently on.
+    protected string questName = "QUESTNAME";         public string QuestName
+    {
+        get {return questName;}
+    }
+    //questProgress will be used to track the quest's progress between 0: Intro, 1: In Progress, 2: Complete
+    protected int questProgress; 
+    public int QuestProgress
+    {
+        get {return questProgress;}
+    } 
 
+        void FindDestination()
+    {
+        observer = GameObject.Find("Observer");
     }
 
+
+    public void NotifyManager(Quest quest)
+    {
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestRecieve(quest);
+    }
+    
     /*
      * The function ChangeQuestProgress will run the change process between 
      * quest states using questProgress at 0,1,2.
-     */
+     */ 
     void ChangeQuestProgress()
     {
         switch(questProgress)
@@ -49,42 +73,38 @@ public class Quest
                 break;
         }
     }
-    /*
-     * SetQuestProgress1() class method will be run when quest progress moves from
-     * the introduction of the quest to the delivery part of the quest.
-     * It will also notify observer
-     */
-    protected void SetQuestProgress1()
+    /* Virtual function SetQuestAttributes will allow me to display the usage
+    * of the Virtual and Override types and how they impact the code. 
+    * This function will also notify observer.
+    */
+    public virtual void SetQuestAttributes()
     {
-        questMessage.text = "Deliver the pizza to {insertlocation}";
-        //destination = GameObject.Find("NextLocation");
-        notifyObserver(questMessage, destination, questName, questProgress);
+        FindDestination();
+        questMessage.text = "Pick up a pizza to deliver.";
+        destination = GameObject.Find("OutPizza");
+        questName = "MainQuest1";
+        questProgress = 0;
+        NotifyManager(this);
+    }
+     /*
+    * SetQuestProgress1() class method will be run when quest progress moves from
+    * the introduction of the quest to the delivery part of the quest.
+    * It will also notify observer
+    */
+    public void SetQuestProgress1()
+    {
+        questMessage.text = "Quest:<br>Deliver the pizza to {insertlocation1}";
+        destination = GameObject.Find("BlueHouse");
+        NotifyManager(this);
     }
     /*
     * SetQuestProgressComplete() is run when quest progress is set to 2 or above,
     * or below 0. This method will set quest message to quest completion and notify observer.
     */
-    protected void SetQuestProgressComplete()
+    public void SetQuestProgressComplete()
     {
         questMessage.text = "Quest Complete!";
-        notifyObserver(questMessage, destination, questName, questProgress);
-    }
-
-    /*
-     * Virtual function SetQuestAttributes will allow me to display the usage
-     * of the Virtual and Override types and how they impact the code. 
-     * This function will also notify observer.
-     */
-    protected virtual void SetQuestAttributes()
-    {
-        questMessage.text = "GET THAT PIZZA SIS!!! YAAASSSS!!!";
-        destination = GameObject.Find("OutPizza");
-        questName = "QUEST???";
-        questProgress = 0;
-        notifyObserver(questMessage, destination, questName, questProgress);
-    }
-
-
-    
+        NotifyManager(this);
+    } 
 
 }

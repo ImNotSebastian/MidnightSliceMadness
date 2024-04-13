@@ -13,6 +13,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Runtime.CompilerServices;
 
 public class DistanceDisplayGame : MonoBehaviour
 {
@@ -24,8 +25,9 @@ public class DistanceDisplayGame : MonoBehaviour
     [SerializeField]
     private int limit;
     private int dist; //distance calculation distance
+    private int questProgress;
     private string questName;
-    private string questProgress;
+    private TMP_Text questMessage;
     private GameObject player;
     private GameObject destination;
 
@@ -37,7 +39,11 @@ public class DistanceDisplayGame : MonoBehaviour
     {
         distance = Convert.ToInt32(distanceCalculation());
         player = GameObject.Find("PlayerBicycle");
-        destination = GameObject.Find("BlueHouse");
+        destination = GameObject.Find("OutPizza");
+        if (destination == null)
+        {
+            Debug.Log("Did not catch GameObject");
+        }
     }
 
     // Update is called once per frame
@@ -57,12 +63,16 @@ public class DistanceDisplayGame : MonoBehaviour
         return dist;
     }
 
-    public void HUDRecieve(TMP_Text text, GameObject dest, string qName, int qProgress)
+    public void HUDRecieve(Quest quest)
     {
-        questDisplayGame = text;
-        destination = GameObject.Find(dest.name);
-        questName = qName;
-        questProgress = progressSetter(qProgress);
+        questMessage = quest.QuestMessage;
+        destination = quest.Destination;
+        questName = quest.QuestName;
+        questProgress = quest.QuestProgress;
+        if (destination == null)
+        {
+            Debug.Log("HUDRecieve: Did not catch GameObject");
+        }
 
     }
 
