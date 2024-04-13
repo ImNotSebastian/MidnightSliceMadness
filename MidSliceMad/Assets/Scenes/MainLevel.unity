@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0e84f33223e2c4983e976466d407a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requestPizzaMenuUI: {fileID: 1797213633}
+  requestPizzaMenuUIReference: {fileID: 1797213633}
 --- !u!4 &164376464
 Transform:
   m_ObjectHideFlags: 0
@@ -2091,6 +2091,7 @@ MonoBehaviour:
   spawnPizzaCameraOffsetY: -1
   spawnPizzaCameraOffsetZ: 9
   pizzaOrderNumber: 1
+  pizzaDeliveryTimerRanOutCalled: 0
 --- !u!114 &587715384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18948,6 +18949,7 @@ MonoBehaviour:
   ghostPrefab: {fileID: 3586172014901122088, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
   spawnRadius: 3
   maxGhosts: 10
+  spawnInterval: 5
 --- !u!114 &2019158223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18962,6 +18964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1804138056}
   timeLeftText: {fileID: 1233552478}
+  _player: {fileID: 0}
 --- !u!4 &2019158224
 Transform:
   m_ObjectHideFlags: 0

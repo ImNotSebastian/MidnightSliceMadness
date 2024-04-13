@@ -1,4 +1,3 @@
-/*
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
@@ -14,7 +13,7 @@ public class TestRequestPizzaMenuInitialization
         requestPizzaMenu.player = new Player();
         requestPizzaMenu.requestPizzaMenuUI = new GameObject("RequestPizzaMenuUI");
 
-        requestPizzaMenu.Initialize();
+        requestPizzaMenu.Start();
 
         // Check values
         Assert.IsNotNull(requestPizzaMenu.crudePizzaObject);
@@ -24,4 +23,3 @@ public class TestRequestPizzaMenuInitialization
         Assert.IsFalse(requestPizzaMenu.requestPizzaMenuUI.activeSelf);
     }
 }
-//*/
