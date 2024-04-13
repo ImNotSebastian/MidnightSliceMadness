@@ -21,8 +21,8 @@ using UnityEngine;
 public class MainQuest1 : Quest
 {
     
-    //FindDestination sets the game object observer to the observer in the scene.
-    void FindDestination()
+    //FindObserver sets the game object observer to the observer in the scene.
+    void FindObserver()
     {
         observer = GameObject.Find("Observer");
     }
@@ -59,7 +59,7 @@ public class MainQuest1 : Quest
     */
     public override void SetQuestAttributes()
     {
-        FindDestination();
+        FindObserver();
         questMessage = GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().questDisplayGame;
         questMessage.text = "Pick up a pizza to deliver.";
         destination = GameObject.Find("OutPizza");

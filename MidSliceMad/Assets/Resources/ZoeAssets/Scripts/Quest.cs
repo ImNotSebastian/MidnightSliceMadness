@@ -106,5 +106,10 @@ public class Quest
         questMessage.text = "Quest Complete!";
         NotifyManager(this);
     } 
+    public bool CheckPlayerPizza()
+    {
+        return GameObject.Find("PlayerBicycle").GetComponent<Player>().GetPlayerHasPizza();
+    }
+
 
 }
