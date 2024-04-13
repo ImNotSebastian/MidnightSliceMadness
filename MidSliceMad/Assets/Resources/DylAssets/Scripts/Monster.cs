@@ -8,6 +8,7 @@ It inherits from MonoBehaviour
 This class is part of a Factory pattern
 */
 
+// using log4net.Util;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,29 +17,33 @@ public abstract class Monster : MonoBehaviour
 {
     [SerializeField] public float detectionRadius = 5f; // Default detection radius
     [SerializeField] protected float speed = 3f;
+    [SerializeField] protected int incapacitateDuration = 3;
     protected Transform playerTransform;
     protected int attackCount = 0;
 
     // The f at the end of the value means float
     //[SerializeField] private float health = 100f;
-    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private int attackDamage = 1;
     [SerializeField] private float bounceForce = 1f;
     [SerializeField] private float bounceCooldown = 1f; // Time in seconds before pursuing again
     [SerializeField] private float wanderRadius = 5f; // Radius within which the monster will wander
+    [SerializeField] private int despawnRadius = 10;
     [SerializeField] private int maxAttacks = 3; // Max number of attacks before de-spawning
     private Vector3 startPosition;
     Vector3 wanderDestination;
     private bool isBouncing = false; // Flag to track bouncing state
     private bool wandering = false;
     private Rigidbody2D rb;
+    //private MonsterFactory monsterFactory = FindObjectOfType<MonsterFactory>();
+    private MonsterFactory monsterFactory;
 
-    
     protected virtual void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
 
         startPosition = transform.position; // Save the starting position
+        monsterFactory = FindObjectOfType<MonsterFactory>();
     }
 
     // Update is called once per frame
@@ -63,6 +68,7 @@ public abstract class Monster : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // Damage logic here
+            GameManager.instance.DecreaseScore(attackDamage);
             Debug.Log($"Dealt {attackDamage} damage to the player!");
             attackCount++;
 
@@ -70,6 +76,7 @@ public abstract class Monster : MonoBehaviour
             if (attackCount >= maxAttacks)
             {
                 Despawn();
+                Debug.Log("Monster has de-spawned due to reaching attack limit.");
             }
 
             // Calculate bounce direction
@@ -116,7 +123,21 @@ public abstract class Monster : MonoBehaviour
 
     private void Despawn()
     {
-        Debug.Log("Monster has de-spawned due to reaching attack limit.");
         Destroy(gameObject);
+        monsterFactory.IncrementDecrementGhostCount(false);
+    }
+
+    protected void DistanceDespawn()
+    {
+        if (Vector3.Distance(transform.position, playerTransform.position) >= despawnRadius)
+        {
+            Despawn();
+            Debug.Log("Monster has de-spawned due to distance from player.");
+        }
+    }
+
+    protected virtual IEnumerable Incapacitate()
+    {
+        yield return new WaitForSeconds(incapacitateDuration);
     }
 }

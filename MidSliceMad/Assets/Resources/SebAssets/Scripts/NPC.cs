@@ -64,16 +64,24 @@ public class NPC : MonoBehaviour
     protected void OnCollisionEnter2D(Collision2D collision)
     {
 		 Debug.Log($"Collided with NPC.");
-        //start dialogue
-		chatSys.StartDialogue();
+		GameObject player = GameObject.Find("PlayerBicycle");
+
+		if (collision.gameObject == player)
+			{//start dialogue
+				chatSys.StartDialogue();
+			}
 
 		if (sfxClip == null)
    			{
        			 Debug.LogError("sfxClip is not assigned in the inspector.");
     		}
-		//example of sfx call
-		SoundFxManager.instance.playSFX(sfxClip, transform, 1f);
-    }
+        else 
+			{
+			//example of sfx call
+			SoundFxManager.Instance.playSFX(sfxClip, transform, 1f);
+			}
+	}
+		
 	
 	
 	

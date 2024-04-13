@@ -1,3 +1,11 @@
+/*
+Name: Zoe Abbott
+Role: Team Lead 2: Software Architect 
+Project: Midnight Slice Madness
+
+This is a script for testing the distance display's overflow abilities.
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

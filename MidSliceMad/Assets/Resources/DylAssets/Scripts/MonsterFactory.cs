@@ -11,16 +11,17 @@ This class is part of a Factory pattern
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MonsterFactory : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform; // Assign this in the Inspector
     [SerializeField] private GameObject ghostPrefab;
     // Additional monster prefabs...
-    [SerializeField] private float spawnRadius = 10f; // Minimum distance from the player
+    [SerializeField] private int spawnRadius = 10; // Minimum distance from the player
     [SerializeField] private int maxGhosts = 10; // Maximum number of ghosts allowed
-    private float spawnInterval = 5f; // Time interval between spawns
-    private int ghostCount= 0; //Current ghost count
+    [SerializeField] private int spawnInterval = 5; // Time interval between spawns
+    private int ghostCount = 0; //Current ghost count
 
     public enum MonsterType
     {
@@ -66,7 +67,7 @@ public class MonsterFactory : MonoBehaviour
             Vector3 potentialPosition = new Vector3(x, y, 0);
 
             // Check if the position is off-screen
-            if (!IsInView(potentialPosition))
+            if (!IsInView(potentialPosition) && IsInBoundaries(potentialPosition)) // && inside boundaries
             {
                 // Check if the position is outside the safe radius from the player
                 if (Vector3.Distance(playerPos, potentialPosition) >= spawnRadius)
@@ -86,6 +87,20 @@ public class MonsterFactory : MonoBehaviour
         return screenPoint.x >= 0 && screenPoint.x <= 1 && screenPoint.y >= 0 && screenPoint.y <= 1;
     }
 
+    bool IsInBoundaries(Vector3 position)
+    {
+        bool xBoundary = position.x >= -42f && position.x <= 16f;
+        bool yBoundary = position.y >= -41f && position.y <= 34f;
+        if (xBoundary && yBoundary)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public GameObject SpawnMonsterAtPosition(MonsterType type, Vector3 position)
     {
         GameObject monsterInstance = null;
@@ -100,4 +115,28 @@ public class MonsterFactory : MonoBehaviour
         }
         return monsterInstance;
     }
+
+    public void IncrementDecrementGhostCount(bool adjust)
+    {
+        if (adjust)
+        {
+            ++ghostCount;
+        }
+        else
+        {
+            --ghostCount;
+        }
+    }
 }
+
+
+/*
+The factory pattern is great for when you're going to have multiple instances of objects that all inherit from a
+common superclass because it allows for creation of objects at runtime, allowing for dynamic spawining of ememies
+during gameplay.
+*/
+
+/*
+A bad choice to use the pattern would be where you have a situation where you are only spawing one type of object
+that isn't going to change. This would add unnecesary complexity to your code.
+*/
