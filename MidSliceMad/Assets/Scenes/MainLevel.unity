@@ -885,6 +885,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5432415432894196773, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
       propertyPath: m_Name
       value: NPC
@@ -4885,6 +4909,14 @@ PrefabInstance:
     - target: {fileID: 3586172014901122088, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
       propertyPath: m_Name
       value: Ghost Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470856808378317297, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
+      propertyPath: attackDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470856808378317297, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
+      propertyPath: despawnRadius
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

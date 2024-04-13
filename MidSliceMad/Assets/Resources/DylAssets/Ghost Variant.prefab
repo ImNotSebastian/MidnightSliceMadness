@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3586172014901122088}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.68, y: 1.47, z: -1}
+  m_LocalPosition: {x: 5.68, y: 1.47, z: 0}
   m_LocalScale: {x: 4.88, y: 4.88, z: 4.88}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -165,11 +165,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 5
   speed: 3
+  incapacitateDuration: 3
   attackDamage: 10
   bounceForce: 1
   bounceCooldown: 1
   wanderRadius: 2
-  incapacitateDuration: 3
+  despawnRadius: 17
+  maxAttacks: 3
 --- !u!61 &2951370383452546772
 BoxCollider2D:
   m_ObjectHideFlags: 0
