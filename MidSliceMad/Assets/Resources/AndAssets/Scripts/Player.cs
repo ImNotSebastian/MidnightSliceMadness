@@ -184,6 +184,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void SetPizzaGameObject(GameObject newPizzaGameObject){
+        pizzaGameObject = newPizzaGameObject;
+    }
+
+    public void SetCurrentPizzaObject(CrudePizza newCurrentPizzaObject)
+    {
+        currentPizzaObject = newCurrentPizzaObject;
+    }
+
     public GameObject GetInventory()
     {
         inventory = GameObject.Find("Inventory");
@@ -193,6 +202,14 @@ public class Player : MonoBehaviour
     public bool GetPlayerHasPizza()
     {
         return playerHasPizza;
+    }
+
+    public void SetPlayerHasPizza(bool newPlayerHasPizza){
+        playerHasPizza = newPlayerHasPizza;
+    }
+
+    public int GetPizzaOrderNumber(){
+        return pizzaOrderNumber;
     }
 
     public void SetPlayerPizzaOrderNumber(int requestPizzaTypeInput)
@@ -212,6 +229,11 @@ public class Player : MonoBehaviour
     public bool GetPizzaDeliveryTimerRanOutCalled()
     {
         return pizzaDeliveryTimerRanOutCalled;
+    }
+
+    public void SetPizzaDeliveryTimerRanOutCalled(bool newPizzaDeliveryTimerRanOutCalled)
+    {
+        pizzaDeliveryTimerRanOutCalled = newPizzaDeliveryTimerRanOutCalled;
     }
     
     //*/
