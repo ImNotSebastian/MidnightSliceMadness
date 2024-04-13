@@ -17,22 +17,23 @@ public class VehicleController : MonoBehaviour
     // Private Variables
     [SerializeField] private Semi3DAnimation vehicleAnimation;
 
-    [SerializeField] private float driftFactor;
-    [SerializeField] private float accelerationFactor;
-    [SerializeField] private float turnFactor;
-    [SerializeField] private float maxSpeed;
-    [SerializeField] private float reverseSpeed;
+    [SerializeField] protected float driftFactor;
+    [SerializeField] protected float accelerationFactor;
+    [SerializeField] protected float turnFactor;
+    [SerializeField] protected float maxSpeed;
+    [SerializeField] protected float reverseSpeed;
+    [SerializeField] protected float turningDifficulty;
 
     // Local Variables
-    private float accelerationInput = 0;
-    private float steeringInput = 0;
+    protected float accelerationInput = 0;
+    protected float steeringInput = 0;
 
-    private float rotationAngle = 0;
+    protected float rotationAngle = 0;
 
-    private float velocityVsUp = 0;
+    protected float velocityVsUp = 0;
 
     // Components
-    private Rigidbody2D vehicleRigidBody2D;
+    protected Rigidbody2D vehicleRigidBody2D;
 
     // Awake is called when the script is being loaded
     private void Awake()
@@ -94,10 +95,14 @@ public class VehicleController : MonoBehaviour
     }
 
     // Rotates the bicycle based upon the steeringInput
-    private void ApplySteering()
+    public virtual void ApplySteering()
     {
+        // Limit the vehicles ability to turn when moving slowly
+        float minSpeedBeforeAllowTurning = (vehicleRigidBody2D.velocity.magnitude / turningDifficulty);
+        minSpeedBeforeAllowTurning = Mathf.Clamp01(minSpeedBeforeAllowTurning);
+
         // Update the rotation angle based on input
-        rotationAngle -= steeringInput * turnFactor;
+        rotationAngle -= steeringInput * turnFactor * minSpeedBeforeAllowTurning;
 
         // Apply steering by rotation the bicycle
         vehicleRigidBody2D.MoveRotation(rotationAngle);
