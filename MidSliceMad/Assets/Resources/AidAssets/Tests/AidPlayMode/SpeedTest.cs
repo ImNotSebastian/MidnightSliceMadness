@@ -25,10 +25,10 @@ public class SpeedTest
     {
         playerObject = new GameObject();
         rigidbody = playerObject.AddComponent<Rigidbody2D>();
-        playerObject.AddComponent<BicycleController>();
+        playerObject.AddComponent<VehicleController>();
 
         yield return null;
-        BicycleController script = playerObject.GetComponent<BicycleController>();
+        VehicleController script = playerObject.GetComponent<VehicleController>();
 
         float speed = rigidbody.velocity.magnitude;
 

@@ -17,15 +17,15 @@ public class CollisionScript : MonoBehaviour
     [SerializeField] private TMP_Text speedText;
 
     // Components
-    private BicycleController bicycleController;
+    private VehicleController vehicleController;
     private float inputSpeed;
 
     // Awake is called when the script is being loaded
     void Awake()
     {
-        bicycleController = GetComponent<BicycleController>();
+        vehicleController = GetComponent<VehicleController>();
         inputSpeed = 1;
-        speedText.text = "Max Speed: " + bicycleController.GetMaxSpeed().ToString();        
+        speedText.text = "Max Speed: " + vehicleController.GetMaxSpeed().ToString();        
     }
 
     // Update is called once per frame
@@ -39,12 +39,12 @@ public class CollisionScript : MonoBehaviour
         */ 
         if (objectPosition.y < 4)
         {
-            bicycleController.SetInputVector(new Vector2(0, inputSpeed));
+            vehicleController.SetInputVector(new Vector2(0, inputSpeed));
         }
         else
         {
-            bicycleController.SetInputVector(Vector2.zero);
-            speedText.text = "Max Speed Breakpoint: " + bicycleController.GetMaxSpeed().ToString();
+            vehicleController.SetInputVector(Vector2.zero);
+            speedText.text = "Max Speed Breakpoint: " + vehicleController.GetMaxSpeed().ToString();
         }
     }
 
@@ -52,9 +52,9 @@ public class CollisionScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         transform.position = new Vector3(0, -4, 0);
-        bicycleController.SetMaxSpeed(bicycleController.GetMaxSpeed() * 2);
+        vehicleController.SetMaxSpeed(vehicleController.GetMaxSpeed() * 2);
         inputSpeed *= 2;
 
-        speedText.text = "Max Speed: " + bicycleController.GetMaxSpeed().ToString();
+        speedText.text = "Max Speed: " + vehicleController.GetMaxSpeed().ToString();
     }
 }
