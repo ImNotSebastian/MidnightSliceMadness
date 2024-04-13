@@ -3,23 +3,23 @@ Name: Aiden Shepard
 Role: Team Lead 3 -- QA Manager
 Project: Midnight Slice Madness
 
-This file records the player's input for the bicycle 
-and then sends the information to BicycleController to move the player
+This file records the player's input for the vehicle
+and then sends the information to VehicleController to move the player
 */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BicycleInputHandler : MonoBehaviour
+public class VehicleInputHandler : MonoBehaviour
 {
     // Components
-    private BicycleController BicycleController;
+    private VehicleController vehicleController;
 
     // Awake is called when the script is being loaded
     void Awake()
     {
-        BicycleController = GetComponent<BicycleController>();
+        vehicleController = GetComponent<VehicleController>();
     }
 
     // Update is called once per frame
@@ -31,6 +31,6 @@ public class BicycleInputHandler : MonoBehaviour
         inputVector.x = Input.GetAxis("Horizontal");
         inputVector.y = Input.GetAxis("Vertical");
 
-        BicycleController.SetInputVector(inputVector);
+        vehicleController.SetInputVector(inputVector);
     }
 }
