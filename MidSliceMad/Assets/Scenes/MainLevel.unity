@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0e84f33223e2c4983e976466d407a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requestPizzaMenuUI: {fileID: 1797213633}
+  requestPizzaMenuUIReference: {fileID: 1797213633}
 --- !u!4 &164376464
 Transform:
   m_ObjectHideFlags: 0
@@ -884,6 +884,30 @@ PrefabInstance:
     - target: {fileID: 3522657216267660880, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374955014441514127, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5432415432894196773, guid: 57b5ab8fb55a84905ac323656610d169, type: 3}
       propertyPath: m_Name
@@ -2068,6 +2092,7 @@ MonoBehaviour:
   spawnPizzaCameraOffsetY: -1
   spawnPizzaCameraOffsetZ: 9
   pizzaOrderNumber: 1
+  pizzaDeliveryTimerRanOutCalled: 0
 --- !u!114 &587715384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4890,6 +4915,14 @@ PrefabInstance:
     - target: {fileID: 3586172014901122088, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
       propertyPath: m_Name
       value: Ghost Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470856808378317297, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
+      propertyPath: attackDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470856808378317297, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
+      propertyPath: despawnRadius
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19055,6 +19088,7 @@ MonoBehaviour:
   ghostPrefab: {fileID: 3586172014901122088, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
   spawnRadius: 3
   maxGhosts: 10
+  spawnInterval: 5
 --- !u!114 &2019158223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19069,6 +19103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1804138056}
   timeLeftText: {fileID: 1233552478}
+  _player: {fileID: 0}
 --- !u!4 &2019158224
 Transform:
   m_ObjectHideFlags: 0

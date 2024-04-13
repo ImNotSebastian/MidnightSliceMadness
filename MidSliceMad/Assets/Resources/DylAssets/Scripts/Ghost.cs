@@ -21,6 +21,7 @@ public class Ghost : Monster
     protected override void Update()
     {
         PursuePlayer();
+        DistanceDespawn();
     }
 
     protected override IEnumerable Incapacitate()

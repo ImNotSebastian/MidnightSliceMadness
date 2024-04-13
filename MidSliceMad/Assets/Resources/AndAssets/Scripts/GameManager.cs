@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public GameState _gameState;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeLeftText;
-    private Player _player;
+    public Player _player;
 
     public static GameManager instance { get; private set; } // GameManager instance object can be get publicly but set privately
 
