@@ -2105,7 +2105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2111b47ea6ffe4b9cf2cbee5fa9501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bicycleAnimation: {fileID: 298818561}
+  vehicleAnimation: {fileID: 298818561}
   driftFactor: 0.5
   accelerationFactor: 4
   turnFactor: 2.5
