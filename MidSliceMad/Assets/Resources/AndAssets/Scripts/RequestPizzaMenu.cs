@@ -1,3 +1,12 @@
+/*
+Name: Andrew Plum
+Role: Team Lead 4 -- Project Manager
+Project: Midnight Slice Madness
+This file contains the definition for the RequestPizzaMenu Class
+This class is used to manage the player interactions of the pizza ordering menu
+It inherits from MonoBehaviour
+*/
+
 ///*
 using System.Collections;
 using System.Collections.Generic;

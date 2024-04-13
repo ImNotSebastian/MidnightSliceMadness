@@ -7,9 +7,9 @@ public class SoundFxManager : MonoBehaviour
 {
 
 
-     [SerializeField] private AudioSource soundFXobj;
+    [SerializeField] private AudioSource soundFXobj;
 
-    public static SoundFxManager instance;
+    public static SoundFxManager Instance;
 
 
     //make Class a singleton
@@ -17,16 +17,21 @@ public class SoundFxManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+
+        
+
+        Debug.Log($"Initializing Singleton");
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject); // Ensure that the singleton persists between scene changes
+            
         }
         else
         {
             Destroy(gameObject); // Destroy additional instances
         }
-}
+    }
 
 
    
@@ -40,6 +45,8 @@ public class SoundFxManager : MonoBehaviour
     //pass the audioclip you want to play for ac
    public void playSFX(AudioClip ac, Transform ts, float volume)
    {
+
+        Debug.Log($"Playing Sfx");
         //spawn gameobj
         AudioSource audioSource = Instantiate(soundFXobj, ts.position, Quaternion.identity);
 

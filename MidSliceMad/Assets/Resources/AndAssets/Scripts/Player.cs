@@ -1,3 +1,14 @@
+/*
+Name: Andrew Plum
+Role: Team Lead 4 -- Project Manager
+Project: Midnight Slice Madness
+This file contains the definition for the Player Class
+This class is used for the Player interactions in the main gameplay loop
+This includes things like requesting, generating, and
+delivering a pizza as well as scoring points
+It inherits from MonoBehaviour
+*/
+
 ///*
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +25,7 @@ public class Player : MonoBehaviour
     private GameObject pizzaPrefab;
     private GameObject pizzaGameObject; // This is the object that will be instantiated from the prefab in the scene
     private CrudePizza currentPizzaObject; // This is the respective pizza class object
+    public bool pizzaDeliveryTimerRanOutCalled = false;
 
     public void Start()
     {
@@ -150,6 +162,7 @@ public class Player : MonoBehaviour
             GameManager.instance.DecreaseScore(currentPizzaObject.GetScorePenalty());
             GameManager.instance.DisplayScoreText();
             currentPizzaObject = null;
+            pizzaDeliveryTimerRanOutCalled = true;
             Debug.Log("Pizza Delivery Timer Ran Out");
         }
         else
@@ -195,6 +208,12 @@ public class Player : MonoBehaviour
             //Debug.Log("Pick-Up");
         }
     }
+
+    public bool GetPizzaDeliveryTimerRanOutCalled()
+    {
+        return pizzaDeliveryTimerRanOutCalled;
+    }
+    
     //*/
 }
 //*/

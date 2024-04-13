@@ -1,3 +1,13 @@
+/*
+Name: Andrew Plum
+Role: Team Lead 4 -- Project Manager
+Project: Midnight Slice Madness
+This file contains the definition for the Inventory Class
+This class is used to help display what is contained in 
+the player's inventory (which should be a pizza)
+It inherits from MonoBehaviour
+*/
+
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
