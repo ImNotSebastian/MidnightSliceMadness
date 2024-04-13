@@ -188,6 +188,10 @@ public class Player : MonoBehaviour
         pizzaGameObject = newPizzaGameObject;
     }
 
+    public CrudePizza GetCurrentPizzaObject(){
+        return currentPizzaObject;
+    }
+
     public void SetCurrentPizzaObject(CrudePizza newCurrentPizzaObject)
     {
         currentPizzaObject = newCurrentPizzaObject;
