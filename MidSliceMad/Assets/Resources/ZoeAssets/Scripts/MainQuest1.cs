@@ -87,4 +87,11 @@ public class MainQuest1 : Quest
         questMessage.text = "Quest Complete!";
         NotifyManager(this);
     }
+
+    public bool CheckPlayerPizza()
+    {
+        return GameObject.Find("PlayerBicycle").GetComponent<Player>().GetPlayerHasPizza();
+    }
+
+
 }
