@@ -1,3 +1,11 @@
+/*
+Name: Zoe Abbott
+Role: Team Lead 2: Software Architect 
+Project: Midnight Slice Madness
+
+The Quest Manager will manage quest status and which quest
+is the currently active quest.
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +18,9 @@ public class QuestManager : MonoBehaviour
     public Quest MainQuest2;
     public Quest MainQuest3;
     public Quest MainQuest4;
-
     public Quest currentQuest;
-    // Start is called before the first frame update
+
+    private bool questProgress;
 
     //QuestRecieve will receieve current quest data and pass it along to the Quest Observer
     public void QuestRecieve(Quest quest)
@@ -25,6 +33,7 @@ public class QuestManager : MonoBehaviour
     {
         currentQuest = MainQuest1;
         currentQuest.SetQuestAttributes();
+        questProgress = currentQuest.CheckPlayerPizza();
     }
 
     // Update is called once per frame
@@ -32,7 +41,11 @@ public class QuestManager : MonoBehaviour
     {
         QuestRecieve(currentQuest);
         QuestGlorietta();
-        currentQuest.CheckPlayerPizza();
+        if (questProgress != currentQuest.CheckPlayerPizza())
+        {
+            questProgress = currentQuest.CheckPlayerPizza();
+            currentQuest.ChangeQuestProgress();
+        }
     }
     //A quest glorietta created to start the next quest when one ends
     void QuestGlorietta()

@@ -37,7 +37,7 @@ public class MainQuest1 : Quest
     * The function ChangeQuestProgress will run the change process between 
     * quest states using questProgress at 0,1,2.
     */
-    void ChangeQuestProgress()
+    public void ChangeQuestProgress()
     {
         switch(questProgress)
         {
