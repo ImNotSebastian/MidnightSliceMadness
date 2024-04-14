@@ -6052,6 +6052,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3466979264233962614, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5541127902433735518, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -8574,6 +8578,10 @@ PrefabInstance:
     - target: {fileID: 3466979264233962614, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466979264233962614, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5541127902433735518, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
       propertyPath: m_Sprite
@@ -16785,6 +16793,10 @@ PrefabInstance:
     - target: {fileID: 3466979264233962614, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466979264233962614, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5541127902433735518, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
       propertyPath: m_Sprite
@@ -31227,6 +31239,10 @@ PrefabInstance:
     - target: {fileID: 3466979264233962614, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
       propertyPath: m_Name
       value: BlueHouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466979264233962614, guid: 142b8f6b494fe664c91d69ddc7c08821, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
