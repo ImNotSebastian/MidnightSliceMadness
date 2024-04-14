@@ -14,7 +14,7 @@ This class is a private class data pattern class
 public class NPCSys
 {
     private string name;
-    private int affinity;
+
 
     private int posX = 0;
     private int posY = 0;
@@ -23,32 +23,34 @@ public class NPCSys
     public NPCSys()
     {
         name = "Default";
-        affinity = 0;
     }
 
 
-    public NPCSys(string newName, int x, int xCoord, int yCoord)
+    public NPCSys(string newName, int xCoord, int yCoord)
     {
         name = newName;
-        affinity = x;
         posX = xCoord;
         posY = yCoord;
     }
 
 
     //getters
-    public int getAffinity()
+    public string getName()
     {
-        return affinity;
+        return name;
+    }
+
+
+    public int getPosX()
+    {
+        return posX;
+    }
+    public int getPosY()
+    {
+        return posY;
     }
 
     //setters
-    public void setAffinity(int x)
-    {
-        affinity = x;
-    }
-
-
     public void setPos(int x, int y)
     {
         posX = x;
@@ -60,5 +62,39 @@ public class NPCSys
         name = newName;
     }
 
+    // Virtual method for interaction
+    public virtual void Interact()
+    {
+        //need to call start dialogue from here based on which npc it is
+        //Debug.Log("NPCSys: Basic interaction with NPC.");
+    }
+
 }
 
+public class RomanceNPCSys : NPCSys
+{
+    private int affinity;
+
+    //constructors
+    public RomanceNPCSys()
+    {
+        name = "Default";
+        affinity = 0;
+    }
+
+    public void setAffinity(int x)
+    {
+        affinty = x;
+    }
+    public int getAffinity()
+    {
+        return affinty;
+    }
+
+    // Override the Interact method from the base class
+    public override void Interact()
+    {
+        //need to call start dialogue from here based on which npc it is, and the affinity score
+        //Debug.Log("RomanceNPCSys: Romantic interaction with NPC.");
+    }
+}
