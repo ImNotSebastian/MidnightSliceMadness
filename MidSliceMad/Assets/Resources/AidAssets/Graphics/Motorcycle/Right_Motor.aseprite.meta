@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e2ce24592fa5ee47a49759e0c30afa6
+guid: e5025b5971f8278498c9aa4ced7bdbd8
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,8 +123,8 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Right_Motor_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 30
       height: 32
-    spriteID: 93df744a35a15464c8030e718fdd9e7a
+    spriteID: 075b4c4871c8eb444bee041d78f902c0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -143,8 +143,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Right_Motor_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 44
       width: 30
       height: 32
-    spriteID: dd3631ba530b94a4a9c67096099d0182
+    spriteID: 6097b936ca7a30a45b8cc0b7146cd75e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -163,8 +163,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 44}
   - name: Right_Motor_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 84
       width: 30
       height: 32
-    spriteID: 8ad22d10e9134d84693dfd12779ddbaf
+    spriteID: 2cbf37309687af94bb3563c5b6df0d5b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -197,7 +197,7 @@ ScriptedImporter:
         y: 0
         width: 30
         height: 32
-      spriteId: 93df744a35a15464c8030e718fdd9e7a
+      spriteId: 075b4c4871c8eb444bee041d78f902c0
     - name: Right_Motor_Frame_1
       frameIndex: 1
       cellRect:
@@ -205,7 +205,7 @@ ScriptedImporter:
         y: 0
         width: 30
         height: 32
-      spriteId: dd3631ba530b94a4a9c67096099d0182
+      spriteId: 6097b936ca7a30a45b8cc0b7146cd75e
     - name: Right_Motor_Frame_2
       frameIndex: 2
       cellRect:
@@ -213,7 +213,7 @@ ScriptedImporter:
         y: 0
         width: 30
         height: 32
-      spriteId: 8ad22d10e9134d84693dfd12779ddbaf
+      spriteId: 2cbf37309687af94bb3563c5b6df0d5b
     linkedCells: []
     parentIndex: -1
   platformSettings: []
