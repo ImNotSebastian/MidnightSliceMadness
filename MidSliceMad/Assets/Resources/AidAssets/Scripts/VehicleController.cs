@@ -34,11 +34,13 @@ public class VehicleController : MonoBehaviour
 
     // Components
     protected Rigidbody2D vehicleRigidBody2D;
+    CarSurfaceHandler carSurfaceHandler;
 
     // Awake is called when the script is being loaded
     private void Awake()
     {
         vehicleRigidBody2D = GetComponent<Rigidbody2D>();
+        carSurfaceHandler = GetComponent<CarSurfaceHandler>();
     }
 
     // Frame-rate independent for phsyics calculations.
@@ -80,11 +82,22 @@ public class VehicleController : MonoBehaviour
         // Apply drag if there is no accelerationInput so bike slows down without input
         if(accelerationInput ==  0)
         {
-            vehicleRigidBody2D.drag = Mathf.Lerp(vehicleRigidBody2D.drag, 3.0f, Time.fixedDeltaTime * 3);
+            vehicleRigidBody2D.drag = Mathf.Lerp(vehicleRigidBody2D.drag, 10.0f, Time.fixedDeltaTime * 3);
         }
         else
         {
-            vehicleRigidBody2D.drag = 0;
+            vehicleRigidBody2D.drag = Mathf.Lerp(vehicleRigidBody2D.drag, 0, Time.fixedDeltaTime * 10);
+        }
+
+        // Apply more drag depending on surface
+        switch (GetSurface())
+        {
+            case Surface.SurfaceTypes.Dirt:
+                vehicleRigidBody2D.drag = Mathf.Lerp(vehicleRigidBody2D.drag, 8.0f, Time.fixedDeltaTime * 3);
+                break;
+            case Surface.SurfaceTypes.Grass:
+                vehicleRigidBody2D.drag = Mathf.Lerp(vehicleRigidBody2D.drag, 7.0f, Time.fixedDeltaTime * 2);
+                break;
         }
 
         // Create a force
@@ -111,10 +124,25 @@ public class VehicleController : MonoBehaviour
     // Eliminates side velocity so the bicycle responds more accurately and less like a space ship
     private void RemoveSideVelocity()
     {
+        // Get forward and right velocity of the car
         Vector2 forwardVelocity = transform.up * Vector2.Dot(vehicleRigidBody2D.velocity, transform.up);
         Vector2 rightVelocity = transform.right * Vector2.Dot(vehicleRigidBody2D.velocity, transform.right);
 
-        vehicleRigidBody2D.velocity = forwardVelocity + rightVelocity * driftFactor;
+        float currentDriftFactor = driftFactor;
+
+        // Apply more drag depending on surface
+        switch (GetSurface())
+        {
+            case Surface.SurfaceTypes.Grass:
+                currentDriftFactor *= 0.95f;
+                break;
+            case Surface.SurfaceTypes.Dirt:
+                currentDriftFactor *= 1.05f;
+                break;
+        }
+
+        // Remove side velocity based on how much the car should drift.
+        vehicleRigidBody2D.velocity = forwardVelocity + rightVelocity * currentDriftFactor;
     }
 
     // Changes the sprite based on it's rotation to create a 3D effect
@@ -162,6 +190,11 @@ public class VehicleController : MonoBehaviour
     {
         steeringInput = inputVector.x;
         accelerationInput = inputVector.y;
+    }
+
+    public Surface.SurfaceTypes GetSurface()
+    {
+        return carSurfaceHandler.GetCurrentSurface();
     }
 
     // Sets the maxSpeed to the input variable newSpeed

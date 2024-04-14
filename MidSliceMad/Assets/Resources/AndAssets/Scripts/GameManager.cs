@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     public void DisplayScoreText()
     {
-        Debug.Log(scoreText.text);
+        //Debug.Log(scoreText.text);
     }
 
     public void StartPizzaDeliveryTimer(float pizzaDeliveryTimeLimit)

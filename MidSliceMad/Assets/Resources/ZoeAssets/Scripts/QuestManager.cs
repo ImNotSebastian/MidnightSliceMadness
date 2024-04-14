@@ -15,7 +15,7 @@ public class QuestManager : MonoBehaviour
 {
     public Quest TutorialQuest;
     public Quest MainQuest1 = new MainQuest1();
-    public Quest MainQuest2;
+    public Quest MainQuest2 = new MainQuest2();
     public Quest MainQuest3;
     public Quest MainQuest4;
     public Quest currentQuest;
@@ -53,9 +53,9 @@ public class QuestManager : MonoBehaviour
         
     }
     //A quest glorietta created to start the next quest when one ends
-    public void QuestGlorietta()
+    public void QuestGlorietta(string qName)
     {
-        switch (currentQuest.QuestName)
+        switch (qName)
         {
             case "TutorialQuest":
                 currentQuest = MainQuest1;
@@ -76,27 +76,44 @@ public class QuestManager : MonoBehaviour
                 break;
         }
     }
-    //Quest selector for debugging.
-    void QuestSelector(int quest)
+    //Quest selector
+    public void QuestSelector(int quest)
     {
+        Debug.Log("Quest Selector Started.");
         switch (quest)
         {
             case 0:
                 currentQuest = TutorialQuest;
+                currentQuest.SetQuestAttributes();
+                questProgress = false;
+                Debug.Log("Tutorial Quest Start.");
                 break;
             case 1:
                 currentQuest = MainQuest1;
+                currentQuest.SetQuestAttributes();
+                questProgress = false;
+                Debug.Log("Main Quest 1 Start.");
                 break;
             case 2:
                 currentQuest = MainQuest2;
+                currentQuest.SetQuestAttributes();
+                questProgress = false;
+                Debug.Log("Main Quest 2 Start.");
                 break;
             case 3:
                 currentQuest = MainQuest3;
+                currentQuest.SetQuestAttributes();
+                questProgress = false;
+                Debug.Log("Main Quest 3 Start.");
                 break;
             case 4:
                 currentQuest = MainQuest3;
+                currentQuest.SetQuestAttributes();
+                questProgress = false;
+                Debug.Log("Main Quest 4 Start.");
                 break;
             default:
+            currentQuest.SetQuestAttributes();
                 Debug.LogError("Quest Number Not Found");
                 break;
         }

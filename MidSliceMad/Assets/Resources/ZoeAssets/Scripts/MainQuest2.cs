@@ -18,7 +18,7 @@ using PlasticPipe.PlasticProtocol.Messages;
 using TMPro;
 using UnityEngine;
 
-public class MainQuest1 : Quest
+public class MainQuest2 : Quest
 {
     
     //FindObserver sets the game object observer to the observer in the scene.
@@ -50,7 +50,7 @@ public class MainQuest1 : Quest
                 SetQuestProgressComplete();
                 break;
             default:
-                GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta("MainQuest1");
+                GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta("MainQuest2");
                 break;
         }
     }
@@ -64,7 +64,7 @@ public class MainQuest1 : Quest
         questMessage = GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().questDisplayGame;
         questMessage.text = "Quest:<br>Pick up a pizza to deliver.";
         destination = GameObject.Find("OutPizza");
-        questName = "MainQuest1";
+        questName = "MainQuest2";
         questProgress = 0;
         NotifyManager(this);
     }
@@ -75,8 +75,8 @@ public class MainQuest1 : Quest
     */
     public override void SetQuestProgress1()
     {
-        questMessage.text = "Quest:<br>Deliver the pizza to The Blue House";
-        destination = GameObject.Find("BlueHouse");
+        questMessage.text = "Quest:<br>Deliver the pizza to the VeryMuchNotAlien's Home";
+        destination = GameObject.Find("WooshMachine");
         NotifyManager(this);
     }
     /*
@@ -86,7 +86,7 @@ public class MainQuest1 : Quest
     public override void SetQuestProgressComplete()
     {
         questMessage.text = "Quest Complete!";
-        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(2);
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta("MainQuest2");
         NotifyManager(this);
     }
 
