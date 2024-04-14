@@ -96,7 +96,7 @@ public class VehicleController : MonoBehaviour
                 vehicleRigidBody2D.drag = Mathf.Lerp(vehicleRigidBody2D.drag, 8.0f, Time.fixedDeltaTime * 3);
                 break;
             case Surface.SurfaceTypes.Grass:
-                vehicleRigidBody2D.drag = Mathf.Lerp(vehicleRigidBody2D.drag, 6.5f, Time.fixedDeltaTime * 2);
+                vehicleRigidBody2D.drag = Mathf.Lerp(vehicleRigidBody2D.drag, 7.0f, Time.fixedDeltaTime * 2);
                 break;
         }
 
