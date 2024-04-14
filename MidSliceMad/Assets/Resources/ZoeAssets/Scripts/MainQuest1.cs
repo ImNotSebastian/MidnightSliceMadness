@@ -49,8 +49,8 @@ public class MainQuest1 : Quest
                 questProgress += 1;
                 SetQuestProgressComplete();
                 break;
-            case 2:
-                GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta();
+            default:
+                GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta("MainQuest1");
                 break;
         }
     }
@@ -62,7 +62,7 @@ public class MainQuest1 : Quest
     {
         FindObserver();
         questMessage = GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().questDisplayGame;
-        questMessage.text = "Pick up a pizza to deliver.";
+        questMessage.text = "Quest:<br>Pick up a pizza to deliver.";
         destination = GameObject.Find("OutPizza");
         questName = "MainQuest1";
         questProgress = 0;
@@ -86,6 +86,7 @@ public class MainQuest1 : Quest
     public override void SetQuestProgressComplete()
     {
         questMessage.text = "Quest Complete!";
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(2);
         NotifyManager(this);
     }
 

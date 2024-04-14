@@ -49,8 +49,8 @@ public class MainQuest2 : Quest
                 questProgress += 1;
                 SetQuestProgressComplete();
                 break;
-            case 2:
-                GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta();
+            default:
+                GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta("MainQuest2");
                 break;
         }
     }
@@ -62,9 +62,9 @@ public class MainQuest2 : Quest
     {
         FindObserver();
         questMessage = GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().questDisplayGame;
-        questMessage.text = "Pick up a pizza to deliver.";
+        questMessage.text = "Quest:<br>Pick up a pizza to deliver.";
         destination = GameObject.Find("OutPizza");
-        questName = "MainQuest1";
+        questName = "MainQuest2";
         questProgress = 0;
         NotifyManager(this);
     }
@@ -75,8 +75,8 @@ public class MainQuest2 : Quest
     */
     public override void SetQuestProgress1()
     {
-        questMessage.text = "Quest:<br>Deliver the pizza to the NotAlien's Home";
-        destination = GameObject.Find("BlueHouse");
+        questMessage.text = "Quest:<br>Deliver the pizza to the VeryMuchNotAlien's Home";
+        destination = GameObject.Find("WooshMachine");
         NotifyManager(this);
     }
     /*
@@ -86,6 +86,7 @@ public class MainQuest2 : Quest
     public override void SetQuestProgressComplete()
     {
         questMessage.text = "Quest Complete!";
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta("MainQuest2");
         NotifyManager(this);
     }
 
