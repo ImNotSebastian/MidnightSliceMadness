@@ -17,7 +17,7 @@ using UnityEngine.PlayerLoop;
 public class Observer : MonoBehaviour
 {
 
-    public void ObserverUpdate(Quest quest) 
+    public virtual void ObserverUpdate(Quest quest) 
     {
         GameObject.Find("Observer").GetComponent<HUDObserver>().RecieveData(quest);
     }

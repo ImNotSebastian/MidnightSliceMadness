@@ -22,6 +22,7 @@ public class MonsterFactory : MonoBehaviour
     [SerializeField] private int maxGhosts = 10; // Maximum number of ghosts allowed
     [SerializeField] private int spawnInterval = 5; // Time interval between spawns
     private int ghostCount = 0; //Current ghost count
+    private static bool spawningEnabled = true;
 
     public enum MonsterType
     {
@@ -45,7 +46,7 @@ public class MonsterFactory : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInterval);
             Vector3 spawnPosition = GenerateSpawnPosition();
-            if (spawnPosition != Vector3.zero && ghostCount <= maxGhosts)
+            if (spawnPosition != Vector3.zero && ghostCount <= maxGhosts && spawningEnabled)
             {
                 SpawnMonsterAtPosition(MonsterType.Ghost, spawnPosition);
                 ghostCount++;
@@ -125,6 +126,18 @@ public class MonsterFactory : MonoBehaviour
         else
         {
             --ghostCount;
+        }
+    }
+
+    public void ToggleSpawning(bool toggle)
+    {
+        if (toggle)
+        {
+            spawningEnabled = true;
+        }
+        else
+        {
+            spawningEnabled = false;
         }
     }
 }

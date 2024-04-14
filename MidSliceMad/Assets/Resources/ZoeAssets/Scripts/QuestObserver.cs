@@ -13,7 +13,7 @@ using TMPro;
 
 public class QuestObserver : Observer
 {
-    public void ObserverUpdate(Quest quest)
+    public override void ObserverUpdate(Quest quest)
     {
         GameObject.Find("Observer").GetComponent<Observer>().ObserverUpdate(quest);
     }

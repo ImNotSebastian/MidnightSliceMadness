@@ -16,20 +16,32 @@ public class DRBCMode : MonoBehaviour
 {
     // Reference to the TextMeshPro component
     [SerializeField]  private TextMeshProUGUI buttonText;
-    private string textOne = "Dr. BC Mode: Off";
-    private string textTwo = "Dr. BC Mode: On";
-    private bool toggle = false;
+    private string modeOff = "Dr. BC Mode: Off";
+    private string modeOn = "Dr. BC Mode: On";
+    private static bool toggle = false;
+    private MonsterFactory monsterFactory;
+
+    protected void Start()
+    {
+        monsterFactory = FindObjectOfType<MonsterFactory>();
+        if (toggle == true)
+        {
+            buttonText.text = modeOn;
+        }
+    }
 
     // Function to toggle the text
     public void ToggleDRBCMode()
     {
         if (toggle)
         {
-            buttonText.text = textOne; // Set the text to Text 1
+            buttonText.text = modeOff; // Set the text to Dr. BC Mode: Off
+            monsterFactory.ToggleSpawning(true);
         }
         else
         {
-            buttonText.text = textTwo; // Set the text to Text 2
+            buttonText.text = modeOn; // Set the text to Dr. BC Mode: On
+            monsterFactory.ToggleSpawning(false);
         }
         toggle = !toggle; // Switch the toggle state
     }
