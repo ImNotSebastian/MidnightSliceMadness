@@ -15,12 +15,12 @@ using UnityEngine.UIElements;
 
 public class MonsterFactory : MonoBehaviour
 {
-    [SerializeField] private Transform playerTransform; // Assign this in the Inspector
     [SerializeField] private GameObject ghostPrefab;
     // Additional monster prefabs...
     [SerializeField] private int spawnRadius = 10; // Minimum distance from the player
     [SerializeField] private int maxGhosts = 10; // Maximum number of ghosts allowed
     [SerializeField] private int spawnInterval = 5; // Time interval between spawns
+    private Transform playerTransform; // Assign this in the Inspector
     private int ghostCount = 0; //Current ghost count
     private static bool spawningEnabled = true;
 
@@ -32,12 +32,19 @@ public class MonsterFactory : MonoBehaviour
 
     void Start()
     {
+        playerTransform = FindObjectOfType<VehicleController>().transform;
+
         if (playerTransform == null)
         {
             Debug.LogError("Player Transform is not assigned in MonsterFactory.");
             return;
         }
         StartCoroutine(SpawnMonsters());
+    }
+
+    private void Update()
+    {
+        playerTransform = FindObjectOfType<VehicleController>().transform;
     }
 
     IEnumerator SpawnMonsters()
