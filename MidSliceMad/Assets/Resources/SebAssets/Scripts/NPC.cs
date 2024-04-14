@@ -29,7 +29,7 @@ public class NPC : MonoBehaviour
     private ChatSys chatSys;
 
 
-
+    private GameObject player;
 
 
 
@@ -64,6 +64,11 @@ public class NPC : MonoBehaviour
         {
             flipTimer++;
         }
+
+
+        player = FindObjectOfType<VehicleController>().gameObject;
+
+        //FindObjectOfType<VehicleController>().transform;
     }
 
 
@@ -74,7 +79,7 @@ public class NPC : MonoBehaviour
     protected void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log($"Collided with NPC.");
-        GameObject player = GameObject.Find("PlayerBicycle");
+        
 
         if (collision.gameObject == player)
         {//start dialogue

@@ -59,7 +59,7 @@ public class SoundFxManager : MonoBehaviour
    public void playSFX(AudioClip ac, Transform ts, float volume)
    {
 
-        Debug.Log($"Playing Sfx");
+      //  Debug.Log($"Playing Sfx");
         //spawn gameobj
         AudioSource audioSource = Instantiate(soundFXobj, ts.position, Quaternion.identity);
 
