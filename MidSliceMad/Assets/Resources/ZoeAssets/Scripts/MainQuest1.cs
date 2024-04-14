@@ -50,6 +50,7 @@ public class MainQuest1 : Quest
                 SetQuestProgressComplete();
                 break;
             case 2:
+                GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta();
                 break;
         }
     }

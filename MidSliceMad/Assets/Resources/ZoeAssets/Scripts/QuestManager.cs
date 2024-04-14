@@ -39,16 +39,21 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(currentQuest == null)
+        {
+            Debug.Log("No Active Quest.");
+        }
         QuestRecieve(currentQuest);
-        QuestGlorietta();
+        
         if (questProgress != currentQuest.CheckPlayerPizza())
         {
             questProgress = currentQuest.CheckPlayerPizza();
             currentQuest.ChangeQuestProgress();
         }
+        
     }
     //A quest glorietta created to start the next quest when one ends
-    void QuestGlorietta()
+    public void QuestGlorietta()
     {
         switch (currentQuest.QuestName)
         {
