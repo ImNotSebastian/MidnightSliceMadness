@@ -25,22 +25,15 @@ public class NPCSys
         posX = xCoord;
         posY = yCoord;
     }
-    public string getName() 
-    {
-        return name;
-    }
-
+   
 
     //getters
     public int getAffinity()
     {
         return affinity;
     }
-    public void setName(string newName)
-    {
-        name = newName;
-    }
-    //SETTERS
+
+    //setters
     public void setAffinity(int x)
     {
         affinity = x;
@@ -53,4 +46,10 @@ public class NPCSys
         posY = y;
     }
 
+    public void setName(string newName)
+    {
+        name = newName;
+    }
+
 }
+
