@@ -42,17 +42,17 @@ public class MainQuest2 : Quest
         switch(questProgress)
         {
             case 0:
-                UnityEngine.Debug.LogError("quest progressing 0");
+                UnityEngine.Debug.LogError("quest2 progressing 0: "+ questProgress);
                 questProgress += 1;
                 SetQuestProgress1();
                 break;
             case 1:
-                UnityEngine.Debug.LogError("quest progressing 1");
-                questProgress += 1;
+                UnityEngine.Debug.LogError("quest2 progressing 1: "+ questProgress);
                 SetQuestProgressComplete();
                 break;
             default:
-                UnityEngine.Debug.LogError("quest progress default");
+                UnityEngine.Debug.LogError("quest2 progress default: " + questProgress);
+                questProgress += 1;
                 break;
         }
     }
@@ -79,10 +79,10 @@ public class MainQuest2 : Quest
     */
     public override void SetQuestProgress1()
     {
-        UnityEngine.Debug.LogError("SetQuestProgressQuest2" + destination.name);
-        questMessage.text = "Quest:<br>Deliver the pizza to the VeryMuchNotAlien's Home";
+        //UnityEngine.Debug.LogError("SetQuestProgressQuest2" + destination.name);
+        questMessage.text = "Quest:<br>Deliver the pizza to the NotAlien's Home";
         destination = GameObject.Find("WooshMachine");
-        UnityEngine.Debug.LogError("SetQuestProgressQuest2" + destination.name);
+        //UnityEngine.Debug.LogError("SetQuestProgressQuest2" + destination.name);
         NotifyManager(this);
     }
     /*
@@ -91,9 +91,10 @@ public class MainQuest2 : Quest
     */
     public override void SetQuestProgressComplete()
     {
-        UnityEngine.Debug.LogError("End Quest 2");
+        //UnityEngine.Debug.LogError("End Quest 2");
         questMessage.text = "Quest Complete!";
-        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(2);
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(3);
+        questProgress = 0;
         NotifyManager(this);
     }
 }

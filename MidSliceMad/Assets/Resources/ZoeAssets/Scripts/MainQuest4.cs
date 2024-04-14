@@ -18,9 +18,8 @@ using PlasticPipe.PlasticProtocol.Messages;
 using TMPro;
 using UnityEngine;
 
-public class MainQuest1 : Quest
+public class MainQuest4 : Quest
 {
-    
     //FindObserver sets the game object observer to the observer in the scene.
     void FindObserver()
     {
@@ -39,20 +38,21 @@ public class MainQuest1 : Quest
     */
     public override void ChangeQuestProgress()
     {
+        UnityEngine.Debug.LogError("Access ChangeQuestProgress");
         switch(questProgress)
         {
             case 0:
-                //UnityEngine.Debug.LogError("quest1 progressing 0");
+                //UnityEngine.Debug.LogError("quest4 progressing 0: "+ questProgress);
                 questProgress += 1;
                 SetQuestProgress1();
                 break;
             case 1:
-                //UnityEngine.Debug.LogError("quest1 progressing 1");
-                questProgress += 1;
+                //UnityEngine.Debug.LogError("quest4 progressing 1: "+ questProgress);
                 SetQuestProgressComplete();
                 break;
             default:
-                //UnityEngine.Debug.LogError("quest1 prog default");
+                //UnityEngine.Debug.LogError("quest4 progress default: " + questProgress);
+                questProgress += 1;
                 break;
         }
     }
@@ -62,12 +62,13 @@ public class MainQuest1 : Quest
     */
     public override void SetQuestAttributes()
     {
-        //UnityEngine.Debug.LogError("Setting Quest Attributes 1");
+        //UnityEngine.Debug.LogError("Setting Quest Attributes 4");
         FindObserver();
         questMessage = GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().questDisplayGame;
         questMessage.text = "Quest:<br>Pick up a pizza to deliver.";
         destination = GameObject.Find("OutPizza");
-        questName = "MainQuest1";
+        //UnityEngine.Debug.LogError(destination.name); //outputting correct destination.
+        questName = "MainQuest4";
         questProgress = 0;
         NotifyManager(this);
     }
@@ -78,10 +79,10 @@ public class MainQuest1 : Quest
     */
     public override void SetQuestProgress1()
     {
-        //UnityEngine.Debug.LogError("SetQuestProgressQuest1" + destination.name);
-        questMessage.text = "Quest:<br>Deliver the pizza to The Blue House";
-        destination = GameObject.Find("BlueHouse");
-        //UnityEngine.Debug.LogError("SetQuestProgressQuest1" + destination.name);
+        //UnityEngine.Debug.Log("SetQuestProgressQuest4" + destination.name);
+        questMessage.text = "Quest:<br>Deliver the pizza to the ...";
+        destination = GameObject.Find("TheHut");
+        UnityEngine.Debug.Log("SetQuestProgressQuest4" + destination.name);
         NotifyManager(this);
     }
     /*
@@ -90,10 +91,10 @@ public class MainQuest1 : Quest
     */
     public override void SetQuestProgressComplete()
     {
-        //UnityEngine.Debug.LogError("End Quest 1");
+        UnityEngine.Debug.LogError("End Quest 4");
         questMessage.text = "Quest Complete!";
-        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(2);
-        NotifyManager(this);
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(5);
         questProgress = 0;
+        NotifyManager(this);
     }
 }

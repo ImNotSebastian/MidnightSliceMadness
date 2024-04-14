@@ -16,21 +16,8 @@ using TMPro;
 
 public class HUDObserver : Observer
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void RecieveData(Quest quest)
     {
-        Debug.Log("HUDObserverRecieveData");
         GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().HUDRecieve(quest);
     }
 }

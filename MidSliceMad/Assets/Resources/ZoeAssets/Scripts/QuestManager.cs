@@ -14,10 +14,10 @@ using TMPro;
 public class QuestManager : MonoBehaviour
 {
     public Quest TutorialQuest;
-    public Quest MainQuest1 = new MainQuest2();
-    public Quest MainQuest2 = new MainQuest1();
-    public Quest MainQuest3;
-    public Quest MainQuest4;
+    public Quest MainQuest1 = new MainQuest1();
+    public Quest MainQuest2 = new MainQuest2();
+    public Quest MainQuest3 = new MainQuest3();
+    public Quest MainQuest4 = new MainQuest4();
     public Quest currentQuest;
 
     private bool questProgress;
@@ -25,7 +25,6 @@ public class QuestManager : MonoBehaviour
     //QuestRecieve will receieve current quest data and pass it along to the Quest Observer
     public void QuestRecieve(Quest quest)
     {
-        currentQuest = quest;
         GameObject.Find("Observer").GetComponent<QuestObserver>().ObserverUpdate(currentQuest);
 
     }
@@ -40,13 +39,12 @@ public class QuestManager : MonoBehaviour
     {
         if(currentQuest == null)
         {
-            Debug.LogError("No Active Quest.");
+            //Debug.LogError("No Active Quest.");
         }
         QuestRecieve(currentQuest);
-        Debug.Log(currentQuest.QuestName);
         if (questProgress != currentQuest.CheckPlayerPizza())
         {
-            Debug.LogError("CheckPlayerPizza");
+            //Debug.LogError("CheckPlayerPizza quest: " + currentQuest.QuestName);
             questProgress = currentQuest.CheckPlayerPizza();
             currentQuest.ChangeQuestProgress();
         }
@@ -65,12 +63,12 @@ public class QuestManager : MonoBehaviour
             case 1:
                 currentQuest = MainQuest1;
                 currentQuest.SetQuestAttributes();                
-                Debug.LogError("Main Quest 2 Start. dest: " + currentQuest.Destination.name);
+                Debug.Log("Main Quest 1 Start. dest: " + currentQuest.Destination.name);
                 break;
             case 2:
                 currentQuest = MainQuest2;
                 currentQuest.SetQuestAttributes();                
-                Debug.LogError("Main Quest 1 Start. dest: " + currentQuest.Destination.name);
+                Debug.Log("Main Quest 2 Start. dest: " + currentQuest.Destination.name);
                 break;
             case 3:
                 currentQuest = MainQuest3;
@@ -78,7 +76,7 @@ public class QuestManager : MonoBehaviour
                 Debug.Log("Main Quest 3 Start.");
                 break;
             case 4:
-                currentQuest = MainQuest3;
+                currentQuest = MainQuest4;
                 currentQuest.SetQuestAttributes();                
                 Debug.Log("Main Quest 4 Start.");
                 break;
@@ -88,8 +86,5 @@ public class QuestManager : MonoBehaviour
                 break;
         }
     }
-
-
-
 }
 
