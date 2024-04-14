@@ -9807,7 +9807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3394022376167185630, guid: f1b8b49ee49ff3f479aa832e09db40b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.73
+      value: 12.53
       objectReference: {fileID: 0}
     - target: {fileID: 3394022376167185630, guid: f1b8b49ee49ff3f479aa832e09db40b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9829,6 +9829,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.16867937
       objectReference: {fileID: 0}
+    - target: {fileID: 4739374336299109416, guid: f1b8b49ee49ff3f479aa832e09db40b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -42.94
+      objectReference: {fileID: 0}
     - target: {fileID: 5768459675591495363, guid: f1b8b49ee49ff3f479aa832e09db40b1, type: 3}
       propertyPath: m_Name
       value: Boundaries
@@ -9843,7 +9847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8508875116332234858, guid: f1b8b49ee49ff3f479aa832e09db40b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.6
+      value: -45.32
       objectReference: {fileID: 0}
     - target: {fileID: 8508875116332234858, guid: f1b8b49ee49ff3f479aa832e09db40b1, type: 3}
       propertyPath: m_LocalPosition.y
