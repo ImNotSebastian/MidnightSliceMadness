@@ -94,7 +94,7 @@ public class Quest
     public void SetQuestProgress1()
     {
         questMessage.text = "Quest:<br>Deliver the pizza to {insertlocation1}";
-        destination = GameObject.Find("BlueHouse");
+        destination = GameObject.Find("OutPizza");
         NotifyManager(this);
     }
     /*
