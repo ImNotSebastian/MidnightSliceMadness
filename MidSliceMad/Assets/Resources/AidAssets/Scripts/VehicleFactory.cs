@@ -14,7 +14,7 @@ public class VehicleFactory : MonoBehaviour
         Transform parent = transform.parent;
 
         // Initial creation of the first vehicle at the origin with no rotation
-        currentVehicle = Instantiate(vehiclePrefabs[0], parent);
+        currentVehicle = FindObjectOfType<VehicleController>().gameObject;
     }
 
     // Example method to demonstrate usage
@@ -42,7 +42,7 @@ public class VehicleFactory : MonoBehaviour
             Transform parent = transform.parent;
 
             // Instantiating the selected prefab with the position and rotation of the previous vehicle
-            GameObject newVehicle = Instantiate(vehiclePrefabs[userInput], currentVehicle.transform.position, currentVehicle.transform.rotation, parent);
+            GameObject newVehicle = Instantiate(vehiclePrefabs[userInput], parent);
 
             // Removing the previous vehicle
             Destroy(currentVehicle);

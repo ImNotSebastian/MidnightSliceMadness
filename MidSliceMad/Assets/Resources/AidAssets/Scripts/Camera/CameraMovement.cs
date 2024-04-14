@@ -12,11 +12,15 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private Transform playerBicycle;
+    [SerializeField] private Transform playerParent;
+    
+    private Transform player;
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(playerBicycle.position.x, playerBicycle.position.y, -10);
+        player = FindObjectOfType<VehicleController>().transform;
+
+        transform.position = new Vector3(player.position.x, player.position.y, -10);
     }
 }
