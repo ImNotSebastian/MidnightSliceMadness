@@ -45,8 +45,10 @@ public class DistanceDisplayGame : MonoBehaviour
             Debug.Log("Did not catch GameObject");
         }
     }
-
     // Update is called once per frame
+    /*
+    * Set Player/Destination positions and display as a total distance to location.
+    */
     void Update()
     {
         a.x = player.transform.position.x;
@@ -62,7 +64,10 @@ public class DistanceDisplayGame : MonoBehaviour
         dist = Convert.ToInt32(Vector2.Distance(a, b));
         return dist;
     }
-
+    /*
+    * HUD Recieve will set HUD variables to that of the quest taken in
+    * by the HUD Observer.
+    */
     public void HUDRecieve(Quest quest)
     {
         if (quest == null)
@@ -76,28 +81,6 @@ public class DistanceDisplayGame : MonoBehaviour
         if (destination == null)
         {
             Debug.LogError("HUDRecieve: Did not catch GameObject");
-        }
-
-    }
-
-    private string progressSetter(int prog)
-    {
-        string progressName;
-        switch(prog)
-        {
-            case 0:
-                progressName = "Quest Introduction";
-                return progressName;
-            case 1:
-                progressName = "Quest In Progress";
-                return progressName;
-            case 2:
-                progressName = "Quest Complete!";
-                return progressName;
-            default:
-                progressName = "No Quest Active";
-                return progressName;
-                
         }
     }
 }

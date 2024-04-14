@@ -30,6 +30,7 @@ public class HUDObserver : Observer
 
     public void RecieveData(Quest quest)
     {
+        Debug.Log("HUDObserverRecieveData");
         GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().HUDRecieve(quest);
     }
 }

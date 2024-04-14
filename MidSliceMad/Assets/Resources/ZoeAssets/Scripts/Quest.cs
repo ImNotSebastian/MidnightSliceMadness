@@ -31,7 +31,8 @@ public class Quest
         get {return destination;}
     }
     //questName can be used to identify the quest the player is currently on.
-    protected string questName = "QUESTNAME";         public string QuestName
+    protected string questName = "QUESTNAME";
+    public string QuestName         
     {
         get {return questName;}
     }
@@ -57,7 +58,7 @@ public class Quest
      * The function ChangeQuestProgress will run the change process between 
      * quest states using questProgress at 0,1,2.
      */ 
-    public void ChangeQuestProgress()
+    public virtual void ChangeQuestProgress()
     {
         switch(questProgress)
         {
@@ -66,7 +67,7 @@ public class Quest
                 SetQuestProgress1();
                 break;
             case 1:
-                questProgress += 2;
+                questProgress += 1;
                 SetQuestProgressComplete();
                 break;
             case 2:

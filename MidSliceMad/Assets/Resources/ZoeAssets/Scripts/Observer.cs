@@ -19,6 +19,7 @@ public class Observer : MonoBehaviour
 
     public void ObserverUpdate(Quest quest) 
     {
+        Debug.Log("ObserverObserverUpdate");
         GameObject.Find("Observer").GetComponent<HUDObserver>().RecieveData(quest);
     }
 }

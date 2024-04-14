@@ -14,8 +14,8 @@ using TMPro;
 public class QuestManager : MonoBehaviour
 {
     public Quest TutorialQuest;
-    public Quest MainQuest1 = new MainQuest1();
-    public Quest MainQuest2 = new MainQuest2();
+    public Quest MainQuest1 = new MainQuest2();
+    public Quest MainQuest2 = new MainQuest1();
     public Quest MainQuest3;
     public Quest MainQuest4;
     public Quest currentQuest;
@@ -35,45 +35,20 @@ public class QuestManager : MonoBehaviour
         currentQuest.SetQuestAttributes();
         questProgress = currentQuest.CheckPlayerPizza();
     }
-
     // Update is called once per frame
     void Update()
     {
         if(currentQuest == null)
         {
-            Debug.Log("No Active Quest.");
+            Debug.LogError("No Active Quest.");
         }
         QuestRecieve(currentQuest);
-        
+        Debug.Log(currentQuest.QuestName);
         if (questProgress != currentQuest.CheckPlayerPizza())
         {
+            Debug.LogError("CheckPlayerPizza");
             questProgress = currentQuest.CheckPlayerPizza();
             currentQuest.ChangeQuestProgress();
-        }
-        
-    }
-    //A quest glorietta created to start the next quest when one ends
-    public void QuestGlorietta(string qName)
-    {
-        switch (qName)
-        {
-            case "TutorialQuest":
-                currentQuest = MainQuest1;
-                break;
-            case "MainQuest1":
-                currentQuest = MainQuest2;
-                break;
-            case "MainQuest2":
-                currentQuest = MainQuest3;
-                break;
-            case "MainQuest3":
-                currentQuest = MainQuest4;
-                break;
-            case "MainQuest4":
-                break;
-            default:
-                Debug.LogError("Quest Name Not Found");
-                break;
         }
     }
     //Quest selector
@@ -84,36 +59,31 @@ public class QuestManager : MonoBehaviour
         {
             case 0:
                 currentQuest = TutorialQuest;
-                currentQuest.SetQuestAttributes();
-                questProgress = false;
+                currentQuest.SetQuestAttributes();                
                 Debug.Log("Tutorial Quest Start.");
                 break;
             case 1:
                 currentQuest = MainQuest1;
-                currentQuest.SetQuestAttributes();
-                questProgress = false;
-                Debug.Log("Main Quest 1 Start.");
+                currentQuest.SetQuestAttributes();                
+                Debug.LogError("Main Quest 2 Start. dest: " + currentQuest.Destination.name);
                 break;
             case 2:
                 currentQuest = MainQuest2;
-                currentQuest.SetQuestAttributes();
-                questProgress = false;
-                Debug.Log("Main Quest 2 Start.");
+                currentQuest.SetQuestAttributes();                
+                Debug.LogError("Main Quest 1 Start. dest: " + currentQuest.Destination.name);
                 break;
             case 3:
                 currentQuest = MainQuest3;
-                currentQuest.SetQuestAttributes();
-                questProgress = false;
+                currentQuest.SetQuestAttributes();                
                 Debug.Log("Main Quest 3 Start.");
                 break;
             case 4:
                 currentQuest = MainQuest3;
-                currentQuest.SetQuestAttributes();
-                questProgress = false;
+                currentQuest.SetQuestAttributes();                
                 Debug.Log("Main Quest 4 Start.");
                 break;
             default:
-            currentQuest.SetQuestAttributes();
+                currentQuest.SetQuestAttributes();
                 Debug.LogError("Quest Number Not Found");
                 break;
         }

@@ -20,7 +20,6 @@ using UnityEngine;
 
 public class MainQuest2 : Quest
 {
-    
     //FindObserver sets the game object observer to the observer in the scene.
     void FindObserver()
     {
@@ -37,20 +36,23 @@ public class MainQuest2 : Quest
     * The function ChangeQuestProgress will run the change process between 
     * quest states using questProgress at 0,1,2.
     */
-    public void ChangeQuestProgress()
+    public override void ChangeQuestProgress()
     {
+        UnityEngine.Debug.LogError("Access ChangeQuestProgress");
         switch(questProgress)
         {
             case 0:
+                UnityEngine.Debug.LogError("quest progressing 0");
                 questProgress += 1;
                 SetQuestProgress1();
                 break;
             case 1:
+                UnityEngine.Debug.LogError("quest progressing 1");
                 questProgress += 1;
                 SetQuestProgressComplete();
                 break;
             default:
-                GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta("MainQuest2");
+                UnityEngine.Debug.LogError("quest progress default");
                 break;
         }
     }
@@ -60,10 +62,12 @@ public class MainQuest2 : Quest
     */
     public override void SetQuestAttributes()
     {
+        UnityEngine.Debug.LogError("Setting Quest Attributes 2");
         FindObserver();
         questMessage = GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().questDisplayGame;
         questMessage.text = "Quest:<br>Pick up a pizza to deliver.";
         destination = GameObject.Find("OutPizza");
+        //UnityEngine.Debug.LogError(destination.name); //outputting correct destination.
         questName = "MainQuest2";
         questProgress = 0;
         NotifyManager(this);
@@ -75,8 +79,10 @@ public class MainQuest2 : Quest
     */
     public override void SetQuestProgress1()
     {
+        UnityEngine.Debug.LogError("SetQuestProgressQuest2" + destination.name);
         questMessage.text = "Quest:<br>Deliver the pizza to the VeryMuchNotAlien's Home";
         destination = GameObject.Find("WooshMachine");
+        UnityEngine.Debug.LogError("SetQuestProgressQuest2" + destination.name);
         NotifyManager(this);
     }
     /*
@@ -85,9 +91,9 @@ public class MainQuest2 : Quest
     */
     public override void SetQuestProgressComplete()
     {
+        UnityEngine.Debug.LogError("End Quest 2");
         questMessage.text = "Quest Complete!";
-        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta("MainQuest2");
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(2);
         NotifyManager(this);
     }
-
 }
