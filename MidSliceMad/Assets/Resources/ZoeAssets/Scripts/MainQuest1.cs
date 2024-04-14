@@ -21,8 +21,8 @@ using UnityEngine;
 public class MainQuest1 : Quest
 {
     
-    //FindDestination sets the game object observer to the observer in the scene.
-    void FindDestination()
+    //FindObserver sets the game object observer to the observer in the scene.
+    void FindObserver()
     {
         observer = GameObject.Find("Observer");
     }
@@ -37,7 +37,7 @@ public class MainQuest1 : Quest
     * The function ChangeQuestProgress will run the change process between 
     * quest states using questProgress at 0,1,2.
     */
-    void ChangeQuestProgress()
+    public void ChangeQuestProgress()
     {
         switch(questProgress)
         {
@@ -49,7 +49,8 @@ public class MainQuest1 : Quest
                 questProgress += 1;
                 SetQuestProgressComplete();
                 break;
-            case 2:
+            default:
+                GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGlorietta("MainQuest1");
                 break;
         }
     }
@@ -59,9 +60,9 @@ public class MainQuest1 : Quest
     */
     public override void SetQuestAttributes()
     {
-        FindDestination();
+        FindObserver();
         questMessage = GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().questDisplayGame;
-        questMessage.text = "Pick up a pizza to deliver.";
+        questMessage.text = "Quest:<br>Pick up a pizza to deliver.";
         destination = GameObject.Find("OutPizza");
         questName = "MainQuest1";
         questProgress = 0;
@@ -72,9 +73,9 @@ public class MainQuest1 : Quest
     * the introduction of the quest to the delivery part of the quest.
     * It will also notify observer
     */
-    public new void SetQuestProgress1()
+    public override void SetQuestProgress1()
     {
-        questMessage.text = "Quest:<br>Deliver the pizza to {insertlocation1}";
+        questMessage.text = "Quest:<br>Deliver the pizza to The Blue House";
         destination = GameObject.Find("BlueHouse");
         NotifyManager(this);
     }
@@ -82,16 +83,11 @@ public class MainQuest1 : Quest
     * SetQuestProgressComplete() is run when quest progress is set to 2 or above,
     * or below 0. This method will set quest message to quest completion and notify observer.
     */
-    public new void SetQuestProgressComplete()
+    public override void SetQuestProgressComplete()
     {
         questMessage.text = "Quest Complete!";
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(2);
         NotifyManager(this);
     }
-
-    public bool CheckPlayerPizza()
-    {
-        return GameObject.Find("PlayerBicycle").GetComponent<Player>().GetPlayerHasPizza();
-    }
-
 
 }

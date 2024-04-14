@@ -35,4 +35,37 @@ public class Ghost : Monster
             isIncapacitated = false;
         }
     }
+
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Deal damage if colliding with the player
+        if (collision.gameObject.tag == "Player")
+        {
+            // Damage logic here
+            GameManager.instance.DecreaseScore(attackDamage);
+            Debug.Log($"Dealt {attackDamage} damage to the player!");
+            attackCount++;
+
+            // Check if the attack count has reached the limit
+            if (attackCount >= maxAttacks)
+            {
+                Despawn();
+                Debug.Log("Monster has de-spawned due to reaching attack limit.");
+            }
+
+            // Calculate bounce direction
+            Vector2 bounceDirection = transform.position - collision.transform.position;
+            bounceDirection.Normalize(); // Ensure the direction vector has a magnitude of 1
+
+            // Begin bounce cooldown period
+            isBouncing = true;
+            Invoke(nameof(ResetBounceState), bounceCooldown); // Schedule reset of bounce state
+
+            rb.velocity = Vector2.zero; // Reset the velocity
+
+            // Debug.Log($"Bounce direction-Bounce force: {bounceDirection} - {bounceForce}");
+            // Apply a force to bounce off
+            rb.AddForce(bounceDirection * bounceForce, ForceMode2D.Impulse);
+        }
+    }
 }

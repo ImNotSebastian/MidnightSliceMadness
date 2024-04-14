@@ -26,7 +26,7 @@ public class VehicleController : MonoBehaviour
 
     // Local Variables
     protected float accelerationInput = 0;
-    protected float steeringInput = 0;
+    protected float steeringInput = 1;
 
     protected float rotationAngle = 0;
 

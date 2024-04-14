@@ -65,13 +65,17 @@ public class DistanceDisplayGame : MonoBehaviour
 
     public void HUDRecieve(Quest quest)
     {
+        if (quest == null)
+        {
+            Debug.LogError("Did not recieve quest.");
+        }
         questMessage = quest.QuestMessage;
         destination = quest.Destination;
         questName = quest.QuestName;
         questProgress = quest.QuestProgress;
         if (destination == null)
         {
-            Debug.Log("HUDRecieve: Did not catch GameObject");
+            Debug.LogError("HUDRecieve: Did not catch GameObject");
         }
 
     }

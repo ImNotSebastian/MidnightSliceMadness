@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+/*****************************************************************************
+ *Response: Used for dialogue graph
+ * - Holds the references to the next node
+ *  
+ *  ChatNode contains array of responses
+ *
+ *  
+ *
+ *****************************************************************************/
 public class Response
 {
     public string text;

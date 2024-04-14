@@ -3,6 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
+/*****************************************************************************
+ *SoundFxManager: Singleton
+ * - Manages SoundFx and Audio in the game
+ *  Only hase one function used to play a wav or ogg file
+ *  mp3's do not currently work in unity
+ *
+ *  To refer to SoundFxManager use: SoundFxManager.Instance
+ *
+ *
+ *
+ *
+ *****************************************************************************/
 public class SoundFxManager : MonoBehaviour
 {
 

@@ -21,10 +21,4 @@ public class Observer : MonoBehaviour
     {
         GameObject.Find("Observer").GetComponent<HUDObserver>().RecieveData(quest);
     }
-
-    void Update()
-    {
-
-    }
-
 }

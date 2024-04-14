@@ -57,7 +57,7 @@ public class Quest
      * The function ChangeQuestProgress will run the change process between 
      * quest states using questProgress at 0,1,2.
      */ 
-    void ChangeQuestProgress()
+    public void ChangeQuestProgress()
     {
         switch(questProgress)
         {
@@ -91,9 +91,9 @@ public class Quest
     * the introduction of the quest to the delivery part of the quest.
     * It will also notify observer
     */
-    public void SetQuestProgress1()
+    public virtual void SetQuestProgress1()
     {
-        questMessage.text = "Quest:<br>Deliver the pizza to {insertlocation1}";
+        questMessage.text = "You're running the wrong quest.";
         destination = GameObject.Find("BlueHouse");
         NotifyManager(this);
     }
@@ -101,10 +101,16 @@ public class Quest
     * SetQuestProgressComplete() is run when quest progress is set to 2 or above,
     * or below 0. This method will set quest message to quest completion and notify observer.
     */
-    public void SetQuestProgressComplete()
+    public virtual void SetQuestProgressComplete()
     {
+        destination = GameObject.Find("Outpizza");
         questMessage.text = "Quest Complete!";
         NotifyManager(this);
     } 
+    public bool CheckPlayerPizza()
+    {
+        return GameObject.Find("PlayerBicycle").GetComponent<Player>().GetPlayerHasPizza();
+    }
+
 
 }

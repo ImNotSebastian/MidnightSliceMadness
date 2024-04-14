@@ -13,17 +13,6 @@ using TMPro;
 
 public class QuestObserver : Observer
 {
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ObserverUpdate(Quest quest)
     {
         GameObject.Find("Observer").GetComponent<Observer>().ObserverUpdate(quest);
