@@ -17,6 +17,7 @@ using System.Runtime.CompilerServices;
 using PlasticPipe.PlasticProtocol.Messages;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainQuest4 : Quest
 {
@@ -96,5 +97,6 @@ public class MainQuest4 : Quest
         GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(5);
         questProgress = 0;
         NotifyManager(this);
+        SceneManager.LoadScene("GameOver");
     }
 }
