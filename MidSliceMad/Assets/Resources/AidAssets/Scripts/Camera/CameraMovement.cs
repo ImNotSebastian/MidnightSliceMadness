@@ -12,8 +12,6 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private Transform playerParent;
-    
     private Transform player;
 
     // Update is called once per frame
