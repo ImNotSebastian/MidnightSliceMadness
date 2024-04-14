@@ -91,7 +91,7 @@ public class MainQuest3 : Quest
     */
     public override void SetQuestProgressComplete()
     {
-        UnityEngine.Debug.LogError("End Quest 3");
+        //UnityEngine.Debug.LogError("End Quest 3");
         questMessage.text = "Quest Complete!";
         GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(4);
         questProgress = 0;

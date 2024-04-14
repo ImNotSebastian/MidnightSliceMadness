@@ -62,7 +62,7 @@ public class MainQuest2 : Quest
     */
     public override void SetQuestAttributes()
     {
-        UnityEngine.Debug.LogError("Setting Quest Attributes 2");
+        //UnityEngine.Debug.LogError("Setting Quest Attributes 2");
         FindObserver();
         questMessage = GameObject.Find("QuestManager").GetComponent<DistanceDisplayGame>().questDisplayGame;
         questMessage.text = "Quest:<br>Pick up a pizza to deliver.";
