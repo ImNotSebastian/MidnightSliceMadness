@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 29
       height: 32
-    spriteID: 15deaa820ab05d0429a5b9f892bcc352
+    spriteID: bb563b3ff3cf35342b2d7cfe358bc287
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 84
       width: 29
       height: 31
-    spriteID: 826152e69ad164b4a847b142e6688639
+    spriteID: 58f763165540a464ca1c6408c0b43204
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 44
       width: 29
       height: 32
-    spriteID: b126cdc4fa8f4a44a8a55a74cbbe3800
+    spriteID: c2f585097e937124b9bf8c9949060d71
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -197,7 +197,7 @@ ScriptedImporter:
         y: 0
         width: 29
         height: 32
-      spriteId: 15deaa820ab05d0429a5b9f892bcc352
+      spriteId: bb563b3ff3cf35342b2d7cfe358bc287
     - name: Up-Left_Car_Frame_1
       frameIndex: 1
       cellRect:
@@ -205,7 +205,7 @@ ScriptedImporter:
         y: 0
         width: 29
         height: 31
-      spriteId: 826152e69ad164b4a847b142e6688639
+      spriteId: 58f763165540a464ca1c6408c0b43204
     - name: Up-Left_Car_Frame_2
       frameIndex: 2
       cellRect:
@@ -213,7 +213,7 @@ ScriptedImporter:
         y: 0
         width: 29
         height: 32
-      spriteId: b126cdc4fa8f4a44a8a55a74cbbe3800
+      spriteId: c2f585097e937124b9bf8c9949060d71
     linkedCells: []
     parentIndex: -1
   platformSettings: []
