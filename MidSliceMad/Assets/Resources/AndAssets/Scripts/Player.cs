@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
         if (inventory == null)
         {
-            Debug.LogError("Inventory GameObject not found in the hierarchy. Make sure Inventory game object exists.");
+            //Debug.LogError("Inventory GameObject not found in the hierarchy. Make sure Inventory game object exists.");
         }
     }
 
@@ -62,15 +62,15 @@ public class Player : MonoBehaviour
         GameObject requestPizzaMenuUI = GameObject.Find("RequestPizzaMenuCanvas").transform.Find("RequestPizzaPanel").gameObject;
         if (requestPizzaMenuUI != null)
         {
-            Debug.LogError("RequestPizzaMenuManager GameObject found.");
+            //Debug.LogError("RequestPizzaMenuManager GameObject found.");
             Time.timeScale = 0f; // Pause background game
             requestPizzaMenuUI.SetActive(true); // Show the pop-up menu
             //requestPizzaMenuUI.ShowRequestPizzaMenu(); // Fix
-            Debug.LogError("Entered Request Pizza Menu.");
+            //Debug.LogError("Entered Request Pizza Menu.");
         }
         else
         {
-            Debug.LogError("RequestPizzaMenuManager GameObject not found in the scene.");
+            //Debug.LogError("RequestPizzaMenuManager GameObject not found in the scene.");
         }
     }
     //*/
@@ -149,7 +149,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("pizzaGameObject is null or has already been destroyed.");
+            //Debug.LogWarning("pizzaGameObject is null or has already been destroyed.");
         }
     }
 
@@ -163,11 +163,11 @@ public class Player : MonoBehaviour
             GameManager.instance.DisplayScoreText();
             currentPizzaObject = null;
             pizzaDeliveryTimerRanOutCalled = true;
-            Debug.Log("Pizza Delivery Timer Ran Out");
+            //Debug.Log("Pizza Delivery Timer Ran Out");
         }
         else
         {
-            Debug.LogWarning("pizzaGameObject is null or has already been destroyed.");
+            //Debug.LogWarning("pizzaGameObject is null or has already been destroyed.");
         }
     }
 
