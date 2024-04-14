@@ -100,8 +100,17 @@ public class ChatSys : MonoBehaviour
 
         if (chatText.text == "Did you forget my drink?")
         {
-            FindObjectOfType<Player>().DeliverPizza();
+            if (FindObjectOfType<Player>().GetPlayerHasPizza())
+            {
+                FindObjectOfType<Player>().DeliverPizza();
+            }
+            else
+            {
+                chatText.text = "Is this a joke?! Where's my pizza?!";
+            }
+           
         }
+
 
         // Update the response buttons
         for (int i = 1; i < optionButtons.Length; i++)
