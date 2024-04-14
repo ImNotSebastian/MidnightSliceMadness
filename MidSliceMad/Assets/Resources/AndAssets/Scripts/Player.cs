@@ -84,9 +84,12 @@ public class Player : MonoBehaviour
         {
             // Calculate the position relative to the main camera
             Vector3 offsetFromCamera = new Vector3(spawnPizzaCameraOffsetX, spawnPizzaCameraOffsetY, spawnPizzaCameraOffsetZ);
+            ///*
             Vector3 spawnPosition = mainCameraTransform.position + mainCameraTransform.forward * offsetFromCamera.z +
                                     mainCameraTransform.right * offsetFromCamera.x +
                                     mainCameraTransform.up * offsetFromCamera.y;
+            //*/
+            //Vector3 spawnPosition = 
 
             // Instantiate the PizzaPrefab at the calculated position
 
