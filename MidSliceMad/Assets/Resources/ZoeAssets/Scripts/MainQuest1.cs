@@ -73,7 +73,7 @@ public class MainQuest1 : Quest
     * the introduction of the quest to the delivery part of the quest.
     * It will also notify observer
     */
-    public new void SetQuestProgress1()
+    public override void SetQuestProgress1()
     {
         questMessage.text = "Quest:<br>Deliver the pizza to The Blue House";
         destination = GameObject.Find("OutPizza");
@@ -83,7 +83,7 @@ public class MainQuest1 : Quest
     * SetQuestProgressComplete() is run when quest progress is set to 2 or above,
     * or below 0. This method will set quest message to quest completion and notify observer.
     */
-    public new void SetQuestProgressComplete()
+    public override void SetQuestProgressComplete()
     {
         questMessage.text = "Quest Complete!";
         NotifyManager(this);
