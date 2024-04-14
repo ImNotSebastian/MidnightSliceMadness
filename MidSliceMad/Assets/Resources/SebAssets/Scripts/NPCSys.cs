@@ -11,7 +11,7 @@ This class contains the private class data of the npcs,
 This class is a private class data pattern class
 */
 
-private class NPCSys
+public class NPCSys
 {
     private string name;
     private int affinity;
