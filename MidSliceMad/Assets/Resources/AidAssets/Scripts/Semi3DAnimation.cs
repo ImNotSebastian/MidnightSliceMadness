@@ -38,21 +38,6 @@ public class Semi3DAnimation : MonoBehaviour
         {
             // Change the sprite to the specified index
             animator.runtimeAnimatorController = animatorController[index];
-            
-            if(1 <= index && index <= 3 && !isRight)
-            {
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
-                isRight = true;
-            }
-            else if(5 <= index && index <= 7 && isRight)
-            {
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
-                isRight = false;
-            }
         }
     }
 }

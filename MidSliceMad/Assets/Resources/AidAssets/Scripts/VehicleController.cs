@@ -145,6 +145,33 @@ public class VehicleController : MonoBehaviour
         vehicleRigidBody2D.velocity = forwardVelocity + rightVelocity * currentDriftFactor;
     }
 
+    // Returns how fast the car is moving sideways
+    private float GetLateralVelocity()
+    {
+        return Vector2.Dot(transform.right, vehicleRigidBody2D.velocity);
+    }
+
+    public bool IsTireScreeching(out float lateralVelocity, out bool isBraking)
+    {
+        lateralVelocity = GetLateralVelocity();
+        isBraking = false;
+
+        // Check if we are moving forward and if the player is hitting the brakes. Then tires should screetch
+        if ((accelerationInput < 0) && (velocityVsUp > 0))
+        {
+            isBraking = true;
+            return true;
+        }
+
+        // If we have a lot of side movement then the tires should be screeching
+        if (Mathf.Abs(GetLateralVelocity()) > 0.1f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     // Changes the sprite based on it's rotation to create a 3D effect
     private void SetSpriteOnRotation()
     {
