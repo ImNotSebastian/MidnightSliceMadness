@@ -73,14 +73,9 @@ public class NPCSys
 
 public class RomanceNPCSys : NPCSys
 {
-    private int affinity;
+   /* private int affinity;
 
-    //constructors
-    public RomanceNPCSys()
-    {
-        name = "Default";
-        affinity = 0;
-    }
+   
 
     public void setAffinity(int x)
     {
@@ -96,5 +91,5 @@ public class RomanceNPCSys : NPCSys
     {
         //need to call start dialogue from here based on which npc it is, and the affinity score
         //Debug.Log("RomanceNPCSys: Romantic interaction with NPC.");
-    }
+    }*/
 }
