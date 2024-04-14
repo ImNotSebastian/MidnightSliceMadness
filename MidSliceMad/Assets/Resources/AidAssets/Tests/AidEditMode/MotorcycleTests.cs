@@ -10,30 +10,30 @@ using UnityEngine;
 using UnityEditor;
 using NUnit.Framework;
 
-public class BicycleControllerTests
+public class MotorcycleTests
 {
-    private VehicleController vehicleController;
+    private Motorcycle motorCycleController;
 
     [SetUp]
     public void SetUp()
     {
         // Create a GameObject with BicycleController attached
         GameObject gameObject = new GameObject();
-        vehicleController = gameObject.AddComponent<VehicleController>();
+        motorCycleController = gameObject.AddComponent<Motorcycle>();
     }
 
     [TearDown]
     public void TearDown()
     {
         // Destroy the GameObject and clean up
-        GameObject.DestroyImmediate(vehicleController.gameObject);
+        GameObject.DestroyImmediate(motorCycleController.gameObject);
     }
 
     [Test]
     public void TestSetMaxSpeed()
     {
         // Set and get max speed
-        vehicleController.SetMaxSpeed(10f);
-        Assert.AreEqual(10f, vehicleController.GetMaxSpeed());
+        motorCycleController.SetMaxSpeed(10f);
+        Assert.AreEqual(10f, motorCycleController.GetMaxSpeed());
     }
 }
