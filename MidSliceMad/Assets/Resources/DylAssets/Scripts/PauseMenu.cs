@@ -72,6 +72,6 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("GameOverMenu");
+        SceneManager.LoadScene("GameOver");
     }
 }
