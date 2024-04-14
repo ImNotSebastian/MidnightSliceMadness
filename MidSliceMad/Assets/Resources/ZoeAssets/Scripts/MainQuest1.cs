@@ -75,8 +75,8 @@ public class MainQuest1 : Quest
     */
     public new void SetQuestProgress1()
     {
-        questMessage.text = "Quest:<br>Deliver the pizza to {insertlocation1}";
-        destination = GameObject.Find("BlueHouse");
+        questMessage.text = "Quest:<br>Deliver the pizza to The Blue House";
+        destination = GameObject.Find("OutPizza");
         NotifyManager(this);
     }
     /*
