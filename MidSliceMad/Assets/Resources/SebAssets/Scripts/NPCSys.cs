@@ -2,7 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCSys 
+
+
+
+/*****************************************************************************
+ *NPCSys: Holds the data about each NPC
+ * 
+ *  
+ *  
+ *
+ *  
+ *
+ *****************************************************************************/
+public class NPCSys
 {
     private string name;
     private int affinity;
@@ -17,7 +29,7 @@ public class NPCSys
         affinity = 0;
     }
 
-    
+
     public NPCSys(string newName, int x, int xCoord, int yCoord)
     {
         name = newName;
@@ -25,7 +37,7 @@ public class NPCSys
         posX = xCoord;
         posY = yCoord;
     }
-   
+
 
     //getters
     public int getAffinity()

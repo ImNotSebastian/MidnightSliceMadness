@@ -840,6 +840,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.21568629
       objectReference: {fileID: 0}
+    - target: {fileID: 9184572267501801943, guid: 7afb25e9f8acb4ea19d43d1945f7e7d9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184572267501801943, guid: 7afb25e9f8acb4ea19d43d1945f7e7d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 28
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4457,7 +4465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -797.49, y: 494.27997}
+  m_AnchoredPosition: {x: -321.49, y: 191}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1233552478
@@ -4482,8 +4490,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Pizza Delivery Time Left: *'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6a15e5c7a2aa78e4c93a58aa84dc3870, type: 2}
+  m_sharedMaterial: {fileID: 1276173571122756830, guid: 6a15e5c7a2aa78e4c93a58aa84dc3870, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4507,8 +4515,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4543,7 +4551,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -300.04645, w: 0}
+  m_margin: {x: 0, y: -7.6798477, z: -300.04645, w: -8.959799}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5417,8 +5425,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6a15e5c7a2aa78e4c93a58aa84dc3870, type: 2}
+  m_sharedMaterial: {fileID: 1276173571122756830, guid: 6a15e5c7a2aa78e4c93a58aa84dc3870, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5442,8 +5450,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5508,7 +5516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -797, y: 430}
+  m_AnchoredPosition: {x: -321, y: 149}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1809454834
@@ -19582,6 +19590,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8174a7004cdc96945a9d1b32603aa414, type: 3}
+--- !u!1001 &3682104404337417766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2817574253336881653, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_Name
+      value: HutTheHut
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672970996409297792, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595821760460421323, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: chatSys
+      value: 
+      objectReference: {fileID: 302666882}
+    - target: {fileID: 9032444690783507613, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
+      propertyPath: chatSys
+      value: 
+      objectReference: {fileID: 302666882}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f27edd3c3f904b545a6ce4f95feb81b9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -19607,3 +19680,4 @@ SceneRoots:
   - {fileID: 248241400}
   - {fileID: 1864558115}
   - {fileID: 2036554607}
+  - {fileID: 3682104404337417766}
