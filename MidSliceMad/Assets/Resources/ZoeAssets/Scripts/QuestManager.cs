@@ -13,7 +13,7 @@ using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
-    public Quest TutorialQuest;
+    public Quest TutorialQuest = new TutorialQuest();
     public Quest MainQuest1 = new MainQuest1();
     public Quest MainQuest2 = new MainQuest2();
     public Quest MainQuest3 = new MainQuest3();
