@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Name:Sebastian Fedane
+Role: Team Lead 1 -- IT Manager
+Project: Midnight Slice Madness
+This file contains the definition for the NPC data class
+This class contains the private class data of the npcs, 
+This class is a private class data pattern class
+*/
 
-
-
-/*****************************************************************************
- *NPCSys: Holds the data about each NPC
- * 
- *  
- *  
- *
- *  
- *
- *****************************************************************************/
-public class NPCSys
+private class NPCSys
 {
     private string name;
     private int affinity;

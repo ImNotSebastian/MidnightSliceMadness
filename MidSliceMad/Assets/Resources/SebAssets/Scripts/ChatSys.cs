@@ -12,8 +12,8 @@ using System.Text;
 /*****************************************************************************
  *ChatSys: Contains the graph, and parsing functions
  * -  nodes are hardcoded, im sorry...
- *  
- *
+ * - attaches to the ChatUI
+ * - monobehaviour
  *  
  *
  *****************************************************************************/

@@ -5,6 +5,15 @@ using UnityEngine.UI;
 using System;
 using System.Text;
 
+
+
+/*
+Name:Sebastian Fedane
+Role: Team Lead 1 -- IT Manager
+Project: Midnight Slice Madness
+This file contains the old version of the chat system
+DO NOT USE THIS
+*/
 public class ChatSysTest : MonoBehaviour
 {
 
