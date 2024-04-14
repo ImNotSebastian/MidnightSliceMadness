@@ -17,23 +17,24 @@ public abstract class Monster : MonoBehaviour
 {
     [SerializeField] public float detectionRadius = 5f; // Default detection radius
     [SerializeField] protected float speed = 3f;
+    [SerializeField] protected int attackDamage = 1;
+    [SerializeField] protected float bounceForce = 1f;
+    [SerializeField] protected float bounceCooldown = 1f; // Time in seconds before pursuing again
     [SerializeField] protected int incapacitateDuration = 3;
+    [SerializeField] protected int maxAttacks = 3; // Max number of attacks before de-spawning
+    protected bool isBouncing = false; // Flag to track bouncing state
     protected Transform playerTransform;
+    protected Rigidbody2D rb;
     protected int attackCount = 0;
 
     // The f at the end of the value means float
     //[SerializeField] private float health = 100f;
-    [SerializeField] protected int attackDamage = 1;
-    [SerializeField] protected float bounceForce = 1f;
-    [SerializeField] protected float bounceCooldown = 1f; // Time in seconds before pursuing again
+    
     [SerializeField] private float wanderRadius = 5f; // Radius within which the monster will wander
     [SerializeField] private int despawnRadius = 10;
-    [SerializeField] protected int maxAttacks = 3; // Max number of attacks before de-spawning
     private Vector3 startPosition;
-    Vector3 wanderDestination;
-    protected bool isBouncing = false; // Flag to track bouncing state
+    private Vector3 wanderDestination;
     private bool wandering = false;
-    protected Rigidbody2D rb;
     //private MonsterFactory monsterFactory = FindObjectOfType<MonsterFactory>();
     private MonsterFactory monsterFactory;
 
@@ -62,6 +63,7 @@ public abstract class Monster : MonoBehaviour
         }
     }
 
+    //Remove virtual and override 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         // Deal damage if colliding with the player

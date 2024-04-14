@@ -165,13 +165,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 5
   speed: 3
-  incapacitateDuration: 3
   attackDamage: 1
   bounceForce: 1
   bounceCooldown: 1
+  incapacitateDuration: 3
+  maxAttacks: 3
   wanderRadius: 2
   despawnRadius: 17
-  maxAttacks: 3
+  sfxClip: {fileID: 8300000, guid: 6eba34a2f75170a47924655164fef44e, type: 3}
 --- !u!61 &2951370383452546772
 BoxCollider2D:
   m_ObjectHideFlags: 0

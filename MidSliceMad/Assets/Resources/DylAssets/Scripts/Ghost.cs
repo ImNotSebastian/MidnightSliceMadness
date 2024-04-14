@@ -15,6 +15,7 @@ using UnityEngine;
 
 public class Ghost : Monster
 {
+    [SerializeField] private AudioClip sfxClip;
     private bool isIncapacitated = false;
     
     // Update is called once per frame
@@ -45,6 +46,7 @@ public class Ghost : Monster
             GameManager.instance.DecreaseScore(attackDamage);
             Debug.Log($"Dealt {attackDamage} damage to the player!");
             attackCount++;
+            SoundFxManager.Instance.playSFX(sfxClip, transform, 1f);
 
             // Check if the attack count has reached the limit
             if (attackCount >= maxAttacks)
