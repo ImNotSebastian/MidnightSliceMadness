@@ -166,7 +166,7 @@ MonoBehaviour:
   detectionRadius: 5
   speed: 3
   incapacitateDuration: 3
-  attackDamage: 10
+  attackDamage: 1
   bounceForce: 1
   bounceCooldown: 1
   wanderRadius: 2

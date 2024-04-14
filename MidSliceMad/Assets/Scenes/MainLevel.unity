@@ -2111,6 +2111,7 @@ MonoBehaviour:
   turnFactor: 2.5
   maxSpeed: 3
   reverseSpeed: 0.1
+  turningDifficulty: 1
 --- !u!114 &587715385
 MonoBehaviour:
   m_ObjectHideFlags: 0

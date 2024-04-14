@@ -23,17 +23,17 @@ public abstract class Monster : MonoBehaviour
 
     // The f at the end of the value means float
     //[SerializeField] private float health = 100f;
-    [SerializeField] private int attackDamage = 1;
-    [SerializeField] private float bounceForce = 1f;
-    [SerializeField] private float bounceCooldown = 1f; // Time in seconds before pursuing again
+    [SerializeField] protected int attackDamage = 1;
+    [SerializeField] protected float bounceForce = 1f;
+    [SerializeField] protected float bounceCooldown = 1f; // Time in seconds before pursuing again
     [SerializeField] private float wanderRadius = 5f; // Radius within which the monster will wander
     [SerializeField] private int despawnRadius = 10;
-    [SerializeField] private int maxAttacks = 3; // Max number of attacks before de-spawning
+    [SerializeField] protected int maxAttacks = 3; // Max number of attacks before de-spawning
     private Vector3 startPosition;
     Vector3 wanderDestination;
-    private bool isBouncing = false; // Flag to track bouncing state
+    protected bool isBouncing = false; // Flag to track bouncing state
     private bool wandering = false;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     //private MonsterFactory monsterFactory = FindObjectOfType<MonsterFactory>();
     private MonsterFactory monsterFactory;
 
@@ -96,7 +96,7 @@ public abstract class Monster : MonoBehaviour
     }
 
     // Reset the bounce state after cooldown
-    private void ResetBounceState()
+    protected void ResetBounceState()
     {
         isBouncing = false;
     }
@@ -121,7 +121,7 @@ public abstract class Monster : MonoBehaviour
         }
     }
 
-    private void Despawn()
+    protected void Despawn()
     {
         Destroy(gameObject);
         monsterFactory.IncrementDecrementGhostCount(false);
