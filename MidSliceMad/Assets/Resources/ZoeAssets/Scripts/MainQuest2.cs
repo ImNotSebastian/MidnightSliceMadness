@@ -18,7 +18,7 @@ using PlasticPipe.PlasticProtocol.Messages;
 using TMPro;
 using UnityEngine;
 
-public class MainQuest1 : Quest
+public class MainQuest2 : Quest
 {
     
     //FindObserver sets the game object observer to the observer in the scene.
@@ -75,7 +75,7 @@ public class MainQuest1 : Quest
     */
     public override void SetQuestProgress1()
     {
-        questMessage.text = "Quest:<br>Deliver the pizza to The Blue House";
+        questMessage.text = "Quest:<br>Deliver the pizza to the NotAlien's Home";
         destination = GameObject.Find("BlueHouse");
         NotifyManager(this);
     }
