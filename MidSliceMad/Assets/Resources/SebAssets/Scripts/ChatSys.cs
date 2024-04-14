@@ -168,7 +168,7 @@ public class ChatSys : MonoBehaviour
             aboutNode = new ChatNode();
             aboutNode.text = "Nun-ya";
             aboutNode.responses.Add(new Response("Nice to meet you Nun-ya.", GetInitialNode()));
-            aboutNode.responses.Add(new Response("What do you have for sale?", GetSaleNode()));
+            aboutNode.responses.Add(new Response("That's nice! Take your stupid pizza.", GetSaleNode()));
             aboutNode.responses.Add(new Response("Goodbye", GetExitNode())); // Add exit option
         }
         return aboutNode;
