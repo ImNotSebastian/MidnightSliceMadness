@@ -94,7 +94,7 @@ public class TutorialQuest : Quest
         //UnityEngine.Debug.LogError("End Quest 1");
         questMessage.text = "Quest Complete!";
         SceneManager.LoadScene("MainLevel");
-        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(2);
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestSelector(0);
         NotifyManager(this);
         questProgress = 0;
     }
