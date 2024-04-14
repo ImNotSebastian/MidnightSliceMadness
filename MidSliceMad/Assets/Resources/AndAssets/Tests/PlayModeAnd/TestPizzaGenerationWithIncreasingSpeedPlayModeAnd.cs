@@ -16,7 +16,7 @@ public class PizzaGenerationPlayModeTestPlayModeAnd
       
       // Get references to Player and BicycleController components
       Player player = GameObject.FindObjectOfType<Player>();
-      BicycleController bicycleController = GameObject.FindObjectOfType<BicycleController>();
+      VehicleController vehicleController = GameObject.FindObjectOfType<VehicleController>();
       
       /*
       // Create a new GameObject to represent the collision object
@@ -38,7 +38,7 @@ public class PizzaGenerationPlayModeTestPlayModeAnd
       while (playerSpeed < 1000.0f) // Adjust upper limit as needed
       {
          // Set player speed for collision
-         bicycleController.SetMaxSpeed(playerSpeed);
+         vehicleController.SetMaxSpeed(playerSpeed);
 
          // Simulate collision with "Pick-Up" object
          //player.OnCollisionEnter2D(collision); // Simulate collision

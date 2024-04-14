@@ -7,14 +7,11 @@ This file changes the player's sprite based on which direction it is facing
 to give the illusion of semi 3D
 */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BicycleAnimation : MonoBehaviour
+public class Semi3DAnimation : MonoBehaviour
 {
     [SerializeField] private RuntimeAnimatorController[] animatorController;
-    private Transform bicycleRotation;
     private bool isRight;
 
     private Animator animator;
@@ -24,8 +21,6 @@ public class BicycleAnimation : MonoBehaviour
         // Get the Renderer component attached to the GameObject
         animator = GetComponent<Animator>();
 
-        bicycleRotation = GameObject.Find("PlayerBicycle").transform;
-
         isRight = false;
     }
 
@@ -33,7 +28,7 @@ public class BicycleAnimation : MonoBehaviour
     void LateUpdate()
     {
         // Set the rotation of BikeAnimation to the negative value of the rotation of TopLevel
-        transform.rotation = Quaternion.Euler(0, 0, -bicycleRotation.transform.rotation.z);
+        transform.rotation = Quaternion.Euler(0, 0, -transform.parent.rotation.z);
     }
 
     // Function to change the color of the shape

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1475805216554954573}
   - component: {fileID: -2908088458574618055}
+  - component: {fileID: 2393681162901250865}
   m_Layer: 0
   m_Name: QuestManager
   m_TagString: Untagged
@@ -45,5 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceDisplayGame: {fileID: 0}
+  questDisplayGame: {fileID: 0}
   distance: 0
   limit: 0
+--- !u!114 &2393681162901250865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367580549830425674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3957b7cc10a9c408805c0ca96b6464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
