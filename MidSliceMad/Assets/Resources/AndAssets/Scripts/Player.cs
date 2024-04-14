@@ -65,7 +65,6 @@ public class Player : MonoBehaviour
             //Debug.LogError("RequestPizzaMenuManager GameObject found.");
             Time.timeScale = 0f; // Pause background game
             requestPizzaMenuUI.SetActive(true); // Show the pop-up menu
-            //requestPizzaMenuUI.ShowRequestPizzaMenu(); // Fix
             //Debug.LogError("Entered Request Pizza Menu.");
         }
         else
@@ -89,7 +88,7 @@ public class Player : MonoBehaviour
                                     mainCameraTransform.right * offsetFromCamera.x +
                                     mainCameraTransform.up * offsetFromCamera.y;
             //*/
-            //Vector3 spawnPosition = 
+            //Vector3 spawnPosition = // Spawn position to anchor to camera
 
             // Instantiate the PizzaPrefab at the calculated position
 
