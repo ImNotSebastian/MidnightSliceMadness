@@ -1,0 +1,19 @@
+
+START:
+
+QuestManager.Start();
+	MainQuest1.SetQuestAttributes();
+
+		MainQuest1.NotifyManager();
+			QuestManager.QuestRecieve();
+				QuestObserver.ObserverUpdate();
+					Observer.ObserverUpdate();
+						HUDObserver.RecieveData();
+							DistanceDisplayGame.HUDRecieve();
+
+QuestManager.Update();
+	IF status change, call Andrew's Player.cs Public Function to check.
+		Quest.ChangeQuestProgress
+			Quest.sNotifyManager(); 
+
+
