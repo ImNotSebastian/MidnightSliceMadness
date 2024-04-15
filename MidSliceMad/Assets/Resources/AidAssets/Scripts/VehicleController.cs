@@ -151,6 +151,7 @@ public class VehicleController : MonoBehaviour
         return Vector2.Dot(transform.right, vehicleRigidBody2D.velocity);
     }
 
+    // Function to detect drifting with vehicle
     public bool IsTireScreeching(out float lateralVelocity, out bool isBraking)
     {
         lateralVelocity = GetLateralVelocity();
@@ -164,7 +165,7 @@ public class VehicleController : MonoBehaviour
         }
 
         // If we have a lot of side movement then the tires should be screeching
-        if (Mathf.Abs(GetLateralVelocity()) > 0.1f)
+        if (Mathf.Abs(GetLateralVelocity()) > 1.0f)
         {
             return true;
         }
@@ -173,6 +174,7 @@ public class VehicleController : MonoBehaviour
     }
 
     // Changes the sprite based on it's rotation to create a 3D effect
+    // At 0 starts at Up direction and rotates counter clockwise as it increases
     private void SetSpriteOnRotation()
     {
         Vector3 rotation = transform.eulerAngles;
@@ -219,6 +221,7 @@ public class VehicleController : MonoBehaviour
         accelerationInput = inputVector.y;
     }
 
+    // Returns the current surfactType the vehicle is over
     public Surface.SurfaceTypes GetSurface()
     {
         return carSurfaceHandler.GetCurrentSurface();
@@ -234,16 +237,5 @@ public class VehicleController : MonoBehaviour
     public float GetMaxSpeed()
     {
         return maxSpeed;
-    }
-
-    // Sets the input stats when initializing the vehicle.
-    public void SetStats(float driftFactor, float accelerationFactor, float turnFactor, float maxSpeed, float reverseSpeed, float turningDifficulty)
-    {
-        this.driftFactor = driftFactor;
-        this.accelerationFactor = accelerationFactor;
-        this.turnFactor = turnFactor;
-        this.maxSpeed = maxSpeed;
-        this.reverseSpeed = reverseSpeed;
-        this.turningDifficulty = turningDifficulty;
     }
 }

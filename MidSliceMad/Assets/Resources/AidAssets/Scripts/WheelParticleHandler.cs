@@ -1,6 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
+/*
+Name: Aiden Shepard
+Role: Team Lead 3 -- QA Manager
+Project: Midnight Slice Madness
+
+This file performs manages the amount of smoke
+particles that are displayed
+*/
+
 using UnityEngine;
 
 public class WheelParticleHandler : MonoBehaviour
