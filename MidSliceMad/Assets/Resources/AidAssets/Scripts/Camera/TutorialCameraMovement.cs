@@ -12,14 +12,16 @@ using UnityEngine;
 
 public class TutorialCameraMovement : MonoBehaviour
 {
-    [SerializeField] private Transform playerBicycle;
+    private Transform player;
 
     // Update is called once per frame
     void Update()
     {
-        if (playerBicycle.transform.position.y > 0 && playerBicycle.transform.position.y < 22)
+        player = FindObjectOfType<VehicleController>().transform;
+
+        if (player.transform.position.y > 0 && player.transform.position.y < 22)
         {
-            transform.position = new Vector3(0, playerBicycle.position.y, -10);
+            transform.position = new Vector3(0, player.position.y, -10);
         }
     }
 }

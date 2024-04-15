@@ -29,7 +29,7 @@ public abstract class Monster : MonoBehaviour
 
     // The f at the end of the value means float
     //[SerializeField] private float health = 100f;
-    
+
     [SerializeField] private float wanderRadius = 5f; // Radius within which the monster will wander
     [SerializeField] private int despawnRadius = 10;
     private Vector3 startPosition;
@@ -40,7 +40,7 @@ public abstract class Monster : MonoBehaviour
 
     protected virtual void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = FindObjectOfType<VehicleController>().transform;
         rb = GetComponent<Rigidbody2D>();
 
         startPosition = transform.position; // Save the starting position
@@ -48,7 +48,12 @@ public abstract class Monster : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected abstract void Update();
+    protected virtual void Update()
+    {
+        playerTransform = FindObjectOfType<VehicleController>().transform;
+        PursuePlayer();
+        DistanceDespawn();
+    }
 
     protected void PursuePlayer()
     {

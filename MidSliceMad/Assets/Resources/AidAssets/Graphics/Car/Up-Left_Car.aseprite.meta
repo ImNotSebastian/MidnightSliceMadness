@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e5025b5971f8278498c9aa4ced7bdbd8
+guid: 0bda100c19ce1004397eed6a847b7522
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Right_Motor_Frame_0
+  - name: Up-Left_Car_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -130,9 +130,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 30
+      width: 29
       height: 32
-    spriteID: 075b4c4871c8eb444bee041d78f902c0
+    spriteID: bb563b3ff3cf35342b2d7cfe358bc287
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,27 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Right_Motor_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 44
-      width: 30
-      height: 32
-    spriteID: 6097b936ca7a30a45b8cc0b7146cd75e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 44}
-  - name: Right_Motor_Frame_2
+  - name: Up-Left_Car_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -170,9 +150,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 84
-      width: 30
-      height: 32
-    spriteID: 2cbf37309687af94bb3563c5b6df0d5b
+      width: 29
+      height: 31
+    spriteID: 58f763165540a464ca1c6408c0b43204
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,39 +161,59 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 84}
+  - name: Up-Left_Car_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 44
+      width: 29
+      height: 32
+    spriteID: c2f585097e937124b9bf8c9949060d71
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 44}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1300860030
-    name: Right_Motor
+    guid: -1920507878
+    name: Up-Left_Car
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Right_Motor_Frame_0
+    - name: Up-Left_Car_Frame_0
       frameIndex: 0
       cellRect:
-        x: 1
+        x: 2
         y: 0
-        width: 30
+        width: 29
         height: 32
-      spriteId: 075b4c4871c8eb444bee041d78f902c0
-    - name: Right_Motor_Frame_1
+      spriteId: bb563b3ff3cf35342b2d7cfe358bc287
+    - name: Up-Left_Car_Frame_1
       frameIndex: 1
       cellRect:
-        x: 1
+        x: 2
         y: 0
-        width: 30
-        height: 32
-      spriteId: 6097b936ca7a30a45b8cc0b7146cd75e
-    - name: Right_Motor_Frame_2
+        width: 29
+        height: 31
+      spriteId: 58f763165540a464ca1c6408c0b43204
+    - name: Up-Left_Car_Frame_2
       frameIndex: 2
       cellRect:
-        x: 1
+        x: 2
         y: 0
-        width: 30
+        width: 29
         height: 32
-      spriteId: 2cbf37309687af94bb3563c5b6df0d5b
+      spriteId: c2f585097e937124b9bf8c9949060d71
     linkedCells: []
     parentIndex: -1
   platformSettings: []

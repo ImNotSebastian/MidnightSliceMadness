@@ -15,7 +15,7 @@ using UnityEngine;
 public class VehicleController : MonoBehaviour
 {
     // Private Variables
-    [SerializeField] private Semi3DAnimation vehicleAnimation;
+    [SerializeField] protected Semi3DAnimation vehicleAnimation;
 
     [SerializeField] protected float driftFactor;
     [SerializeField] protected float accelerationFactor;
@@ -26,7 +26,7 @@ public class VehicleController : MonoBehaviour
 
     // Local Variables
     protected float accelerationInput = 0;
-    protected float steeringInput = 1;
+    protected float steeringInput = 0;
 
     protected float rotationAngle = 0;
 
@@ -234,5 +234,16 @@ public class VehicleController : MonoBehaviour
     public float GetMaxSpeed()
     {
         return maxSpeed;
+    }
+
+    // Sets the input stats when initializing the vehicle.
+    public void SetStats(float driftFactor, float accelerationFactor, float turnFactor, float maxSpeed, float reverseSpeed, float turningDifficulty)
+    {
+        this.driftFactor = driftFactor;
+        this.accelerationFactor = accelerationFactor;
+        this.turnFactor = turnFactor;
+        this.maxSpeed = maxSpeed;
+        this.reverseSpeed = reverseSpeed;
+        this.turningDifficulty = turningDifficulty;
     }
 }
