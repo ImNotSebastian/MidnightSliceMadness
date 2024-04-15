@@ -1883,6 +1883,8 @@ GameObject:
   - component: {fileID: 1333282419}
   - component: {fileID: 1333282418}
   - component: {fileID: 1333282417}
+  - component: {fileID: 1333282420}
+  - component: {fileID: 1333282421}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1902,7 +1904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a9bc74d44c3c046a299a3b396be71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
   ghostPrefab: {fileID: 3586172014901122088, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
   spawnRadius: 3
   maxGhosts: 10
@@ -1937,6 +1938,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!328 &1333282420
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333282416}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: edf41bb03183e37449611f9ccb922434, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 295359430}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!114 &1333282421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333282416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a2074303024f84f91fe3f5b505f9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoClips:
+  - {fileID: 32900000, guid: 4bbb19d3124c096418d6de5953c7eb55, type: 3}
+  - {fileID: 32900000, guid: 9c133ec9d4c186e4b8825d98b764fae7, type: 3}
+  - {fileID: 32900000, guid: d009ad1d325326549a90a664b1a9f727, type: 3}
+  - {fileID: 32900000, guid: 82ab7eae14c2c574689ffc7bf2a2b2e3, type: 3}
+  videoPlayer: {fileID: 1333282420}
 --- !u!1 &1384159099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,6 +2038,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec010e2daff5ec64f843a8a3320feab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  demoVideo: {fileID: 1333282420}
+  demoTriggerTime: 5
 --- !u!114 &1384159102
 MonoBehaviour:
   m_ObjectHideFlags: 0
