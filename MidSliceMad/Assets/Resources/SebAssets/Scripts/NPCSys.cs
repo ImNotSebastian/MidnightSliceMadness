@@ -19,22 +19,30 @@ public class NPCSys
     private int posX = 0;
     private int posY = 0;
 
+    private int affinity;
+
     //constructors
     public NPCSys()
     {
         name = "Default";
+        affinity = 0;
     }
 
 
-    public NPCSys(string newName, int xCoord, int yCoord)
+    public NPCSys(string newName,int x, int xCoord, int yCoord)
     {
         name = newName;
         posX = xCoord;
         posY = yCoord;
+        affinity = x;
     }
 
 
     //getters
+    public int getAffinity()
+    {
+        return affinity;
+    }
     public string getName()
     {
         return name;
@@ -51,6 +59,11 @@ public class NPCSys
     }
 
     //setters
+     public void setAffinity(int x)
+    {
+       affinity = x;
+    }
+
     public void setPos(int x, int y)
     {
         posX = x;
@@ -66,30 +79,37 @@ public class NPCSys
     public virtual void Interact()
     {
         //need to call start dialogue from here based on which npc it is
-        //Debug.Log("NPCSys: Basic interaction with NPC.");
+        if(affinity > 0)
+        {
+            Debug.Log("NPCSys: Nice interaction with NPC.");
+        }
+        else
+        {
+             Debug.Log("NPCSys: Normal interaction with NPC.");
+        }
     }
 
 }
 
 public class RomanceNPCSys : NPCSys
 {
-   /* private int affinity;
+  
 
    
 
-    public void setAffinity(int x)
-    {
-        affinty = x;
-    }
-    public int getAffinity()
-    {
-        return affinty;
-    }
+  
 
     // Override the Interact method from the base class
     public override void Interact()
     {
         //need to call start dialogue from here based on which npc it is, and the affinity score
-        //Debug.Log("RomanceNPCSys: Romantic interaction with NPC.");
-    }*/
+        if(getAffinity() > 0)
+        {
+            Debug.Log("RomanceNPCSys: Romantic interaction with NPC.");
+        }
+        else
+        {
+             Debug.Log("NPCSys: Normal interaction with NPC.");
+        }
+    }
 }

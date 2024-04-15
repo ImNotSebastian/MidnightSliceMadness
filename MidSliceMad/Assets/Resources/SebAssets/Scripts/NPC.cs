@@ -32,6 +32,10 @@ public class NPC : MonoBehaviour
     private GameObject player;
 
 
+    //NPC data
+    NPCSys  npc1 = new NPCSys();
+    //child NPC data
+    NPCSys portabella = new RomanceNPCSys();
 
 
     // Start is called before the first frame update
@@ -96,10 +100,4 @@ public class NPC : MonoBehaviour
             SoundFxManager.Instance.playSFX(sfxClip, transform, 1f);
         }
     }
-
-
-
-
-    //check out building 2d settings
-
 }
