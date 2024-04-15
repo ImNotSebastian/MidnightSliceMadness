@@ -10,11 +10,21 @@ public class TestPlayerPizzaDelivery
     public void TestPlayerDeliversPizza()
     {
         var player = new Player();
-        var gameManager = new GameManager();
+        var gameManager = GameManager.instance;
         gameManager._player = player;
-        player.SetPizzaGameObject(new GameObject("PizzaObject"));
-        player.SetCurrentPizzaObject(new CrudePizza());
-         player.SetPlayerHasPizza(true);
+        
+        //player.SetCurrentPizzaObject(new CrudePizza());
+        //var spawnPosition = (0f,0f,0f);
+        //var pizzaPrefab = Resources.Load(player.currentPizzaObject.GetPrefabAssetPath()) as GameObject;
+        // var spawnPizzaCameraOffsetX = 7f;
+        // var spawnPizzaCameraOffsetY = -4f;
+        // var spawnPizzaCameraOffsetZ = 9f;
+        // Vector3 offsetFromCamera = new Vector3(spawnPizzaCameraOffsetX, spawnPizzaCameraOffsetY, spawnPizzaCameraOffsetZ);
+        //pizzaGameObject = Instantiate(pizzaPrefab, spawnPosition, Quaternion.identity);
+        //player.SetPizzaGameObject(new GameObject("PizzaObject"));
+        //player.SetPlayerHasPizza(true);
+
+        player.GenerateAndPlayerPicksUpPizza();
 
         player.DeliverPizza();
 

@@ -10,8 +10,8 @@ public class TestScoreIncreaseAndDecrease
     [Test]
     public void TestScoreIncreaseAndUpdate()
     {
-        var gameManager = new GameManager();
-        gameManager.scoreText = new TextMeshProUGUI();
+        var gameManager = GameManager.instance;
+        gameManager._gameState.Score = 0;
 
         gameManager.IncreaseScore(10);
 
@@ -23,15 +23,12 @@ public class TestScoreIncreaseAndDecrease
     [Test]
     public void TestScoreDecrease()
     {
-        // Arrange
-        var gameManager = new GameManager();
-        gameManager.scoreText = new TextMeshProUGUI();
+        var gameManager = GameManager.instance;
         gameManager._gameState.Score = 20;
 
-        // Act
         gameManager.DecreaseScore(5);
 
-        // Assert
+        // Check values
         Assert.AreEqual(15, gameManager._gameState.Score);
         Assert.AreEqual("Score: 15", gameManager.scoreText.text);
     }

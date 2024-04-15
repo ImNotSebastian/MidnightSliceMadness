@@ -220,7 +220,14 @@ public class Player : MonoBehaviour
 
     public void SetPlayerPizzaOrderNumber(int requestPizzaTypeInput)
     {
-        pizzaOrderNumber = requestPizzaTypeInput;
+        if (0 <= requestPizzaTypeInput && requestPizzaTypeInput <= 3)
+        {
+            pizzaOrderNumber = requestPizzaTypeInput;
+        }
+        else
+        {
+            pizzaOrderNumber = 0;
+        }
     }
 
     public void SimulateCollisionWithPickUp()

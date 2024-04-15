@@ -13,10 +13,13 @@ public class TestPizzaDeliveryTimerPauseAndResume
         requestPizzaMenu.requestPizzaMenuUI = new GameObject("RequestPizzaMenuUI");
 
         requestPizzaMenu.ShowRequestPizzaMenu();
-        requestPizzaMenu.OnExitClicked();
 
         // Check values
         Assert.AreEqual(0f, Time.timeScale);
+
+        requestPizzaMenu.OnExitClicked();
+
+        // Check values
         Assert.AreEqual(1f, Time.timeScale);
     }
 }

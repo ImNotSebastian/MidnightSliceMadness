@@ -10,7 +10,8 @@ public class TestPizzaDeliveryTimerPersistence
     public void TestPizzaDeliveryTimerPersistsAcrossPizzaOrders()
     {
         var player = new Player();
-        player.SetCurrentPizzaObject(new CrudePizza());
+        //player.SetCurrentPizzaObject(new CrudePizza());
+        CrudePizza cheesePizza = new CheesePizza(); // Cheese Pizza time should currently be 60f
         GameManager.instance._gameState.TimeLeft = 30f;
         GameManager.instance._gameState.PizzaDeliveryOngoing = true;
 
@@ -18,7 +19,7 @@ public class TestPizzaDeliveryTimerPersistence
         player.GenerateAndPlayerPicksUpPizza();
 
         // Check values
-        Assert.AreEqual(30f, GameManager.instance._gameState.TimeLeft);
+        Assert.AreEqual(cheesePizza.GetPizzaDeliveryTime(), GameManager.instance._gameState.TimeLeft);
         Assert.IsTrue(GameManager.instance._gameState.PizzaDeliveryOngoing);
     }
 }

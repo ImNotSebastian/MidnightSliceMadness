@@ -10,7 +10,7 @@ public class TestPlayerPizzaDeliveryTimerRunOut
     public void TestPlayerPizzaDeliveryTimerRunsOut()
     {
         var player = new Player();
-        var gameManager = new GameManager();
+        var gameManager = GameManager.instance;
         gameManager._player = player;
         player.SetPizzaGameObject(new GameObject("PizzaObject"));
         player.SetCurrentPizzaObject(new CrudePizza());

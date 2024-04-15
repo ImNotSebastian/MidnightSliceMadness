@@ -13,7 +13,7 @@ public class TestGameStateEncapsulation
 
         gameState.Score = 10;
         gameState.TimeLeft = 60f;
-        gameState.IsGameOver = true;
+        gameState.IsGameOver = false;
         gameState.PizzaDeliveryOngoing = true;
         gameState.StartPizzaDeliveryTimer(60f);
         gameState.TurnOffPizzaDeliveryTimer();
@@ -21,9 +21,9 @@ public class TestGameStateEncapsulation
 
         // Check values
         Assert.AreEqual(10, gameState.Score);
-        Assert.AreEqual(60f, gameState.TimeLeft);
-        Assert.IsTrue(gameState.IsGameOver);
-        Assert.IsTrue(gameState.PizzaDeliveryOngoing);
+        Assert.AreEqual(0f, gameState.TimeLeft);
+        Assert.IsFalse(gameState.IsGameOver);
+        Assert.IsFalse(gameState.PizzaDeliveryOngoing);
         Assert.AreEqual(0f, gameState.TimeLeft);
         Assert.IsFalse(gameState.PizzaDeliveryOngoing);
     }

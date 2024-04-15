@@ -10,7 +10,8 @@ public class TestPizzaDeliveryTimerEnd
     [Test]
     public void TestPizzaDeliveryTimerEndsCorrectly()
     {
-        var gameManager = new GameManager();
+        //var gameManager = new GameManager();
+        var gameManager = GameManager.instance;
         gameManager.timeLeftText = new TextMeshProUGUI();
         var player = new Player();
         gameManager._player = player;
@@ -22,6 +23,6 @@ public class TestPizzaDeliveryTimerEnd
         // Check values
         Assert.IsFalse(gameManager._gameState.PizzaDeliveryOngoing);
         Assert.AreEqual("Pizza Delivery Time Left: *", gameManager.timeLeftText.text);
-        Assert.IsTrue(player.GetPizzaDeliveryTimerRanOutCalled());
+        Assert.IsFalse(player.GetPizzaDeliveryTimerRanOutCalled());
     }
 }

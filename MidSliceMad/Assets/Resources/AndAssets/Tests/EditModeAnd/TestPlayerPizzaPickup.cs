@@ -10,7 +10,7 @@ public class TestPlayerPizzaPickup
     public void TestPlayerPicksUpPizza()
     {
         var player = new Player();
-        var gameManager = new GameManager();
+        var gameManager = GameManager.instance;
         gameManager._player = player;
 
         player.GenerateAndPlayerPicksUpPizza();

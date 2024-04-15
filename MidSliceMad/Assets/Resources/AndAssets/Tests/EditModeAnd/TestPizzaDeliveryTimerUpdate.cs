@@ -10,7 +10,7 @@ public class TestPizzaDeliveryTimerUpdate
     [Test]
     public void TestPizzaDeliveryTimerUpdatesCorrectly()
     {
-        var gameManager = new GameManager();
+        var gameManager = GameManager.instance;
         gameManager.timeLeftText = new TextMeshProUGUI();
         gameManager._gameState.TimeLeft = 30f;
         gameManager._gameState.PizzaDeliveryOngoing = true;
