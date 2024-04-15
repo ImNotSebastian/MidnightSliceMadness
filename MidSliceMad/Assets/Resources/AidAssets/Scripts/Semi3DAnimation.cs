@@ -12,7 +12,6 @@ using UnityEngine;
 public class Semi3DAnimation : MonoBehaviour
 {
     [SerializeField] private RuntimeAnimatorController[] animatorController;
-    private bool isRight;
 
     private Animator animator;
     // Awake is called when the script is being loaded
@@ -20,8 +19,6 @@ public class Semi3DAnimation : MonoBehaviour
     {
         // Get the Renderer component attached to the GameObject
         animator = GetComponent<Animator>();
-
-        isRight = false;
     }
 
     // LateUpdate is called after all Update functions have been called
