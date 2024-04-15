@@ -38,7 +38,7 @@ public class DistanceDisplayGame : MonoBehaviour
     void Start()
     {
         distance = Convert.ToInt32(distanceCalculation());
-        player = GameObject.Find("PlayerBicycle");
+        player = GameObject.FindObjectOfType<VehicleController>().gameObject;
         destination = GameObject.Find("OutPizza");
         if (destination == null)
         {
@@ -51,6 +51,7 @@ public class DistanceDisplayGame : MonoBehaviour
     */
     void Update()
     {
+        player = GameObject.FindObjectOfType<VehicleController>().gameObject;
         a.x = player.transform.position.x;
         a.y = player.transform.position.y;
         b.x = destination.transform.position.x;

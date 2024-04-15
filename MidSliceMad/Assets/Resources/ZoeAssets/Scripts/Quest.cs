@@ -110,8 +110,7 @@ public class Quest
     } 
     public bool CheckPlayerPizza()
     {
-        return GameObject.Find("PlayerBicycle").GetComponent<Player>().GetPlayerHasPizza();
+        return GameObject.FindObjectOfType<VehicleController>().GetComponent<Player>().GetPlayerHasPizza();
+
     }
-
-
 }
