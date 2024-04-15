@@ -44,6 +44,13 @@ public class VehicleFactory : MonoBehaviour
             // Instantiating the selected prefab with the position and rotation of the previous vehicle
             GameObject newVehicle = Instantiate(vehiclePrefabs[userInput], parent);
 
+            Player newPlayerScript = newVehicle.GetComponent<Player>();
+            Player currentPlayerScript = currentVehicle.GetComponent<Player>();
+
+            newPlayerScript.SetPlayerHasPizza(currentPlayerScript.GetPlayerHasPizza());
+            newPlayerScript.SetPizzaGameObject(currentPlayerScript.GetPizzaGameObject());
+            newPlayerScript.SetCurrentPizzaObject(currentPlayerScript.GetCurrentPizzaObject());
+
             // Removing the previous vehicle
             Destroy(currentVehicle);
 

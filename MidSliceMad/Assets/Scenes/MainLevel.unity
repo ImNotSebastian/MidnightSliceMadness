@@ -4350,7 +4350,7 @@ GameObject:
   - component: {fileID: 925245574}
   - component: {fileID: 925245575}
   m_Layer: 0
-  m_Name: VehicleFactor
+  m_Name: VehicleFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

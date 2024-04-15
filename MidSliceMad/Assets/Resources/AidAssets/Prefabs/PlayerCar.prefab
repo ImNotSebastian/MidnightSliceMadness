@@ -9716,7 +9716,7 @@ GameObject:
   - component: {fileID: 3861672544660121563}
   - component: {fileID: 3402302005316950351}
   - component: {fileID: 4848240366648469984}
-  - component: {fileID: 3698837325946016183}
+  - component: {fileID: 401014029486253307}
   - component: {fileID: 6807425602578014722}
   - component: {fileID: 4073668660874612959}
   m_Layer: 0
@@ -9828,7 +9828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6aae1de2fc3e2141a3f5b3cf5b04e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3698837325946016183
+--- !u!114 &401014029486253307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9837,7 +9837,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7973408610361933463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45702e720e122304cb8afee9637bbd51, type: 3}
+  m_Script: {fileID: 11500000, guid: 20f24c77c3ede3649848a7edf406b3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   vehicleAnimation: {fileID: 616726171391602945}
