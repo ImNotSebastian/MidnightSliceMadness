@@ -230,7 +230,14 @@ public class VehicleController : MonoBehaviour
     // Sets the maxSpeed to the input variable newSpeed
     public void SetMaxSpeed(float newSpeed)
     {
-        maxSpeed = newSpeed;
+        if (newSpeed >= 0)
+        {
+            maxSpeed = newSpeed;
+        }
+        else
+        {
+            Debug.LogError("Cannot set Max Speed to negative value!");
+        }
     }
 
     // Returns the float maxSpeed
