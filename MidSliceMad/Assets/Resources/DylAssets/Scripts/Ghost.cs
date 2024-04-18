@@ -38,7 +38,7 @@ public class Ghost : Monster
         }
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision)
+    public override void OnCollisionEnter2D(Collision2D collision)
     {
         // Deal damage if colliding with the player
         if (collision.gameObject.tag == "Player")

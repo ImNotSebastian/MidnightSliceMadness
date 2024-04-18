@@ -23,6 +23,10 @@ public class GameOverMenu : MonoBehaviour
     {
         inactivityTimer = 0f;
         demoVideo.Stop();
+
+        //demoVideo.prepareCompleted += (source) => {
+        //    demoVideo.Play();
+        //};
     }
 
     private void Update()
@@ -37,6 +41,8 @@ public class GameOverMenu : MonoBehaviour
         else
         {
             inactivityTimer += Time.deltaTime;
+            //Debug.Log($"Tiner running");
+            //Debug.Log($"Inactivity: {inactivityTimer}, Time.deltaTime {Time.deltaTime}");
             if (inactivityTimer >= demoTriggerTime && !demoVideo.isPlaying)
             {
                 Debug.Log($"Attempting to play video");

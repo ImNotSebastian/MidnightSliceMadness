@@ -15,12 +15,12 @@ using UnityEngine.UIElements;
 
 public class MonsterFactory : MonoBehaviour
 {
-    [SerializeField] private GameObject ghostPrefab;
+    [SerializeField] public GameObject ghostPrefab;
     // Additional monster prefabs...
     [SerializeField] private int spawnRadius = 10; // Minimum distance from the player
     [SerializeField] private int maxGhosts = 10; // Maximum number of ghosts allowed
     [SerializeField] private int spawnInterval = 5; // Time interval between spawns
-    private Transform playerTransform; // Assign this in the Inspector
+    public Transform playerTransform; // Assigned in the Inspector
     private int ghostCount = 0; //Current ghost count
     private static bool spawningEnabled = true;
 
@@ -62,7 +62,7 @@ public class MonsterFactory : MonoBehaviour
         }
     }
 
-    Vector3 GenerateSpawnPosition()
+    public Vector3 GenerateSpawnPosition()
     {
         float cameraHeight = Camera.main.orthographicSize * 2;
         float cameraWidth = cameraHeight * Camera.main.aspect;
@@ -154,6 +154,11 @@ public class MonsterFactory : MonoBehaviour
 The factory pattern is great for when you're going to have multiple instances of objects that all inherit from a
 common superclass because it allows for creation of objects at runtime, allowing for dynamic spawining of ememies
 during gameplay.
+*/
+
+/*
+The state pattern would have also worked well for the ghosts allowing them to change state easily,
+i.e. from wantering to pursuing.
 */
 
 /*

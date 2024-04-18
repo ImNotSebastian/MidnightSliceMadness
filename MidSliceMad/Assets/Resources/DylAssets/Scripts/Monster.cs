@@ -21,13 +21,12 @@ public abstract class Monster : MonoBehaviour
     [SerializeField] protected float bounceForce = 1f;
     [SerializeField] protected float bounceCooldown = 1f; // Time in seconds before pursuing again
     [SerializeField] protected int incapacitateDuration = 3;
-    [SerializeField] protected int maxAttacks = 3; // Max number of attacks before de-spawning
+    [SerializeField] public int maxAttacks = 3; // Max number of attacks before de-spawning
     protected bool isBouncing = false; // Flag to track bouncing state
-    protected Transform playerTransform;
-    protected Rigidbody2D rb;
+    public Transform playerTransform;
+    public Rigidbody2D rb;
     protected int attackCount = 0;
 
-    // The f at the end of the value means float
     //[SerializeField] private float health = 100f;
 
     [SerializeField] private float wanderRadius = 5f; // Radius within which the monster will wander
@@ -69,7 +68,7 @@ public abstract class Monster : MonoBehaviour
     }
 
     //Remove virtual and override 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         // Deal damage if colliding with the player
         if (collision.gameObject.tag == "Player")

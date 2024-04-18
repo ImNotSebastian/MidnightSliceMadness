@@ -20,7 +20,6 @@ public class GhostDetectionRadiusTests
     private Ghost ghostScript;
     private string ghostPrefabPath = "DylAssets/Ghost";
 
-    // Setup method to create player and ghost before each test
     [SetUp]
     public void Setup()
     {

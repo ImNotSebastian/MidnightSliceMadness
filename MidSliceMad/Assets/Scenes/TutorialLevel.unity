@@ -8867,10 +8867,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a9bc74d44c3c046a299a3b396be71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostPrefab: {fileID: 3586172014901122088, guid: 699ec2a1a4e9c024cbbf11ff0324f98b, type: 3}
+  ghostPrefab: {fileID: 7784913193156275071, guid: 5bad586410adb124096b113ef4ff4c1a, type: 3}
   spawnRadius: 4
   maxGhosts: 10
   spawnInterval: 5
+  playerTransform: {fileID: 0}
 --- !u!1 &861830332
 GameObject:
   m_ObjectHideFlags: 0
