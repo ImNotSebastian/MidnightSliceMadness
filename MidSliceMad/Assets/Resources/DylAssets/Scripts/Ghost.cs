@@ -8,7 +8,6 @@ It inherits from MonoBehaviour and Monster
 This class is part of a Factory pattern
 */
 
-using Codice.CM.Common;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

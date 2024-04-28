@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
-using PlasticPipe.PlasticProtocol.Messages;
 using TMPro;
 using UnityEngine;
 
