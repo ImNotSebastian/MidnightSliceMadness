@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2eb41ebcb59c87458b3c256c980a1b2
+guid: 77ac8654361c2554d953d7822fdd2600
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: ShopButton
+  - name: ShopButton 1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,9 +130,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 16
-    spriteID: fe64e3a8300e14c458562742c3bb234b
+      width: 33
+      height: 17
+    spriteID: 1fead3465b280c943bca27d74b1388ee
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,24 +144,24 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1466572594
-    name: ShopButton
+    guid: 738244995
+    name: ShopButton 1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: ShopButton
+    - name: ShopButton 1
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
-        width: 32
-        height: 16
-      spriteId: fe64e3a8300e14c458562742c3bb234b
+        width: 33
+        height: 17
+      spriteId: 1fead3465b280c943bca27d74b1388ee
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 16}
+  canvasSize: {x: 33, y: 17}

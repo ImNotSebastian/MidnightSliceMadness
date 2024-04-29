@@ -16,7 +16,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private bool playerHasPizza = false;
+    public bool playerHasPizza = false;
     [SerializeField] private float spawnPizzaCameraOffsetX = 7f;
     [SerializeField] private float spawnPizzaCameraOffsetY = -4f;
     [SerializeField] private float spawnPizzaCameraOffsetZ = 9f;
@@ -36,6 +36,11 @@ public class Player : MonoBehaviour
         {
             //Debug.LogError("Inventory GameObject not found in the hierarchy. Make sure Inventory game object exists.");
         }
+    }
+
+    public void Update()
+    {
+        inventory = GameObject.Find("Inventory");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -129,6 +134,7 @@ public class Player : MonoBehaviour
             GameManager.instance.StartPizzaDeliveryTimer(currentPizzaObject.GetPizzaDeliveryTime());
 
             playerHasPizza = true;
+            Debug.Log("Player Has Pizza = " + playerHasPizza);
         }
     }
     //*/

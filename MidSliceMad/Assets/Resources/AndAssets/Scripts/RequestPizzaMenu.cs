@@ -75,6 +75,11 @@ public class RequestPizzaMenu : MonoBehaviour
 
     }
 
+    public void Update()
+    {
+        player = FindObjectOfType<Player>();
+    }
+
     public void ShowRequestPizzaMenu()
     {
         Time.timeScale = 0f;
