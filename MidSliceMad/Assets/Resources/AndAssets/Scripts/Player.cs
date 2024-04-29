@@ -176,7 +176,7 @@ public class Player : MonoBehaviour
 
     public GameObject GetPizzaGameObject()
     {
-        if (pizzaGameObject == null)
+        if (pizzaGameObject != null)
         {
             return pizzaGameObject;
         }
