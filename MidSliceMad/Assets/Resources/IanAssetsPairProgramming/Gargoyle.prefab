@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6396015994902338979}
   - component: {fileID: -5477235863559497603}
   - component: {fileID: 253150425936541934}
-  - component: {fileID: 7711823612942137953}
   m_Layer: 0
   m_Name: Gargoyle
   m_TagString: Ghost
@@ -32,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.1598, y: 1.4642696, z: -1}
-  m_LocalScale: {x: 4.88, y: 4.88, z: 4.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6390105529947504174, guid: 1dc8eca601ef9e747a6ced49deab2fa5, type: 3}
-  m_Color: {r: 0.98742133, g: 0.37571678, b: 0.37571678, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 24c4f905a3aadef42b00f0381cd681ad, type: 3}
+  m_Color: {r: 1, g: 0.9968553, b: 0.9968553, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -150,7 +149,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.0022794406, y: 0.15159099}
   serializedVersion: 2
-  m_Radius: 0.04331239
+  m_Radius: 0.25
 --- !u!114 &-5477235863559497603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,35 +209,14 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.0050000027, y: 0.155}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.47368422, y: 0}
-    oldSize: {x: 0.19, y: 0.31}
+    border: {x: 0.56, y: 0.71, z: 0.56, w: 0.5}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.16, y: 2.16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19, y: 0.31}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &7711823612942137953
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7784913193156275071}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 6296913798777533378, guid: df412f7513fbcc64dbeab659e6e4140e, type: 3}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
