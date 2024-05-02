@@ -18,10 +18,12 @@ public class Gargoyle : Monster
     [SerializeField] GameObject detectField;
     private bool isIncapacitated = false;
     bool beingSeen = false;
+    bool flipped = false;
     bool hitPlayer = false;
     bool inView = false;
     Camera cam;
     GameObject fieldInst;
+    SpriteRenderer sprite;
 
     private MonsterFactory monsterFactory;
     private Vector3 startPosition;
@@ -33,6 +35,7 @@ public class Gargoyle : Monster
         fieldInst = Instantiate(detectField, playerTransform);
         startPosition = transform.position; // Save the starting position
         monsterFactory = FindObjectOfType<MonsterFactory>();
+        sprite = gameObject.GetComponent<SpriteRenderer>();
 
     }
     
@@ -82,6 +85,16 @@ public class Gargoyle : Monster
         if (!(beingSeen && inView))
         {
             Debug.Log("Gargoyle Can Move");
+            
+            if (playerTransform.position.x < gameObject.transform.position.x)
+            {
+                sprite.flipX = true;
+            }
+            else
+            {
+                sprite.flipX = false;
+            }
+
             PursuePlayer();
         }
         DistanceDespawn();
