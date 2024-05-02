@@ -173,7 +173,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   wanderRadius: 2
   despawnRadius: 20
-  sfxClip: {fileID: 8300000, guid: fa2e08f00fe002f47bc33bc0e137e460, type: 3}
+  sfxClip: {fileID: 8300000, guid: 54bc704101ca86648b55cec5687d4a1f, type: 3}
   detectField: {fileID: 7815632893445883006, guid: d9f61b8032c708a4a84e9a4e894a7099, type: 3}
 --- !u!61 &253150425936541934
 BoxCollider2D:
