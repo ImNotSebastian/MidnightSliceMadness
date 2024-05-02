@@ -130,7 +130,7 @@ public abstract class Monster : MonoBehaviour
     protected void Despawn()
     {
         Destroy(gameObject);
-        monsterFactory.IncrementDecrementGhostCount(false);
+        monsterFactory.IncrementDecrementMonsterCount(false);
     }
 
     protected void DistanceDespawn()

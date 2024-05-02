@@ -12,21 +12,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 
 public class MonsterFactory : MonoBehaviour
 {
     [SerializeField] public GameObject ghostPrefab;
+    [SerializeField] public GameObject gargoylePrefab;
     // Additional monster prefabs...
     [SerializeField] private int spawnRadius = 10; // Minimum distance from the player
     [SerializeField] private int maxGhosts = 10; // Maximum number of ghosts allowed
+    [SerializeField] private int maxGargoyles = 10; // Maximum number of ghosts allowed
     [SerializeField] private int spawnInterval = 5; // Time interval between spawns
     public Transform playerTransform; // Assigned in the Inspector
+    private int monsterCount = 0; //Current monster count
     private int ghostCount = 0; //Current ghost count
+    private int gargoyleCount = 0; //Current gargoyle count
     private static bool spawningEnabled = true;
 
     public enum MonsterType
     {
         Ghost,
+        Gargoyle,
         // Add more types as needed
     }
 
@@ -49,14 +55,23 @@ public class MonsterFactory : MonoBehaviour
 
     IEnumerator SpawnMonsters()
     {
+        System.Random random = new System.Random();
+
         while (true)
         {
+            int randomNumber = random.Next(1, 3);
             yield return new WaitForSeconds(spawnInterval);
             Vector3 spawnPosition = GenerateSpawnPosition();
-            if (spawnPosition != Vector3.zero && ghostCount <= maxGhosts && spawningEnabled)
+            if (spawnPosition != Vector3.zero && monsterCount <= maxGhosts && spawningEnabled && randomNumber == 1)
             {
                 SpawnMonsterAtPosition(MonsterType.Ghost, spawnPosition);
-                ghostCount++;
+                monsterCount++;
+                //Debug.Log($"Trying to spawn ghost at: {spawnPosition}");
+            }
+            else if (spawnPosition != Vector3.zero && monsterCount <= maxGargoyles && spawningEnabled && randomNumber == 2)
+            {
+                SpawnMonsterAtPosition(MonsterType.Gargoyle, spawnPosition);
+                monsterCount++;
                 //Debug.Log($"Trying to spawn ghost at: {spawnPosition}");
             }
         }
@@ -70,8 +85,8 @@ public class MonsterFactory : MonoBehaviour
 
         for (int attempts = 0; attempts < 30; attempts++)
         {
-            float x = Random.Range(playerPos.x - cameraWidth / 2 - spawnRadius, playerPos.x + cameraWidth / 2 + spawnRadius);
-            float y = Random.Range(playerPos.y - cameraHeight / 2 - spawnRadius, playerPos.y + cameraHeight / 2 + spawnRadius);
+            float x = UnityEngine.Random.Range(playerPos.x - cameraWidth / 2 - spawnRadius, playerPos.x + cameraWidth / 2 + spawnRadius);
+            float y = UnityEngine.Random.Range(playerPos.y - cameraHeight / 2 - spawnRadius, playerPos.y + cameraHeight / 2 + spawnRadius);
             Vector3 potentialPosition = new Vector3(x, y, 0);
 
             // Check if the position is off-screen
@@ -119,22 +134,51 @@ public class MonsterFactory : MonoBehaviour
                 // Additional setup for the monster
                 Debug.Log($"Spawned {type} at {position}");
                 break;
-                // Additional monsters
+            // Additional monsters
+            case MonsterType.Gargoyle:
+                monsterInstance = Instantiate(gargoylePrefab, position, Quaternion.identity);
+                // Additional setup for the monster
+                Debug.Log($"Spawned {type} at {position}");
+                break;
         }
         return monsterInstance;
     }
 
-    public void IncrementDecrementGhostCount(bool adjust)
+    public void IncrementDecrementMonsterCount(bool adjust)
     {
         if (adjust)
         {
-            ++ghostCount;
+            ++monsterCount;
         }
         else
         {
-            --ghostCount;
+            --monsterCount;
         }
     }
+
+    //public void IncrementDecrementGhostCount(bool adjust)
+    //{
+    //    if (adjust)
+    //    {
+    //        ++ghostCount;
+    //    }
+    //    else
+    //    {
+    //        --ghostCount;
+    //    }
+    //}
+
+    //public void IncrementDecrementGargoyleCount(bool adjust)
+    //{
+    //    if (adjust)
+    //    {
+    //        ++gargoyleCount;
+    //    }
+    //    else
+    //    {
+    //        --gargoyleCount;
+    //    }
+    //}
 
     public void ToggleSpawning(bool toggle)
     {
